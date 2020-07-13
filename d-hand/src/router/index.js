@@ -32,7 +32,6 @@ const router = new VueRouter({
 // next 是採取的導向動作
 router.afterEach((to, from, next) => {
   document.title = to.meta.title
-  next()
 })
 
 export default router
