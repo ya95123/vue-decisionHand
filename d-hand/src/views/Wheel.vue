@@ -1,13 +1,13 @@
 <template>
-  <div id="home">
-    猜拳啦
+  <div id="wheel">
+    wheel
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Home',
+  name: 'Wheel',
   data: () => ({
 
   })

@@ -12,15 +12,26 @@ const routes = [
     meta: {
       title: '猜拳｜決定之手'
     }
+  },
+  {
+    path: '/wheel',
+    name: 'Wheel',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "wheel" */ '../views/Wheel.vue'),
+    meta: {
+      title: '轉盤｜決定之手'
+    }
+  },
+  {
+    path: '/raffle',
+    name: 'Raffle',
+    component: () => import(/* webpackChunkName: "raffle" */ '../views/Raffle.vue'),
+    meta: {
+      title: '抽獎｜決定之手'
+    }
   }
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
 ]
 
 const router = new VueRouter({
