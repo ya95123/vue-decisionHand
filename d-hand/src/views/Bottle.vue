@@ -1,7 +1,7 @@
 <template>
-  <div id="raffle" class="d-flex justify-center align-center">
+  <div id="bottle" class="d-flex justify-center align-center">
     <div class="game">
-      raffle
+      bottle
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-  name: 'Raffle',
+  name: 'Bottle',
   data: () => ({
 
   })

@@ -39,6 +39,14 @@ const routes = [
     meta: {
       title: '組合設定｜決定之手'
     }
+  },
+  {
+    path: '/bottle',
+    name: 'Bottle',
+    component: () => import(/* webpackChunkName: "bottle" */ '../views/Bottle.vue'),
+    meta: {
+      title: '組合設定｜決定之手'
+    }
   }
 ]
 

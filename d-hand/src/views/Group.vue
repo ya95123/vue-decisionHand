@@ -1,6 +1,8 @@
 <template>
-  <div id="group">
-    group
+  <div id="group" class="d-flex justify-center align-center">
+    <div class="game">
+      group
+    </div>
   </div>
 </template>
 

@@ -27,29 +27,56 @@ a{
 /* RWD */
 /* 平板尺寸以下 */
 @media (max-width: 960px) { 
+  /* #app */
   #top{
     display: none;
   }
   #bottom{
     display: flex;
+  }
+  #home,#wheel,#raffle,#bottle,#group{
+    width: 100%;
+    height: calc(100% - 56px);
+  }
+  /* #game */
+  .game{
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    border-radius: 1rem;
+    border: 0.1rem solid black;
   }
 }
 
 /* 電腦尺寸以上 */
 @media (min-width: 960px) { 
+  /* #app */
   #top{
     display: flex;
   }
   #bottom{
     display: none;
   }
+  #home,#wheel,#raffle,#bottle,#group{
+    width: 100%;
+    height: 100%;
+  }
+  /* #game */
+  .game{
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    border-radius: 1rem;
+    border: 0.1rem solid black;
+  }
 }
 
-/* #app 區 */
+/* #app 區--------------------------------------- */
 #app{
   width: 100%;
   height: 100%;
   background: #1976D2;
+  position: relative;
 
   button{
     height: 100% ;
@@ -84,10 +111,12 @@ a{
   }
 
   #bottom{
+    z-index: 0;
     a{
       color: $dh-red;
     }
   }
-
-  
 }
+
+/* #home(猜拳) 區----------------------------------- */
+

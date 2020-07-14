@@ -96,7 +96,7 @@
 export default {
   name: 'App',
   data: () => ({
-    login: false,
+    login: true,
     navT: 0,
     navB: 0,
     navLitems: [
@@ -106,7 +106,7 @@ export default {
     ],
     navBitems: [
       { name: '猜拳', router: '/', icon: 'mdi-hand-peace' },
-      { name: '酒瓶', router: '/group', icon: 'mdi-bottle-wine' },
+      { name: '酒瓶', router: '/bottle', icon: 'mdi-bottle-wine' },
       { name: '轉盤', router: '/wheel', icon: 'mdi-radius-outline' },
       { name: '抽獎', router: '/raffle', icon: 'mdi-gift-outline' }
     ]
