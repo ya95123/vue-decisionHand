@@ -26,6 +26,16 @@ a{
 
 /* RWD */
 /* 平板尺寸以下 */
+// for iphone5s/5se
+@media (max-width: 400px) {
+  #app{
+    #bottom{
+      a,button{
+        width: calc(100% / 6);
+      }
+    }
+  }
+}
 @media (max-width: 960px) { 
   /* #app */
   #top{
@@ -63,7 +73,7 @@ a{
   }
   /* #game */
   .game{
-    width: 80%;
+    width: 65%;
     height: 90%;
     background: #fff;
     border-radius: 1rem;
@@ -83,7 +93,7 @@ a{
   }
 
   #top{
-    // position: relative;
+    width: 100%;
     div{
       height: 100%;
       padding: 0;
@@ -111,6 +121,7 @@ a{
   }
 
   #bottom{
+    width: 100%;
     z-index: 0;
     a{
       color: $dh-red;

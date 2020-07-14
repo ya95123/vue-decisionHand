@@ -16,6 +16,12 @@ a {
 
 /* RWD */
 /* 平板尺寸以下 */
+@media (max-width: 400px) {
+  #app #bottom a, #app #bottom button {
+    width: calc(100% / 6);
+  }
+}
+
 @media (max-width: 960px) {
   /* #app */
   #top {
@@ -57,7 +63,7 @@ a {
   }
   /* #game */
   .game {
-    width: 80%;
+    width: 65%;
     height: 90%;
     background: #fff;
     border-radius: 1rem;
@@ -75,6 +81,10 @@ a {
 
 #app button {
   height: 100%;
+}
+
+#app #top {
+  width: 100%;
 }
 
 #app #top div {
@@ -109,6 +119,7 @@ a {
 }
 
 #app #bottom {
+  width: 100%;
   z-index: 0;
 }
 
