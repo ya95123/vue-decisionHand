@@ -31,6 +31,14 @@ const routes = [
     meta: {
       title: '抽獎｜決定之手'
     }
+  },
+  {
+    path: '/group',
+    name: 'Group',
+    component: () => import(/* webpackChunkName: "group" */ '../views/Group.vue'),
+    meta: {
+      title: '組合設定｜決定之手'
+    }
   }
 ]
 
