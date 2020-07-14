@@ -46,6 +46,10 @@ a {
   background: #1976D2;
 }
 
+#app button {
+  height: 100%;
+}
+
 #app #top div {
   height: 100%;
   padding: 0;
@@ -65,18 +69,18 @@ a {
   color: #F9e54E;
 }
 
-#app button {
-  height: 100%;
-}
-
-#app #reg, #app #login {
-  padding: 4px;
+#app #top .login {
+  padding: 4px 6px;
   border: 1px solid transparent;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-#app #reg:hover, #app #login:hover {
+#app #top .login:hover {
   border-color: #fffc;
   border-radius: 0.3rem;
+}
+
+#app #bottom a {
+  color: #E12E4B;
 }

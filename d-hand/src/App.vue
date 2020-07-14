@@ -1,12 +1,12 @@
 <template>
   <v-app id="app">
-    <!-- 電腦尺寸 Nav -->
+    <!-- 電腦尺寸 NavT -->
     <v-bottom-navigation
       id="top"
-      class="elevation-0 py-2 yellow--text"
+      class="elevation-0 py-2"
       background-color="transparent"
       height="calc(64px + 16px)"
-      v-model="navL"
+      v-model="navT"
       dark
       shift
     >
@@ -14,64 +14,78 @@
       <div class="col-2 pl-10 d-flex justify-start align-center">
         <router-link to="/" id="logo" class="white--text">LOGO</router-link>
       </div>
-      <!-- Menu -->
+
+      <!-- Menu 選單 -->
       <div class="col-8 d-flex justify-center">
-        <router-link to="/" >
+        <router-link
+          v-for="navLitem in navLitems"
+          :key="navLitem.name"
+          :to="navLitem.router"
+        >
           <v-btn>
-            <span>猜拳</span>
-            <v-icon>mdi-hand-peace</v-icon>
+            <span>{{navLitem.name}}</span>
+            <v-icon>{{navLitem.icon}}</v-icon>
           </v-btn>
         </router-link>
 
-        <router-link to="/wheel">
+        <!-- 組合設定：登入後才有的功能 -->
+        <router-link v-if="login" to="/group">
           <v-btn>
-            <span>轉盤</span>
-            <v-icon>mdi-radius-outline</v-icon>
-          </v-btn>
-        </router-link>
-
-        <router-link to="/raffle">
-          <v-btn>
-            <span>抽獎</span>
-            <v-icon>mdi-gift-outline</v-icon>
-          </v-btn>
-        </router-link>
-
-        <router-link to="/group">
-          <v-btn>
-            <span>組合設定</span>
+            <span>組合</span>
             <v-icon>mdi-text-box-multiple</v-icon>
           </v-btn>
         </router-link>
       </div>
-      <!-- Reg / Login -->
+
+      <!-- TODO Reg / Login /Logout 功能 -->
       <div class="col-2 pr-10 d-flex justify-end align-center white--text">
-        <span id="reg" class="mr-5">註冊</span>
-        <span id="login">登入</span>
+        <span v-if="!login" class="login mr-">註冊</span>
+        <span v-if="!login" class="login">登入</span>
+        <span v-else class="login">
+          <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
+          <span>暱稱</span>
+        </span>
       </div>
     </v-bottom-navigation>
 
-    <!-- 平板尺寸以下 Nav -->
+    <!-- 平板尺寸以下 NavB -->
     <v-bottom-navigation
       id="bottom"
-      :value="navS"
-      color="purple lighten-1"
+      :value="navB"
+      color="dhred"
+      background-color="dhyellow"
       app
     >
-      <v-btn>
-        <span>Recents</span>
-        <v-icon>mdi-history</v-icon>
-     </v-btn>
+      <router-link
+        v-for="navBitem in navBitems"
+        :key="navBitem.name"
+        :to="navBitem.router"
+      >
+        <v-btn>
+          <span>{{navBitem.name}}</span>
+          <v-icon>{{navBitem.icon}}</v-icon>
+        </v-btn>
+      </router-link>
 
-      <v-btn>
-        <span>Favorites</span>
-        <v-icon>mdi-heart</v-icon>
+      <!-- 組合設定：登入後才有的功能 -->
+      <router-link v-if="login" to="/group">
+        <v-btn>
+          <span>組合</span>
+          <v-icon>mdi-text-box-multiple</v-icon>
+        </v-btn>
+      </router-link>
+
+      <!-- TODO Reg / Login/ Logout 功能 -->
+      <v-btn v-if="!login">
+        <span>登入</span>
+        <v-icon>mdi-emoticon-cool-outline</v-icon>
       </v-btn>
 
-      <v-btn>
-        <span>Nearby</span>
-        <v-icon>mdi-bottle-wine</v-icon>
+      <v-btn v-else>
+        <span>登出</span>
+        <v-icon>mdi-emoticon-happy-outline</v-icon>
       </v-btn>
+
     </v-bottom-navigation>
     <router-view/>
   </v-app>
@@ -82,8 +96,20 @@
 export default {
   name: 'App',
   data: () => ({
-    navL: 0,
-    navS: 0
+    login: false,
+    navT: 0,
+    navB: 0,
+    navLitems: [
+      { name: '猜拳', router: '/', icon: 'mdi-hand-peace' },
+      { name: '轉盤', router: '/wheel', icon: 'mdi-radius-outline' },
+      { name: '抽獎', router: '/raffle', icon: 'mdi-gift-outline' }
+    ],
+    navBitems: [
+      { name: '猜拳', router: '/', icon: 'mdi-hand-peace' },
+      { name: '酒瓶', router: '/group', icon: 'mdi-bottle-wine' },
+      { name: '轉盤', router: '/wheel', icon: 'mdi-radius-outline' },
+      { name: '抽獎', router: '/raffle', icon: 'mdi-gift-outline' }
+    ]
   })
 }
 </script>

@@ -51,6 +51,10 @@ a{
   height: 100%;
   background: #1976D2;
 
+  button{
+    height: 100% ;
+  }
+
   #top{
     // position: relative;
     div{
@@ -67,20 +71,23 @@ a{
     a{
       text-decoration: none;
       color: $dh-yellow;
-      // color: white;
     }
-  }
-  button{
-    height: 100% ;
+    .login{
+      padding: 4px 6px;
+      border: 1px solid transparent;
+      transition: 0.3s;
+      &:hover{
+        border-color:#fffc;
+        border-radius: 0.3rem;
+      }
+    }
   }
 
-  #reg,#login{
-    padding: 4px;
-    border: 1px solid transparent;
-    transition: 0.3s;
-    &:hover{
-      border-color:#fffc;
-      border-radius: 0.3rem;
+  #bottom{
+    a{
+      color: $dh-red;
     }
   }
+
+  
 }
