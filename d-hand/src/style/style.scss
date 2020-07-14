@@ -1,19 +1,86 @@
-$dh-Yellow: #F9e54E;
-$dh-Orange: #F8981D;
-$dh-Red: #E12E4B;
-$dh-Blue: #5BBDC8;
+$dh-yellow: #F9e54E;
+$dh-orange: #F8981D;
+$dh-red: #E12E4B;
+$dh-blue: #5BBDC8;
+// primary: '#1976D2'
+// secondary: '#424242'
+// accent: '#82B1FF'
+// error: '#FF5252'
+// info: '#2196F3'
+// success: '#4CAF50'
+// warning: '#FFC107'
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, '微軟正黑體';
+}
 
 html,body{
   height: 100%;
   overflow: hidden;
 }
 
+a{
+  text-decoration: none;
+}
+
+/* RWD */
+/* 平板尺寸以下 */
+@media (max-width: 960px) { 
+  #top{
+    display: none;
+  }
+  #bottom{
+    display: flex;
+  }
+}
+
+/* 電腦尺寸以上 */
+@media (min-width: 960px) { 
+  #top{
+    display: flex;
+  }
+  #bottom{
+    display: none;
+  }
+}
+
+/* #app 區 */
 #app{
   width: 100%;
   height: 100%;
-  // background: $dh-Blue;
+  background: #1976D2;
 
+  #top{
+    // position: relative;
+    div{
+      height: 100%;
+      padding: 0;
+    }
+    button{
+      border-radius: 50%;
+      margin: 0 1rem;
+    }
+    span{
+      cursor: pointer;
+    }
+    a{
+      text-decoration: none;
+      color: $dh-yellow;
+      // color: white;
+    }
+  }
   button{
     height: 100% ;
+  }
+
+  #reg,#login{
+    padding: 4px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    &:hover{
+      border-color:#fffc;
+      border-radius: 0.3rem;
+    }
   }
 }

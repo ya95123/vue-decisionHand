@@ -1,13 +1,82 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Roboto,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, '微軟正黑體';
+}
+
 html, body {
   height: 100%;
   overflow: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* RWD */
+/* 平板尺寸以下 */
+@media (max-width: 960px) {
+  #top {
+    display: none;
+  }
+  #bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+/* 電腦尺寸以上 */
+@media (min-width: 960px) {
+  #top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #bottom {
+    display: none;
+  }
+}
+
+/* #app 區 */
 #app {
   width: 100%;
   height: 100%;
+  background: #1976D2;
+}
+
+#app #top div {
+  height: 100%;
+  padding: 0;
+}
+
+#app #top button {
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+#app #top span {
+  cursor: pointer;
+}
+
+#app #top a {
+  text-decoration: none;
+  color: #F9e54E;
 }
 
 #app button {
   height: 100%;
+}
+
+#app #reg, #app #login {
+  padding: 4px;
+  border: 1px solid transparent;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#app #reg:hover, #app #login:hover {
+  border-color: #fffc;
+  border-radius: 0.3rem;
 }
