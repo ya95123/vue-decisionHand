@@ -32,6 +32,9 @@ a {
     display: -ms-flexbox;
     display: flex;
   }
+  #footer {
+    display: none;
+  }
   #home, #wheel, #raffle, #bottle, #group {
     width: 100%;
     height: calc(100% - 56px);
@@ -64,7 +67,7 @@ a {
   /* #game */
   .game {
     width: 65%;
-    height: 90%;
+    height: 80%;
     background: #fff;
     border-radius: 1rem;
     border: 0.1rem solid black;
@@ -85,6 +88,9 @@ a {
 
 #app #top {
   width: 100%;
+  /* 讓 top 浮起來 */
+  position: absolute;
+  top: 0;
 }
 
 #app #top div {
@@ -125,6 +131,12 @@ a {
 
 #app #bottom a {
   color: #E12E4B;
+}
+
+#app #footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 /* #home(猜拳) 區----------------------------------- */

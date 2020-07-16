@@ -85,8 +85,21 @@
         <span>登出</span>
         <v-icon>mdi-emoticon-happy-outline</v-icon>
       </v-btn>
-
     </v-bottom-navigation>
+
+    <!-- footer -->
+    <div id="footer"
+      class="text-center white--text overline py-2"
+    >
+      Decision Hand &copy; {{ new Date().getFullYear() }}
+      <v-btn
+        class="white--text"
+        style="height:36px;"
+        icon
+      >
+        <v-icon size="28px">mdi-github</v-icon>
+      </v-btn>
+    </div>
     <router-view/>
   </v-app>
 </template>
