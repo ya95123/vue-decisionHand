@@ -41,10 +41,11 @@
       <div class="col-2 pr-10 d-flex justify-end align-center white--text">
         <!-- 註冊 -->
         <v-btn
+          text
           v-if="!login"
           class="login mr-1"
           @click.stop="dialog = true"
-          @click="dailogReg"
+          @click="dialogReg"
         >
           註冊
         </v-btn>
@@ -53,12 +54,16 @@
           v-if="!login"
           class="login"
           @click.stop="dialog = true"
-          @click="dailogLogin"
+          @click="dialogLogin"
         >
           登入
         </v-btn>
         <!-- 對話框 -->
-        <v-dialog v-model="dialog" persistent max-width="500px">
+        <v-dialog
+          v-model="dialog"
+          persistent
+          max-width="500px"
+        >
             <!-- 標籤組件 -->
             <v-card>
               <v-tabs
@@ -119,7 +124,7 @@
                       </v-text-field>
 
                       <v-text-field
-                        v-if=" tab ===0"
+                        v-if=" tab === 0"
                         v-model="repeatPassword"
                         :error-messages="repeatPasswordErrors"
                         :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -132,6 +137,8 @@
                         @click:append="show2 = !show2"
                       >
                       </v-text-field>
+
+                      <div>{{$v.$error}}{{ dialog }}</div>
                       <!-- 註冊 / 登入 / 取消 -->
                       <div class="text-center">
                         <v-btn
@@ -145,18 +152,55 @@
                         <v-btn
                           v-if="tab === 0"
                           class="mt-2 mb-1 py-1" color="primary"
-                          @click="submit"
+                          @click="check"
+                          @click.stop="dailogCheck = true"
                         >
                           註冊
                         </v-btn>
+
                         <v-btn
                           v-else
                           class="mt-2 mb-1 py-1"
                           color="primary"
-                          @click="submit"
+                          @click="check"
+                          @click.stop="dailogCheck = true"
                         >
                           登入
                         </v-btn>
+                        <!-- 確認對話框 -->
+                        <!-- TODO
+                        1.註冊成功按登入可直接(登入)，並關閉所有對話框
+                        2.註冊失敗要關掉該對話框，註冊對話框保留(重新註冊)
+                        3.登入成功 (開始) / 登入失敗 (重新輸入)
+                        4.之後註冊要判斷註冊暱稱、帳號是否已被使用過
+                        5.之後登入要判斷是否有該帳號存在  -->
+                        <v-dialog
+                          v-model="dailogCheck"
+                          max-width="290"
+                        >
+                          <v-card>
+                            <div class="text-center pt-5">
+                              <v-icon color="dhred" style="font-size:2rem;">mdi-party-popper</v-icon>
+                            </div>
+                            <v-card-title
+                              class="d-flex justify-center font-weight-bold"
+                            >
+                              註冊成功
+                            </v-card-title>
+                            <div class="text-center pb-5">
+                              <v-btn
+                                color="green darken-1"
+                                style="height:30px"
+                                text
+                                @click="dailogCheck = false"
+                              >
+                                登入
+                              </v-btn>
+                            </div>
+                            <!-- </v-card-actions> -->
+                          </v-card>
+                        </v-dialog>
+
                       </div>
                     </form>
                   </v-card-text>
@@ -265,6 +309,7 @@ export default {
     ],
     // reg / login 標籤組件
     dailog: false,
+    dailogCheck: false,
     tab: 0,
     name: '',
     account: '',
@@ -305,14 +350,17 @@ export default {
     }
   },
   methods: {
-    dailogReg () {
+    dialogReg () {
       this.$data.tab = 0
     },
-    dailogLogin () {
+    dialogLogin () {
       this.$data.tab = 1
     },
-    submit () {
+    check () {
       this.$v.$touch()
+    },
+    submit () {
+      this.dialog = false
     }
   }
 }
