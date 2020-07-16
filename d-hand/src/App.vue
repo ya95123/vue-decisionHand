@@ -89,7 +89,7 @@
 
     <!-- footer -->
     <div id="footer"
-      class="text-center white--text overline py-2"
+      class="text-center white--text overline py-3"
     >
       Decision Hand &copy; {{ new Date().getFullYear() }}
       <v-btn
