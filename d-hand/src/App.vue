@@ -39,7 +39,7 @@
 
       <!-- TODO Reg / Login /Logout 功能 -->
       <div class="col-2 pr-10 d-flex justify-end align-center white--text">
-        <span v-if="!login" class="login mr-">註冊</span>
+        <span v-if="!login" class="login mr-1">註冊</span>
         <span v-if="!login" class="login">登入</span>
         <span v-else class="login">
           <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
@@ -111,7 +111,7 @@
 export default {
   name: 'App',
   data: () => ({
-    login: true,
+    login: false,
     navT: 0,
     navB: 0,
     navLitems: [
