@@ -39,14 +39,26 @@
 
       <!-- TODO Reg / Login /Logout 功能 -->
       <div class="col-2 pr-10 d-flex justify-end align-center white--text">
+        <!-- 註冊 -->
+        <v-btn
+          v-if="!login"
+          class="login mr-1"
+          @click.stop="dialog = true"
+          @click="dailogReg"
+        >
+          註冊
+        </v-btn>
+        <!-- 登入 -->
+        <v-btn
+          v-if="!login"
+          class="login"
+          @click.stop="dialog = true"
+          @click="dailogLogin"
+        >
+          登入
+        </v-btn>
         <!-- 對話框 -->
         <v-dialog v-model="dialog" persistent max-width="500px">
-          <template v-slot:activator="{ on, attrs }">
-            <!-- 註冊 -->
-            <sapn v-if="!login" v-bind="attrs" v-on="on" class="login mr-1">註冊</sapn>
-            <!-- 登入 -->
-            <span v-if="!login" v-bind="attrs" v-on="on" @click="tab = 1" class="login">登入</span>
-          </template>
             <!-- 標籤組件 -->
             <v-card>
               <v-tabs
@@ -130,8 +142,21 @@
                         >
                           取消
                         </v-btn>
-                        <v-btn v-if="tab === 0" class="mt-2 mb-1 py-1" color="primary" @click="submit">註冊</v-btn>
-                        <v-btn v-else class="mt-2 mb-1 py-1" color="primary" @click="submit">登入</v-btn>
+                        <v-btn
+                          v-if="tab === 0"
+                          class="mt-2 mb-1 py-1" color="primary"
+                          @click="submit"
+                        >
+                          註冊
+                        </v-btn>
+                        <v-btn
+                          v-else
+                          class="mt-2 mb-1 py-1"
+                          color="primary"
+                          @click="submit"
+                        >
+                          登入
+                        </v-btn>
                       </div>
                     </form>
                   </v-card-text>
@@ -140,7 +165,6 @@
               </v-tab-item>
             </v-tabs-items>
           </v-card>
-
         </v-dialog>
 
         <!-- 已登入 -->
@@ -281,6 +305,12 @@ export default {
     }
   },
   methods: {
+    dailogReg () {
+      this.$data.tab = 0
+    },
+    dailogLogin () {
+      this.$data.tab = 1
+    },
     submit () {
       this.$v.$touch()
     }
