@@ -24,6 +24,11 @@ a{
   text-decoration: none;
 }
 
+/* 更改反白背景顏色 */
+::selection{
+  background: $dh-red;
+}
+
 /* RWD */
 /* 平板尺寸以下 */
 // for iphone5s/5se

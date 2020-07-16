@@ -14,6 +14,14 @@ a {
   text-decoration: none;
 }
 
+/* 更改反白背景顏色 */
+::-moz-selection {
+  background: #E12E4B;
+}
+::selection {
+  background: #E12E4B;
+}
+
 /* RWD */
 /* 平板尺寸以下 */
 @media (max-width: 400px) {
