@@ -37,7 +37,7 @@ const routes = [
     name: 'Group',
     component: () => import(/* webpackChunkName: "group" */ '../views/Group.vue'),
     meta: {
-      title: '組合設定｜決定之手'
+      title: '組合｜決定之手'
     }
   },
   {
@@ -45,7 +45,7 @@ const routes = [
     name: 'Bottle',
     component: () => import(/* webpackChunkName: "bottle" */ '../views/Bottle.vue'),
     meta: {
-      title: '組合設定｜決定之手'
+      title: '酒瓶｜決定之手'
     }
   }
 ]
