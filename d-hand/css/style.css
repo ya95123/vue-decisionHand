@@ -17,9 +17,11 @@ a {
 /* 更改反白背景顏色 */
 ::-moz-selection {
   background: #E12E4B;
+  color: white;
 }
 ::selection {
   background: #E12E4B;
+  color: white;
 }
 
 /* RWD */
