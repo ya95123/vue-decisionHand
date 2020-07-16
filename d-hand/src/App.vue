@@ -95,6 +95,8 @@
       <v-btn
         class="white--text"
         style="height:36px;"
+        href="https://github.com/ya95123/vue-decisionHand"
+        target="_blank"
         icon
       >
         <v-icon size="28px">mdi-github</v-icon>
