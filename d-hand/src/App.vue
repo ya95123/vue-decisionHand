@@ -390,10 +390,12 @@ export default {
       this.$v.$touch()
     },
     submit () {
+      // dailog 在瀏覽器上顯示未定義，所以無法使用 $data，其他就需要使用，效能會比較好
       this.dialog = false
       this.dialogCheck = false
+      this.$data.login = true
       // TODO 之後要做"資料傳遞" 註冊 / 登入
-      // 註冊成功可以直接登入 or 跳到 tab = 1畫面
+      // TODO 註冊成功可以直接登入 or 跳到 tab = 1畫面
     }
   }
 }
