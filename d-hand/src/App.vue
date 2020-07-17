@@ -222,8 +222,8 @@
                                 @click="dailogCheck = false"
                               >
                                 <!-- 註冊/登入 成功 -->
-                                <span v-if="tab === 0 && !$v.$error">登入</span>
-                                <span v-else-if="tab === 1 && !$v.account.$error && !$v.password.$error">開始</span>
+                                <span v-if="tab === 0 && !$v.$error" @click="submit">登入</span>
+                                <span v-else-if="tab === 1 && !$v.account.$error && !$v.password.$error" @click="submit">開始</span>
                                 <!-- 註冊/登入 失敗 -->
                                 <span  v-else-if="(tab === 0 && $v.$error) || (tab === 1 && ($v.account.$error || $v.password.$error))">再試一次</span>
                               </v-btn>
@@ -391,6 +391,9 @@ export default {
     },
     submit () {
       this.dialog = false
+      this.dialogCheck = false
+      // TODO 之後要做"資料傳遞" 註冊 / 登入
+      // 註冊成功可以直接登入 or 跳到 tab = 1畫面
     }
   }
 }
