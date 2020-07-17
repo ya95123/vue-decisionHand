@@ -1,6 +1,6 @@
 <template>
   <div id="group" class="d-flex justify-center align-center">
-    <div class="game">
+    <div class="game d-flex justify-center align-center">
       group
     </div>
   </div>

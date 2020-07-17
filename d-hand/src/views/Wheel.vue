@@ -1,6 +1,6 @@
 <template>
   <div id="wheel" class="d-flex justify-center align-center">
-    <div class="game">
+    <div class="game d-flex justify-center align-center">
       wheel
     </div>
   </div>

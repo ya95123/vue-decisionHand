@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="d-flex justify-center align-center">
-    <div class="game">
-    猜拳啦1213123
+    <div class="game d-flex justify-center align-center">
+    猜拳啦
     </div>
   </div>
 </template>
