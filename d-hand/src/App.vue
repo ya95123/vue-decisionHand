@@ -285,7 +285,7 @@
         <v-icon>mdi-emoticon-cool-outline</v-icon>
       </v-btn>
 
-      <v-btn v-else @click="clicklogout">
+      <v-btn v-else @click="clickLogout">
         <span>登出</span>
         <v-icon>mdi-emoticon-happy-outline</v-icon>
       </v-btn>
