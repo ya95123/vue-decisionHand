@@ -41,6 +41,7 @@
       <div class="col-2 pr-10 d-flex justify-end align-center white--text">
         <!-- 註冊 -->
         <v-btn
+          id="btnReg"
           text
           v-if="!login"
           class="login mr-1"
@@ -51,6 +52,8 @@
         </v-btn>
         <!-- 登入 -->
         <v-btn
+          id="btnLogin"
+          text
           v-if="!login"
           class="login"
           @click.stop="dialog = true"
@@ -277,12 +280,12 @@
       </router-link>
 
       <!-- TODO Reg / Login/ Logout 功能 -->
-      <v-btn v-if="!login">
+      <v-btn v-if="!login" @click="clickLogin">
         <span>登入</span>
         <v-icon>mdi-emoticon-cool-outline</v-icon>
       </v-btn>
 
-      <v-btn v-else>
+      <v-btn v-else @click="clicklogout">
         <span>登出</span>
         <v-icon>mdi-emoticon-happy-outline</v-icon>
       </v-btn>
@@ -395,7 +398,14 @@ export default {
       this.dialogCheck = false
       this.$data.login = true
       // TODO 之後要做"資料傳遞" 註冊 / 登入
-      // TODO 註冊成功可以直接登入 or 跳到 tab = 1畫面
+      // TODO 註冊成功可以直接登入 or 跳到 tab = 1 畫面
+    },
+    clickLogin () {
+      document.getElementById('btnLogin').click()
+    },
+    clickLogout () {
+      // 點擊到登出按鈕
+      this.$data.login = false
     }
   }
 }
