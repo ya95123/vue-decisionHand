@@ -245,7 +245,7 @@
         </v-dialog>
 
         <!-- 已登入 -->
-        <span v-if="login" class="login">
+        <span v-if="login" class="login" @click="logout">
           <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
           <span>暱稱</span>
         </span>
@@ -285,7 +285,7 @@
         <v-icon>mdi-emoticon-cool-outline</v-icon>
       </v-btn>
 
-      <v-btn v-else @click="clickLogout">
+      <v-btn v-else @click="logout">
         <span>登出</span>
         <v-icon>mdi-emoticon-happy-outline</v-icon>
       </v-btn>
@@ -403,8 +403,8 @@ export default {
     clickLogin () {
       document.getElementById('btnLogin').click()
     },
-    clickLogout () {
-      // 點擊到登出按鈕
+    logout () {
+      // 點擊到登出按鈕 or 只要都用登出就好
       this.$data.login = false
     }
   }
