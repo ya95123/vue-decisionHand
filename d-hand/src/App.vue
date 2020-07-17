@@ -87,7 +87,7 @@
                   <v-card-text>
                     <form>
                       <v-text-field
-                        v-if=" tab ===0"
+                        v-if=" tab === 0"
                         v-model="name"
                         :error-messages="nameErrors"
                         :counter="10"
@@ -137,9 +137,12 @@
                         @click:append="show2 = !show2"
                       >
                       </v-text-field>
-
-                      <div>{{$v.$error}}{{ dialog }}</div>
-                      <!-- 註冊 / 登入 / 取消 -->
+                      <!-- clg 檢查狀態 -->
+                      <div class="text-center">
+                        是否有錯誤：{{$v.$error}} ｜ 對話框打開：{{ dialog }}｜
+                        帳號 / 密碼錯誤：{{$v.account.$error}} / {{$v.password.$error}}
+                      </div>
+                      <!-- 註冊 / 登入 / 取消 button -->
                       <div class="text-center">
                         <v-btn
                           class="mr-4 mt-2 mb-1 py-1"
@@ -177,16 +180,40 @@
                         <v-dialog
                           v-model="dailogCheck"
                           max-width="290"
+                          persistent
                         >
                           <v-card>
+                            <!-- icon -->
                             <div class="text-center pt-5">
-                              <v-icon color="dhred" style="font-size:2rem;">mdi-party-popper</v-icon>
+                              <!-- 成功 -->
+                              <v-icon
+                                v-if="(tab === 0 && !$v.$error) || (tab === 1 && (!$v.account.$error && !$v.password.$error))"
+                                color="dhred"
+                                style="font-size:2rem;"
+                              >
+                                mdi-party-popper
+                              </v-icon>
+                              <!-- 失敗 -->
+                              <v-icon
+                                v-else-if="(tab === 0 && $v.$error) || (tab === 1 && ($v.account.$error || $v.password.$error))"
+                                color="dhorange"
+                                style="font-size:2rem;"
+                              >
+                                mdi-cloud-alert
+                              </v-icon>
                             </div>
+                            <!-- 文字 -->
                             <v-card-title
                               class="d-flex justify-center font-weight-bold"
                             >
-                              註冊成功
+                              <!-- 註冊/登入 成功 -->
+                              <span v-if="tab === 0 && !$v.$error">註冊成功</span>
+                              <span v-else-if="tab === 1 && !$v.account.$error && !$v.password.$error">登入成功</span>
+                              <!-- 註冊/登入 失敗 -->
+                              <span v-else-if="tab === 0 && $v.$error">註冊失敗</span>
+                              <span v-else-if="tab === 1 && ($v.account.$error || $v.password.$error)">登入失敗</span>
                             </v-card-title>
+                            <!-- button -->
                             <div class="text-center pb-5">
                               <v-btn
                                 color="green darken-1"
@@ -194,10 +221,13 @@
                                 text
                                 @click="dailogCheck = false"
                               >
-                                登入
+                                <!-- 註冊/登入 成功 -->
+                                <span v-if="tab === 0 && !$v.$error">登入</span>
+                                <span v-else-if="tab === 1 && !$v.account.$error && !$v.password.$error">開始</span>
+                                <!-- 註冊/登入 失敗 -->
+                                <span  v-else-if="(tab === 0 && $v.$error) || (tab === 1 && ($v.account.$error || $v.password.$error))">再試一次</span>
                               </v-btn>
                             </div>
-                            <!-- </v-card-actions> -->
                           </v-card>
                         </v-dialog>
 
@@ -345,7 +375,7 @@ export default {
       const errors = []
       if (!this.$v.repeatPassword.$dirty) return errors
       !this.$v.repeatPassword.required && errors.push('請 帥哥 / 美女 必須填唷 ☺')
-      !this.$v.repeatPassword.sameAsPassword && errors.push('與密碼必須相同唷 ☺')
+      !this.$v.repeatPassword.sameAsPassword && errors.push('密碼必須相同唷 ☺')
       return errors
     }
   },
