@@ -160,7 +160,7 @@
                           v-if="tab === 0"
                           class="mt-2 mb-1 py-1" color="primary"
                           @click="check"
-                          @click.stop="dailogCheck = true"
+                          @click.stop="dialogCheck = true"
                         >
                           註冊
                         </v-btn>
@@ -170,7 +170,7 @@
                           class="mt-2 mb-1 py-1"
                           color="primary"
                           @click="check"
-                          @click.stop="dailogCheck = true"
+                          @click.stop="dialogCheck = true"
                         >
                           登入
                         </v-btn>
@@ -182,7 +182,7 @@
                         4.之後註冊要判斷註冊暱稱、帳號是否已被使用過
                         5.之後登入要判斷是否有該帳號存在  -->
                         <v-dialog
-                          v-model="dailogCheck"
+                          v-model="dialogCheck"
                           max-width="290"
                           persistent
                         >
@@ -223,7 +223,7 @@
                                 color="green darken-1"
                                 style="height:30px"
                                 text
-                                @click="dailogCheck = false"
+                                @click="dialogCheck = false"
                               >
                                 <!-- 註冊/登入 成功 -->
                                 <span v-if="tab === 0 && !$v.$error" @click="submit">登入</span>
@@ -342,8 +342,8 @@ export default {
       { name: '抽獎', router: '/raffle', icon: 'mdi-gift-outline' }
     ],
     // reg / login 標籤組件
-    dailog: false,
-    dailogCheck: false,
+    dialog: false,
+    dialogCheck: false,
     tab: 0,
     name: '',
     account: '',
@@ -394,7 +394,7 @@ export default {
       this.$v.$touch()
     },
     submit () {
-      // dailog 在瀏覽器上顯示未定義，所以無法使用 $data，其他就需要使用，效能會比較好
+      // dialog 在瀏覽器上顯示未定義，所以無法使用 $data，其他就需要使用，效能會比較好
       this.dialog = false
       this.dialogCheck = false
       this.$data.login = true
