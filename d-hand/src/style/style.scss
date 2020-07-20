@@ -42,7 +42,7 @@ a{
     }
   }
 }
-@media (max-width: 959px) { 
+@media (max-width: 1024px) { 
   /* #app */
   #top{
     display: none;
@@ -57,30 +57,23 @@ a{
     width: 100%;
     height: calc(100% - 56px);
   }
-  /* #game */
+  /* .game */
   .game{
     width: 80%;
     height: 90%;
-    // 尺寸差異↑
-    background: #fff;
-    border-radius: 0.5rem;
-    // border: 0.1rem solid black;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle{
-    img{
+    #wine{
       width: 70%;
       cursor: pointer;
       transition: 2.7s;
-      &:hover{
-        transform: rotate(calc(360deg * 9 + rand));
-     }
     }
   }
 }
 
 /* 電腦尺寸以上 */
-@media (min-width: 960px) { 
+@media (min-width: 1025px) { 
   /* #app */
   #top{
     display: flex;
@@ -92,14 +85,16 @@ a{
     width: 100%;
     height: 100%;
   }
-  /* #game */
+  /* .game */
   .game{
     width: 65%;
     height: 80%;
-    // 尺寸差異↑
-    background: #fff;
-    border-radius: 0.5rem;
-    // border: 0.1rem solid black;
+  }
+  /* #bottle(酒瓶) 區----------------------------------- */
+  #bottle{
+    #wine{
+      display: none;
+    }
   }
 }
 
@@ -107,8 +102,8 @@ a{
 #app{
   width: 100%;
   height: 100%;
-  // background: #1976D2;
-  background-image: linear-gradient(180deg, #1976D2,#1944d2);
+  background: #1976D2;
+  // background-image: linear-gradient(180deg, #1976D2,#19a7d2);
   position: relative;
 
   button{
@@ -167,16 +162,11 @@ a{
   }
 }
 
-/* #bottle(酒瓶) 區----------------------------------- */
-#bottle{
-  img{
-    width: 70%;
-    cursor: pointer;
-    transition: 2.7s;
-    // &:hover{
-    //   transform: rotate(360deg * 9 + random(360));
-    // }
-  }
+/* .game 區----------------------------------------- */
+.game{
+background: #fff;
+border-radius: 0.5rem;
+// border: 0.1rem solid black;
 }
 
 /* @keframes 動畫區------------------------------------ */
