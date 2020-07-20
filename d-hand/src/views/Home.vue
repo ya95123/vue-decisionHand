@@ -1,13 +1,19 @@
 <template>
   <div id="home" class="d-flex justify-center align-center">
-    <div class="game d-flex justify-center align-center">
-    猜拳啦
+    <div class="game d-flex justify-center">
+      <span id="topHand" class="hand align-self-start">✌</span>
+      <span id="bottonHand" class="hand align-self-end">✊</span>
+      <v-icon id="homeSet" class="gameSet">mdi-cog-outline</v-icon>
+      <div id="homeResult">
+        <p class="dhred--text">贏：吃雞排 🤗</p>
+        <p class="success--text">輸：忍住不吃 😭</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
+// const guesse = ['✌', '✊', '🖐']
 export default {
   name: 'Home',
   data: () => ({
