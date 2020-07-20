@@ -10,9 +10,10 @@
       dark
       shift
     >
-      <!-- Logo -->
+      <!-- TODO Logo 之後 hover 要做效果 -->
       <div class="col-2 pl-10 d-flex justify-start align-center">
-        <router-link to="/" id="logo" class="white--text">LOGO</router-link>
+        <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
+        <span id="logo" class="white--text">LOGO</span>
       </div>
 
       <!-- Menu 選單 -->
