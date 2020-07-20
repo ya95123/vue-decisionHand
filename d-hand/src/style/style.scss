@@ -33,12 +33,20 @@ a{
 /* RWD */
 /* 平板尺寸以下 */
 // for iphone5s/5se
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   #app{
     #bottom{
       a,button{
         width: calc(100% / 6);
       }
+    }
+  }
+  #home{
+    #homeResult{
+      font-size: 1rem !important;
+    }
+    .gameSet{
+      font-size: 2rem !important;
     }
   }
 }
@@ -61,6 +69,18 @@ a{
   .game{
     width: 80%;
     height: 90%;
+  }
+  /* home 區------------------------------------------ */
+  #home{
+    span{
+      font-size: 25vw;
+    }
+    #homeResult{
+      font-size: 1.5rem;
+    }
+    .gameSet{
+      font-size: 2.5rem;
+    }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle{
@@ -90,6 +110,18 @@ a{
     width: 65%;
     height: 80%;
   }
+  /* home 區------------------------------------------ */
+  #home{
+    span{
+      font-size: 200px;
+    }
+    #homeResult{
+      font-size: 1.5rem;
+    }
+    .gameSet{
+      font-size: 2.5rem;
+    }
+  }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle{
     #wine{
@@ -98,6 +130,7 @@ a{
   }
 }
 
+/* 通用各尺寸 */
 /* #app 區--------------------------------------- */
 #app{
   width: 100%;
@@ -166,8 +199,40 @@ a{
 .game{
 background: #fff;
 border-radius: 0.5rem;
+position: relative;
 // border: 0.1rem solid black;
 }
+
+  /* home 區------------------------------------------ */
+  #home{
+    #topHand{
+      transform: rotate(180deg); 
+    }
+    #homeResult{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 0;
+      color: #666;
+      font-weight: 550;
+      opacity: 0.9;
+    }
+    .hand{
+      position: absolute;
+      z-index: 1;
+    }
+    .gameSet{
+      color:#5bbfc8cc;
+      position: absolute;
+      top: 1.5%;
+      right: 1.5%;
+      &:hover{
+        cursor: pointer;
+        color: $dh-red;
+      }
+    }
+  }
 
 /* @keframes 動畫區------------------------------------ */
 
