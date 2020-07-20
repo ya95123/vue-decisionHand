@@ -255,8 +255,13 @@ position: relative;
     }
   }
   .part{
-    width: 300px;
+    width: 600px;
     height: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(90deg);
+    transform-origin: 50% 100%;
     &:nth-child(even){
     background: $dh-yellow;
     }
