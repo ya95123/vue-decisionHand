@@ -12,7 +12,6 @@
 const rand = (min, max) => {
   return Math.round(Math.random() * (max - min) + min)
 }
-// const wineRotate = rand(3240, 3600)
 export default {
   name: 'Bottle',
   data: () => ({
