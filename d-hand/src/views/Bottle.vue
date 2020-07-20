@@ -16,15 +16,17 @@ const rand = (min, max) => {
 export default {
   name: 'Bottle',
   data: () => ({
-    deg: 0
+    // 3240 9圈
+    deg: 3240,
+    n: 1
   }),
   methods: {
     rotate () {
-      this.style.transform = `rotate(${rand(3240, 3600)}deg)`
-
-      // document.getElementById('wine').style.transform = `rotate(${rand(3240, 3600)}deg)`
-      // document.getElementById('wine').style.transform = 'rotate(this.$data.deg)'
-      console.log(rand(0, 360))
+      let turn = this.$data.deg * this.$data.n + rand(0, 360)
+      document.getElementById('wine').style.transform = `rotate(${turn}deg)`
+      console.log(turn)
+      console.log(`轉 ${turn -= this.$data.deg * this.$data.n} 度`)
+      this.$data.n++
     }
   }
 }
