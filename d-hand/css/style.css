@@ -27,14 +27,17 @@ a {
 /* RWD */
 /* 平板尺寸以下 */
 @media (max-width: 600px) {
+  /* #app */
   #app #bottom a, #app #bottom button {
     width: calc(100% / 6);
   }
+  /* game 區------------------------------------------ */
+  #home .gameSet, #wheel .gameSet, #raffle .gameSet, #bottle .gameSet, #group .gameSet {
+    font-size: 2rem !important;
+  }
+  /* home 區------------------------------------------ */
   #home #homeResult {
     font-size: 1rem !important;
-  }
-  #home .gameSet {
-    font-size: 2rem !important;
   }
 }
 
@@ -51,11 +54,14 @@ a {
   #footer {
     display: none;
   }
+  /* .game 區----------------------------------------- */
   #home, #wheel, #raffle, #bottle, #group {
     width: 100%;
     height: calc(100% - 56px);
   }
-  /* .game */
+  #home .gameSet, #wheel .gameSet, #raffle .gameSet, #bottle .gameSet, #group .gameSet {
+    font-size: 2.5rem;
+  }
   .game {
     width: 80%;
     height: 90%;
@@ -66,9 +72,6 @@ a {
   }
   #home #homeResult {
     font-size: 1.5rem;
-  }
-  #home .gameSet {
-    font-size: 2.5rem;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -90,11 +93,14 @@ a {
   #bottom {
     display: none;
   }
+  /* .game 區----------------------------------------- */
   #home, #wheel, #raffle, #bottle, #group {
     width: 100%;
     height: 100%;
   }
-  /* .game */
+  #home .gameSet, #wheel .gameSet, #raffle .gameSet, #bottle .gameSet, #group .gameSet {
+    font-size: 2.5rem;
+  }
   .game {
     width: 65%;
     height: 80%;
@@ -105,9 +111,6 @@ a {
   }
   #home #homeResult {
     font-size: 1.5rem;
-  }
-  #home .gameSet {
-    font-size: 2.5rem;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -188,6 +191,18 @@ a {
 }
 
 /* .game 區----------------------------------------- */
+#home .gameSet, #wheel .gameSet, #raffle .gameSet, #bottle .gameSet, #group .gameSet {
+  color: #5bbfc8cc;
+  position: absolute;
+  top: 1.5%;
+  right: 1.5%;
+}
+
+#home .gameSet:hover, #wheel .gameSet:hover, #raffle .gameSet:hover, #bottle .gameSet:hover, #group .gameSet:hover {
+  cursor: pointer;
+  color: #E12E4B;
+}
+
 .game {
   background: #fff;
   border-radius: 0.5rem;
@@ -217,16 +232,34 @@ a {
   z-index: 1;
 }
 
-#home .gameSet {
-  color: #5bbfc8cc;
-  position: absolute;
-  top: 1.5%;
-  right: 1.5%;
+/* wheel 區------------------------------------------- */
+#wheel #table {
+  background: #ccc9;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 3s;
+  transition: 3s;
 }
 
-#home .gameSet:hover {
-  cursor: pointer;
-  color: #E12E4B;
+#wheel #table:hover {
+  -webkit-transform: rotate(720deg);
+          transform: rotate(720deg);
+}
+
+#wheel .part {
+  width: 300px;
+  height: 300px;
+}
+
+#wheel .part:nth-child(even) {
+  background: #F9e54E;
+}
+
+#wheel .part:nth-child(odd) {
+  background: #E12E4B;
 }
 
 /* @keframes 動畫區------------------------------------ */

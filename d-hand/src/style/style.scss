@@ -34,6 +34,7 @@ a{
 /* 平板尺寸以下 */
 // for iphone5s/5se
 @media (max-width: 600px) {
+  /* #app */
   #app{
     #bottom{
       a,button{
@@ -41,12 +42,16 @@ a{
       }
     }
   }
+  /* game 區------------------------------------------ */
+  #home,#wheel,#raffle,#bottle,#group{
+    .gameSet{
+      font-size: 2rem !important;
+    }
+  }
+  /* home 區------------------------------------------ */
   #home{
     #homeResult{
       font-size: 1rem !important;
-    }
-    .gameSet{
-      font-size: 2rem !important;
     }
   }
 }
@@ -61,11 +66,14 @@ a{
   #footer{
     display: none;
   }
+  /* .game 區----------------------------------------- */
   #home,#wheel,#raffle,#bottle,#group{
     width: 100%;
     height: calc(100% - 56px);
+    .gameSet{
+      font-size: 2.5rem;
+    }
   }
-  /* .game */
   .game{
     width: 80%;
     height: 90%;
@@ -77,9 +85,6 @@ a{
     }
     #homeResult{
       font-size: 1.5rem;
-    }
-    .gameSet{
-      font-size: 2.5rem;
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
@@ -101,11 +106,14 @@ a{
   #bottom{
     display: none;
   }
+  /* .game 區----------------------------------------- */
   #home,#wheel,#raffle,#bottle,#group{
     width: 100%;
     height: 100%;
+    .gameSet{
+      font-size: 2.5rem;
+    }
   }
-  /* .game */
   .game{
     width: 65%;
     height: 80%;
@@ -117,9 +125,6 @@ a{
     }
     #homeResult{
       font-size: 1.5rem;
-    }
-    .gameSet{
-      font-size: 2.5rem;
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
@@ -196,14 +201,25 @@ a{
 }
 
 /* .game 區----------------------------------------- */
+#home,#wheel,#raffle,#bottle,#group{
+  .gameSet{
+    color:#5bbfc8cc;
+    position: absolute;
+    top: 1.5%;
+    right: 1.5%;
+    &:hover{
+      cursor: pointer;
+      color: $dh-red;
+    }
+  }
+}
 .game{
 background: #fff;
 border-radius: 0.5rem;
 position: relative;
 // border: 0.1rem solid black;
 }
-
-  /* home 區------------------------------------------ */
+/* home 區------------------------------------------ */
   #home{
     #topHand{
       transform: rotate(180deg); 
@@ -222,17 +238,34 @@ position: relative;
       position: absolute;
       z-index: 1;
     }
-    .gameSet{
-      color:#5bbfc8cc;
-      position: absolute;
-      top: 1.5%;
-      right: 1.5%;
-      &:hover{
-        cursor: pointer;
-        color: $dh-red;
-      }
+  }
+
+/* wheel 區------------------------------------------- */
+#wheel{
+  #table{
+    background: #ccc9;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: 3s;
+    &:hover{
+      transform: rotate(720deg);
     }
   }
+  .part{
+    width: 300px;
+    height: 300px;
+    &:nth-child(even){
+    background: $dh-yellow;
+    }
+    &:nth-child(odd){
+      background: $dh-red;
+      }
+  }
+}
+
 
 /* @keframes 動畫區------------------------------------ */
 
