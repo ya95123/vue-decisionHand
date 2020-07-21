@@ -242,26 +242,26 @@ position: relative;
 
 /* wheel 區------------------------------------------- */
 #wheel{
-  #table{
+  #turnTable{
     background: #ccc9;
-    width: 600px;
-    height: 600px;
+    width: 60vmin;
+    height: 60vmin;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    transition: 3s;
-    &:hover{
+    transition: transform 3s;
+    &:active{
       transform: rotate(720deg);
     }
   }
   .part{
-    width: 600px;
-    height: 300px;
+    width: 50%;
+    height: 100%;
     position: absolute;
     right: 0;
     top: 0;
-    transform: rotate(90deg);
-    transform-origin: 50% 100%;
+    transform: rotate(0deg) skewY(0deg);
+    transform-origin: 0% 100%;
     &:nth-child(even){
     background: $dh-yellow;
     }
@@ -271,6 +271,58 @@ position: relative;
   }
 }
 
+.test1{
+  width: 100%;
+  height: 50%;
+  transform: rotate(90deg);
+  transform-origin: 50% 100%;
+  background: $dh-red;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.test2{
+  width: 100%;
+  height: 50%;
+  transform: rotate(90deg + (360/4));
+  transform-origin: 50% 100%;
+  background: $dh-yellow;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.test3{
+  width: 100%;
+  height: 50%;
+  transform: rotate(90deg + (360/4)*2);
+  transform-origin: 50% 100%;
+  background: $dh-orange;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.test4{
+  width: 200%;
+  height: 50%;
+  transform: rotate(90deg + (360/4)*3);
+  transform-origin: 50% 100%;
+  background: $dh-blue;
+  position: absolute;
+  right: -100%;
+  top: 0;
+  z-index: 1;
+}
 
+.halfRound{
+  display: inline-block;
+  background: rgb(178, 255, 107);
+  width: 30vmin;
+  height: 60vmin;
+  position: relative;
+  overflow: hidden;
+}
 /* @keframes 動畫區------------------------------------ */
 
