@@ -2,8 +2,9 @@
   <div id="wheel" class="d-flex justify-center align-center">
     <div class="game d-flex justify-center align-center">
       <v-icon id="wheelSet" class="gameSet">mdi-cog-outline</v-icon>
-      <!-- 大圓 -->
-      <div class="turnTable" style="z-index:0;">
+
+      <!-- TODO 內容要轉成 data+methods 搭配使用者輸入內容 大圓 -->
+      <div id="turnTable">
         <!-- 內容 -->
         <!-- <div
           class="part d-flex justify-center align-center"
@@ -16,7 +17,7 @@
         <div class="test1"></div>
         <div class="test2"></div>
         <!-- <div class="test3 fxcenter">3</div> -->
-        <!-- 左半圓框：給最後一個值放的 -->
+        <!-- 左半圓框：給最後一個內容放的 -->
         <div class="halfRound leftRound">
           <div class="test3"></div>
         </div>
