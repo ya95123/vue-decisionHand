@@ -233,7 +233,7 @@ a {
 }
 
 /* wheel 區------------------------------------------- */
-#wheel #turnTable {
+#wheel .turnTable {
   background: #ccc9;
   width: 60vmin;
   height: 60vmin;
@@ -246,7 +246,7 @@ a {
   transition: transform 3s, -webkit-transform 3s;
 }
 
-#wheel #turnTable:active {
+#wheel .turnTable:active {
   -webkit-transform: rotate(720deg);
           transform: rotate(720deg);
 }
@@ -288,8 +288,8 @@ a {
 .test2 {
   width: 100%;
   height: 50%;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
   -webkit-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
   background: #F9e54E;
@@ -299,7 +299,7 @@ a {
   z-index: 1;
 }
 
-.test3 {
+.test32 {
   width: 100%;
   height: 50%;
   -webkit-transform: rotate(270deg);
@@ -313,11 +313,11 @@ a {
   z-index: 1;
 }
 
-.test4 {
+.test3 {
   width: 200%;
   height: 50%;
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
+  -webkit-transform: rotate(330deg);
+          transform: rotate(330deg);
   -webkit-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
   background: #5BBDC8;
@@ -327,6 +327,7 @@ a {
   z-index: 1;
 }
 
+/* 多出左半圓來切掉多餘部分 */
 .halfRound {
   display: inline-block;
   background: #b2ff6b;
@@ -334,6 +335,112 @@ a {
   height: 60vmin;
   position: relative;
   overflow: hidden;
+}
+
+.fxcenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wheelItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.wheelContent {
+  padding-left: 10%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: #fff;
+  font-weight: 550;
+}
+
+.wheelText1 {
+  width: 33.33333%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translateX(-50%) rotate(18deg);
+          transform: translateX(-50%) rotate(18deg);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #3336;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+.wheelText2 {
+  width: 33.33333%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translateX(-50%) rotate(54deg);
+          transform: translateX(-50%) rotate(54deg);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #3336;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+.wheelText3 {
+  width: 33.33333%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translateX(-50%) rotate(90deg);
+          transform: translateX(-50%) rotate(90deg);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #3336;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 550;
 }
 
 /* @keframes 動畫區------------------------------------ */
