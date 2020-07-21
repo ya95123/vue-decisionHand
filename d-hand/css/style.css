@@ -67,11 +67,11 @@ a {
     height: 90%;
   }
   /* home 區------------------------------------------ */
-  #home span {
-    font-size: 25vw;
-  }
   #home #homeResult {
     font-size: 1.5rem;
+  }
+  #home .hand {
+    font-size: 25vmin;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -106,11 +106,11 @@ a {
     height: 80%;
   }
   /* home 區------------------------------------------ */
-  #home span {
-    font-size: 200px;
-  }
   #home #homeResult {
     font-size: 1.5rem;
+  }
+  #home .hand {
+    font-size: 20vmin;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
