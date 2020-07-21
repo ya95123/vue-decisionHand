@@ -242,7 +242,7 @@ position: relative;
 
 /* wheel 區------------------------------------------- */
 #wheel{
-  .turnTable{
+  #turnTable{
     background: #ccc9;
     width: 60vmin;
     height: 60vmin;
@@ -273,7 +273,7 @@ position: relative;
       }
   }
 }
-
+/* test 為測試每個圓的設定 */
 .test1{
   width: 100%;
   height: 50%;
@@ -318,7 +318,7 @@ position: relative;
   top: 0;
   z-index: 1;
 }
-/* 多出左半圓來切掉多餘部分 */
+/* 左半圓來切掉多餘部分 */
 .halfRound{
   display: inline-block;
   background: rgb(178, 255, 107);
@@ -328,35 +328,15 @@ position: relative;
   overflow: hidden;
 }
 
-.fxcenter{
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-}
-
-.wheelItem{
-  display: flex;
-  align-items: flex-end;
-  padding-left: 10px;
-  padding-bottom: 5px;
-}
-
-.wheelContent{
-  padding-left: 10%;
-  // padding-top: 10%;
-  // transform: rotate((-90deg) + 60);
-  transform: rotate(-90deg);
-  color: #fff;
-  font-weight: 550;
-}
-
+/* wheelText 為測試每個圓內的文字 */
+/* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
 .wheelText1{
   width: (100%/3);
   height: 50%;
   position: absolute;
   left: 50%;
   top: 0%;
-  transform: translateX(-50%) rotate((360deg/10/2)*1);
+  transform: translateX(-50%) rotate((360deg/12/2)*1);
   transform-origin: bottom center;
   z-index: 10;
 
@@ -376,7 +356,7 @@ position: relative;
   position: absolute;
   left: 50%;
   top: 0%;
-  transform: translateX(-50%) rotate((360deg/10/2)*3);
+  transform: translateX(-50%) rotate((360deg/12/2)*3);
   transform-origin: bottom center;
   z-index: 10;
 
@@ -396,7 +376,7 @@ position: relative;
   position: absolute;
   left: 50%;
   top: 0%;
-  transform: translateX(-50%) rotate((360deg/10/2)*5);
+  transform: translateX(-50%) rotate((360deg/12/2)*5);
   transform-origin: bottom center;
   z-index: 10;
   
