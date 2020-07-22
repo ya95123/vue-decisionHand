@@ -15,26 +15,45 @@
       >
         <v-card style="max-height:500px;">
           <!-- 標題 -->
-          <v-card-title
-            class="d-flex justify-center font-weight-bold orange--text"
-          >
+          <v-card-title class="d-flex justify-center font-weight-bold orange--text">
             猜拳設定
           </v-card-title>
           <!-- 文字、選項 -->
           <v-card-text class="d-flex justify-center align-center flex-column pa-0">
             <!-- 選擇方式 -->
             <v-radio-group v-model="radioSet" row>
-              <v-radio label="一拳決勝" value="w1" color="dhblue"></v-radio>
-              <v-radio label="三戰兩勝" value="w2" color="dhblue"></v-radio>
+              <v-radio
+                label="一拳決勝"
+                value="w1"
+                color="dhblue"
+              ></v-radio>
+              <v-radio
+                label="三戰兩勝"
+                value="w2"
+                color="dhblue"
+              ></v-radio>
             </v-radio-group>
-            <v-text-field label="贏" placeholder="吃雞排 🤗" color="dhred"></v-text-field>
-            <v-text-field label="輸" placeholder="忍住不吃 😭" color="success"></v-text-field>
+            <!-- 贏 / 輸 內容 -->
+            <v-text-field
+              v-model="win"
+              label="贏"
+              placeholder="吃雞排 🤗"
+              color="dhred"
+            >
+            </v-text-field>
+            <v-text-field
+              v-model="lose"
+              label="輸"
+              placeholder="忍住不吃 😭"
+              color="success"
+            >
+            </v-text-field>
           </v-card-text>
           <!-- button -->
           <v-card-actions class="d-flex justify-center pb-4">
             <v-btn
               color="green darken-1"
-              style="height:30px"
+              style="height:30px;font-size:0.95rem;"
               text
               @click="dialogSet = false"
             >
@@ -48,8 +67,8 @@
       <span id="topHand" class="hand align-self-start">✌</span>
       <span id="bottonHand" class="hand align-self-end">✊</span>
       <div id="homeResult">
-        <p class="dhred--text">贏：吃雞排 🤗</p>
-        <p class="success--text">輸：忍住不吃 😭</p>
+        <p class="dhred--text">贏：{{win}}</p>
+        <p class="success--text">輸：{{lose}}</p>
       </div>
     </div>
   </div>
@@ -61,8 +80,10 @@ export default {
   name: 'Home',
   data: () => ({
     dialogSet: false,
-    // 預設選擇
-    radioSet: 'w1'
+    // 預設選擇方式
+    radioSet: 'w1',
+    win: '吃雞排 🤗',
+    lose: '忍住不吃 😭'
   })
 }
 </script>
