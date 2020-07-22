@@ -1,7 +1,7 @@
 <template>
   <div id="wheel" class="d-flex justify-center align-center">
     <div class="game d-flex justify-center align-center">
-      <v-icon id="wheelSet" class="gameSet">mdi-cog-outline</v-icon>
+      <v-icon class="gameSet">mdi-cog-outline</v-icon>
 
       <!-- TODO 內容要轉成 data+methods 搭配使用者輸入內容 大圓 -->
       <div id="turnTable">
