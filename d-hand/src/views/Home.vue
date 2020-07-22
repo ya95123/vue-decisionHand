@@ -1,7 +1,7 @@
 <template>
   <div id="home" class="d-flex justify-center align-center">
     <div class="game d-flex justify-center">
-      <v-icon id="homeSet" class="gameSet">mdi-cog-outline</v-icon>
+      <v-icon class="gameSet">mdi-cog-outline</v-icon>
       <span id="topHand" class="hand align-self-start">✌</span>
       <span id="bottonHand" class="hand align-self-end">✊</span>
       <div id="homeResult">
