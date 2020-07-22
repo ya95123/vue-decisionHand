@@ -1,8 +1,10 @@
 <template>
   <div id="wheel" class="d-flex justify-center align-center">
     <div class="game d-flex justify-center align-center">
-      <v-icon class="gameSet">mdi-cog-outline</v-icon>
-
+      <div class="gameSetFrame">
+        <v-icon class="gameSet">mdi-cog-outline</v-icon>
+        <v-icon class="gameSet mt-2">mdi-history</v-icon>
+      </div>
       <!-- TODO 內容要轉成 data+methods 搭配使用者輸入內容 大圓 -->
       <div id="turnTable">
         <!-- 內容 -->
