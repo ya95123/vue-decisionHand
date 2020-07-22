@@ -462,6 +462,10 @@ a {
 }
 
 /* raffle 區------------------------------------------ */
+#raffle {
+  /* TODO 開始後做翻面效果 */
+}
+
 #raffle #box {
   position: absolute;
   bottom: 10%;
@@ -487,6 +491,15 @@ a {
   background: #5BBDC8;
   border-radius: 0.1rem;
   opacity: 0.6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* @keframes 動畫區------------------------------------ */

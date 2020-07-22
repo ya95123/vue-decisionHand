@@ -451,6 +451,7 @@ a{
       background: #fff;
     }
   }
+  /* TODO 開始後做翻面效果 */
   .paper{
     width: 15%;
     height: 35%;
@@ -461,6 +462,9 @@ a{
     background: #5BBDC8;
     border-radius: 0.1rem;
     opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
