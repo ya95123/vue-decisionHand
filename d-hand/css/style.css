@@ -232,7 +232,7 @@ a {
   z-index: 1;
 }
 
-/* wheel 區------------------------------------------- */
+/* TODO wheel 區要結合到js裡-------------------------------- */
 #wheel #turnTable {
   background: #ccc9;
   width: 60vmin;
