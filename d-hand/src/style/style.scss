@@ -54,6 +54,19 @@ a{
       font-size: 1rem !important;
     }
   }
+  /* raffle 區------------------------------------------ */
+  #raffle{
+    #box{
+      width: 70% !important;
+      height: 45% !important;
+      border: 0.45rem solid !important;
+      border-radius: 1rem !important;
+      &::before{
+        content: '';
+        width: 60% !important;
+      }
+    }
+  }
 }
 @media (max-width: 1024px) { 
   /* #app */
@@ -95,6 +108,19 @@ a{
       transition: 2.7s;
     }
   }
+  /* raffle 區------------------------------------------ */
+  #raffle{
+    #box{
+      width: 65%;
+      height: 55%;
+      border: 0.6rem solid;
+      border-radius: 1.35rem;
+      &::before{
+        content: '';
+        width: 65%;
+      }
+    }
+  }
 }
 
 /* 電腦尺寸以上 */
@@ -131,6 +157,19 @@ a{
   #bottle{
     #wine{
       display: none;
+    }
+  }
+  /* raffle 區------------------------------------------ */
+  #raffle{
+    #box{
+      width: 60%;
+      height: 60%;
+      border: 0.6rem solid;
+      border-radius: 1.45rem;
+      &::before{
+        content: '';
+        width: 65%;
+      }
     }
   }
 }
@@ -396,5 +435,34 @@ a{
   font-size: 1rem;
   font-weight: 550;
 }
+
+/* raffle 區------------------------------------------ */
+#raffle{
+  #box{
+    position: absolute;
+    bottom: 10%;
+    border-color: #e3e3e3 !important;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      top: -10%;
+      height: 15%;
+      background: #fff;
+    }
+  }
+  .paper{
+    width: 15%;
+    height: 35%;
+    position: absolute;
+    bottom: 5%;
+    // max X (0-20) Y(0-20)
+    transform: skew(-20deg,-20deg) rotate(-60deg);
+    background: #5BBDC8;
+    border-radius: 0.1rem;
+    opacity: 0.6;
+  }
+}
+
 /* @keframes 動畫區------------------------------------ */
 

@@ -39,6 +39,17 @@ a {
   #home #homeResult {
     font-size: 1rem !important;
   }
+  /* raffle 區------------------------------------------ */
+  #raffle #box {
+    width: 70% !important;
+    height: 45% !important;
+    border: 0.45rem solid !important;
+    border-radius: 1rem !important;
+  }
+  #raffle #box::before {
+    content: '';
+    width: 60% !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -80,6 +91,17 @@ a {
     -webkit-transition: 2.7s;
     transition: 2.7s;
   }
+  /* raffle 區------------------------------------------ */
+  #raffle #box {
+    width: 65%;
+    height: 55%;
+    border: 0.6rem solid;
+    border-radius: 1.35rem;
+  }
+  #raffle #box::before {
+    content: '';
+    width: 65%;
+  }
 }
 
 /* 電腦尺寸以上 */
@@ -115,6 +137,17 @@ a {
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
     display: none;
+  }
+  /* raffle 區------------------------------------------ */
+  #raffle #box {
+    width: 60%;
+    height: 60%;
+    border: 0.6rem solid;
+    border-radius: 1.45rem;
+  }
+  #raffle #box::before {
+    content: '';
+    width: 65%;
   }
 }
 
@@ -426,6 +459,34 @@ a {
   color: #000;
   font-size: 1rem;
   font-weight: 550;
+}
+
+/* raffle 區------------------------------------------ */
+#raffle #box {
+  position: absolute;
+  bottom: 10%;
+  border-color: #e3e3e3 !important;
+}
+
+#raffle #box::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -10%;
+  height: 15%;
+  background: #fff;
+}
+
+#raffle .paper {
+  width: 15%;
+  height: 35%;
+  position: absolute;
+  bottom: 5%;
+  -webkit-transform: skew(-20deg, -20deg) rotate(-60deg);
+          transform: skew(-20deg, -20deg) rotate(-60deg);
+  background: #5BBDC8;
+  border-radius: 0.1rem;
+  opacity: 0.6;
 }
 
 /* @keframes 動畫區------------------------------------ */
