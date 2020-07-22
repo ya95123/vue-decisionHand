@@ -45,7 +45,7 @@ a{
   /* game 區------------------------------------------ */
   #home,#wheel,#raffle,#bottle,#group{
     .gameSet{
-      font-size: 2rem !important;
+      font-size: 1.75rem !important;
     }
   }
   /* home 區------------------------------------------ */
@@ -70,13 +70,13 @@ a{
   #home,#wheel,#raffle,#bottle,#group{
     width: 100%;
     height: calc(100% - 56px);
+    .game{
+      width: 80%;
+      height: 90%;
+    }
     .gameSet{
       font-size: 2.5rem;
     }
-  }
-  .game{
-    width: 80%;
-    height: 90%;
   }
   /* home 區------------------------------------------ */
   #home{
@@ -110,13 +110,13 @@ a{
   #home,#wheel,#raffle,#bottle,#group{
     width: 100%;
     height: 100%;
+    .game{
+      width: 65%;
+      height: 80%;
+    }
     .gameSet{
       font-size: 2.5rem;
     }
-  }
-  .game{
-    width: 65%;
-    height: 80%;
   }
   /* home 區------------------------------------------ */
   #home{
@@ -202,22 +202,29 @@ a{
 
 /* .game 區----------------------------------------- */
 #home,#wheel,#raffle,#bottle,#group{
-  .gameSet{
-    color:#5bbfc8cc;
+  .game{
+    background: #fff;
+    border-radius: 0.5rem;
+    position: relative;
+    // border: 0.1rem solid black;
+  }
+  .gameSetFrame{
     position: absolute;
     top: 1.5%;
     right: 1.5%;
+    display: flex;
+    flex-direction: column;
+  }
+  .gameSet{
+    color:#5bbfc8cc;
+    // position: absolute;
+    // top: 1.5%;
+    // right: 1.5%;
     &:hover{
       cursor: pointer;
       color: $dh-red;
     }
   }
-}
-.game{
-background: #fff;
-border-radius: 0.5rem;
-position: relative;
-// border: 0.1rem solid black;
 }
 /* home 區------------------------------------------ */
   #home{
