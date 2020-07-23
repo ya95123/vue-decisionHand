@@ -19,8 +19,8 @@ Vue.use(vuescroll, {
       speed: 300,
       easing: undefined,
       verticalNativeBarPos: 'right',
-      maxHeight: 500,
-      maxWidth: 400
+      maxHeight: 390,
+      maxWidth: undefined
     },
     bar: {
       showDelay: 500,
