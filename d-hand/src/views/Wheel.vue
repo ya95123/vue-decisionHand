@@ -45,8 +45,14 @@
               >
               </v-text-field>
               <!-- 增加 -->
+              <div
+                v-if="inputs.length === 12"
+                class="mb-2"
+              >
+                轉盤項目最多至 12 項
+              </div>
               <v-icon
-                class="add"
+                class="inputAdd"
                 @click="addInput"
               >
                 mdi-plus-circle-outline
@@ -116,7 +122,9 @@ export default {
   methods: {
     addInput () {
       const n = this.$data.inputs.length
-      this.$data.inputs.push({ num: `項目${n + 1}`, item: '' })
+      if (n < 12) {
+        this.$data.inputs.push({ num: `項目${n + 1}`, item: '' })
+      }
     }
   },
   computed: {

@@ -37,17 +37,29 @@
               <!-- TODO 以後有機會再做分 獎品 和 名單 項目 -->
               <!--項目內容 -->
               <v-text-field
-                v-for="input in inputs"
-                :key="input.num"
+                v-for="(input,idx) in inputs"
+                :key="idx"
                 :label="input.num"
                 v-model="input.item"
                 color="success"
                 style="width:60%;"
               >
+                <!-- 紙條 > 3 會出現可刪除 icon -->
+                <template
+                  v-if="inputs.length >= 3"
+                  v-slot:append-outer
+                >
+                  <v-icon
+                    class="inputDel"
+                    @click="deletInput(idx)"
+                  >
+                    mdi-delete-forever
+                  </v-icon>
+                </template>
               </v-text-field>
               <!-- 增加 -->
               <v-icon
-                class="add"
+                class="inputAdd"
                 @click="addInput"
               >
                 mdi-plus-circle-outline
@@ -89,7 +101,7 @@ export default {
   data: () => ({
     dialogSet: false,
     // 預設選擇方式
-    radioSet: 'w1',
+    radioSet: 'w2',
     inputs: [
       { num: '紙條1', item: '' },
       { num: '紙條2', item: '' },
@@ -100,6 +112,9 @@ export default {
     addInput () {
       const n = this.$data.inputs.length
       this.$data.inputs.push({ num: `紙條${n + 1}`, item: '' })
+    },
+    deletInput (idx) {
+      this.$data.inputs.splice(idx, 1)
     }
   }
 }

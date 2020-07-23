@@ -175,23 +175,34 @@ a{
 }
 
 /* 通用各尺寸 */
-.add{
-  &:hover{
-    color: $dh-orange;
-    cursor: pointer;
-    transition: color 0.1s;
-  }
-}
 /* #app 區--------------------------------------- */
 #app{
   width: 100%;
   height: 100%;
   background: #1976D2;
-  // background-image: linear-gradient(180deg, #1976D2,#19a7d2);
   position: relative;
+  // background-image: linear-gradient(180deg, #1976D2,#19a7d2);
+  // transition: 0.5s;
 
   button{
     height: 100% ;
+  }
+  // 
+  .inputAdd{
+    &:hover{
+      color: $dh-orange;
+      cursor: pointer;
+      transition: color 0.1s;
+    }
+  }
+  .inputDel{
+    color: #e12e4c9f !important;
+    font-size: 1.35rem !important;
+    &:hover{
+      color: #e12e4c !important;
+      // filter: drop-shadow(0 0 0.28rem #e46a7e5b);
+      cursor: pointer;
+    }
   }
 
   #top{

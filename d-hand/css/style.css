@@ -152,13 +152,6 @@ a {
 }
 
 /* 通用各尺寸 */
-.add:hover {
-  color: #F8981D;
-  cursor: pointer;
-  -webkit-transition: color 0.1s;
-  transition: color 0.1s;
-}
-
 /* #app 區--------------------------------------- */
 #app {
   width: 100%;
@@ -169,6 +162,23 @@ a {
 
 #app button {
   height: 100%;
+}
+
+#app .inputAdd:hover {
+  color: #F8981D;
+  cursor: pointer;
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
+}
+
+#app .inputDel {
+  color: #e12e4c9f !important;
+  font-size: 1.35rem !important;
+}
+
+#app .inputDel:hover {
+  color: #e12e4c !important;
+  cursor: pointer;
 }
 
 #app #top {
