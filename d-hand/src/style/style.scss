@@ -175,9 +175,12 @@ a{
 }
 
 /* 通用各尺寸 */
-.ps{
-  height: 300px;
-  width: 100%;
+.add{
+  &:hover{
+    color: $dh-orange;
+    cursor: pointer;
+    transition: color 0.1s;
+  }
 }
 /* #app 區--------------------------------------- */
 #app{

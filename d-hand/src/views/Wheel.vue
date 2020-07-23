@@ -13,7 +13,7 @@
         persistent
         scrollable
       >
-        <v-card style="max-height:500px;">
+        <v-card>
           <!-- 標題 -->
           <v-card-title class="d-flex justify-center font-weight-bold orange--text">
             轉盤設定
@@ -41,8 +41,16 @@
                 :label="input.num"
                 v-model="input.item"
                 color="success"
+                style="width:60%;"
               >
               </v-text-field>
+              <!-- 增加 -->
+              <v-icon
+                class="add"
+                @click="addInput"
+              >
+                mdi-plus-circle-outline
+              </v-icon>
             </v-card-text>
           </vue-scroll>
           <!-- button -->
@@ -106,7 +114,10 @@ export default {
     // items: [1]
   }),
   methods: {
-
+    addInput () {
+      const n = this.$data.inputs.length
+      this.$data.inputs.push({ num: `項目${n + 1}`, item: '' })
+    }
   },
   computed: {
   //   rotatePart () {

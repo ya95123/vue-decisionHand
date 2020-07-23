@@ -13,7 +13,7 @@
         persistent
         scrollable
       >
-        <v-card style="max-height:500px;">
+        <v-card>
           <!-- 標題 -->
           <v-card-title class="d-flex justify-center font-weight-bold orange--text">
             猜拳設定
@@ -39,6 +39,7 @@
               label="贏"
               placeholder="吃雞排 🤗"
               color="dhred"
+              style="width:60%;"
             >
             </v-text-field>
             <v-text-field
@@ -46,6 +47,7 @@
               label="輸"
               placeholder="忍住不吃 😭"
               color="success"
+              style="width:60%;"
             >
             </v-text-field>
           </v-card-text>

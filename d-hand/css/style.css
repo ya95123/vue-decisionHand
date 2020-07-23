@@ -152,9 +152,11 @@ a {
 }
 
 /* 通用各尺寸 */
-.ps {
-  height: 300px;
-  width: 100%;
+.add:hover {
+  color: #F8981D;
+  cursor: pointer;
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s;
 }
 
 /* #app 區--------------------------------------- */
