@@ -120,13 +120,13 @@ export default {
     deletInput (idx) {
       const inputs = this.$data.inputs
       let index = '各個 input 的索引直'
-      console.log(`刪除第 ${idx} 個`)
-      console.log(`刪除 [${inputs[idx].num}]`)
+      // *console.log(`刪除第 ${idx} 個`)
       console.log(`純紙條數字：${number(inputs[idx].num)}`)
+      console.log(`刪除 [${inputs[idx].num}]`)
       // idx 被刪除 1，後面全部往前 -1 索引
       for (const input in inputs) {
         if (input > idx) {
-          console.log(idx)
+          // console.log(idx)
           // input 為索引值
           index = input
           // 因為索引值是從 0 開始，所以這樣設計剛剛好 字面上會是 -1 的狀況
