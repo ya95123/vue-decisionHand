@@ -36,13 +36,25 @@
               </v-radio-group>
               <!--項目內容 -->
               <v-text-field
-                v-for="input in inputs"
+                v-for="(input,idx) in inputs"
                 :key="input.num"
                 :label="input.num"
                 v-model="input.item"
                 color="success"
                 style="width:60%;"
               >
+                <!-- 紙條 > 3 會出現可刪除 icon -->
+                <template
+                  v-if="inputs.length >= 3"
+                  v-slot:append-outer
+                >
+                  <v-icon
+                    class="inputDel"
+                    @click="deletInput(idx)"
+                  >
+                    mdi-delete-forever
+                  </v-icon>
+                </template>
               </v-text-field>
               <!-- 增加 -->
               <div
@@ -106,6 +118,10 @@
 </template>
 
 <script>
+// 正則表達式，只留數字
+const number = (str) => {
+  return str.replace(/\D/g, '')
+}
 export default {
   name: 'Wheel',
   data: () => ({
@@ -125,6 +141,25 @@ export default {
       if (n < 12) {
         this.$data.inputs.push({ num: `項目${n + 1}`, item: '' })
       }
+    },
+    deletInput (idx) {
+      const inputs = this.$data.inputs
+      let index = '各個 input 的索引直'
+      console.log(`刪除第 ${idx} 個`)
+      console.log(`刪除 [${inputs[idx].num}]`)
+      console.log(`純項目數字：${number(inputs[idx].num)}`)
+      // idx 被刪除 1，後面全部往前 -1 索引
+      for (const input in inputs) {
+        if (input > idx) {
+          console.log(idx)
+          // input 為索引值
+          index = input
+          // 因為索引值是從 0 開始，所以這樣設計剛剛好 字面上會是 -1 的狀況
+          inputs[input].num = `項目${index}`
+        }
+      }
+      // *刪掉該 input (後刪：先後順序有差)
+      inputs.splice(idx, 1)
     }
   },
   computed: {

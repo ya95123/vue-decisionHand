@@ -100,7 +100,6 @@
 const number = (str) => {
   return str.replace(/\D/g, '')
 }
-
 export default {
   name: 'Raffle',
   data: () => ({
