@@ -19,36 +19,35 @@
             抽獎設定
           </v-card-title>
           <!-- 文字、選項 -->
-          <v-card-text class="d-flex justify-center align-center flex-column pa-0">
-            <!-- 選擇方式 -->
-            <v-radio-group v-model="radioSet" row>
-              <v-radio
-                label="一拳決勝"
-                value="w1"
-                color="dhblue"
-              ></v-radio>
-              <v-radio
-                label="三戰兩勝"
-                value="w2"
-                color="dhblue"
-              ></v-radio>
-            </v-radio-group>
-            <!-- 贏 / 輸 內容 -->
-            <v-text-field
-              v-model="win"
-              label="贏"
-              placeholder="吃雞排 🤗"
-              color="dhred"
-            >
-            </v-text-field>
-            <v-text-field
-              v-model="lose"
-              label="輸"
-              placeholder="忍住不吃 😭"
-              color="success"
-            >
-            </v-text-field>
-          </v-card-text>
+          <vue-scroll>
+            <v-card-text class="d-flex justify-center align-center flex-column pa-0">
+              <!-- 選擇方式 -->
+              <v-radio-group v-model="radioSet">
+                <v-radio
+                  label="可重複抽中同一紙條"
+                  value="w1"
+                  color="dhblue"
+                ></v-radio>
+                <v-radio
+                  label="不重複"
+                  value="w2"
+                  color="dhblue"
+                ></v-radio>
+              </v-radio-group>
+              <!-- TODO 以後有機會再做分 獎品 和 名單 項目 -->
+              <!--項目內容 -->
+              <v-text-field
+                v-for="input in inputs"
+                :key="input.num"
+                :label="input.num"
+                v-model="input.item"
+                color="success"
+              >
+              </v-text-field>
+              <!-- 增加 -->
+              <v-icon class="add">mdi-plus-circle-outline</v-icon>
+            </v-card-text>
+          </vue-scroll>
           <!-- button -->
           <v-card-actions class="d-flex justify-center pb-4">
             <v-btn
@@ -80,7 +79,19 @@
 export default {
   name: 'Raffle',
   data: () => ({
-    dialogSet: false
-  })
+    dialogSet: false,
+    // 預設選擇方式
+    radioSet: 'w1',
+    inputs: [
+      { num: '紙條1', item: '' },
+      { num: '紙條2', item: '' },
+      { num: '紙條3', item: '' }
+    ]
+  }),
+  mehods: {
+    onScroll (event) {
+      console.log(this.$refs.scrollbar.ps, event)
+    }
+  }
 }
 </script>

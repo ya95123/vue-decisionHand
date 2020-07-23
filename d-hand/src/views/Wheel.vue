@@ -19,36 +19,32 @@
             轉盤設定
           </v-card-title>
           <!-- 文字、選項 -->
-          <v-card-text class="d-flex justify-center align-center flex-column pa-0">
-            <!-- 選擇方式 -->
-            <v-radio-group v-model="radioSet" row>
-              <v-radio
-                label="一拳決勝"
-                value="w1"
-                color="dhblue"
-              ></v-radio>
-              <v-radio
-                label="三戰兩勝"
-                value="w2"
-                color="dhblue"
-              ></v-radio>
-            </v-radio-group>
-            <!-- 贏 / 輸 內容 -->
-            <v-text-field
-              v-model="win"
-              label="贏"
-              placeholder="吃雞排 🤗"
-              color="dhred"
-            >
-            </v-text-field>
-            <v-text-field
-              v-model="lose"
-              label="輸"
-              placeholder="忍住不吃 😭"
-              color="success"
-            >
-            </v-text-field>
-          </v-card-text>
+          <vue-scroll>
+            <v-card-text class="d-flex justify-center align-center flex-column pa-0">
+              <!-- 選擇方式 -->
+              <v-radio-group v-model="radioSet">
+                <v-radio
+                  label="可重複轉到同一項目"
+                  value="w1"
+                  color="dhblue"
+                ></v-radio>
+                <v-radio
+                  label="不重複"
+                  value="w2"
+                  color="dhblue"
+                ></v-radio>
+              </v-radio-group>
+              <!--項目內容 -->
+              <v-text-field
+                v-for="input in inputs"
+                :key="input.num"
+                :label="input.num"
+                v-model="input.item"
+                color="success"
+              >
+              </v-text-field>
+            </v-card-text>
+          </vue-scroll>
           <!-- button -->
           <v-card-actions class="d-flex justify-center pb-4">
             <v-btn
@@ -74,7 +70,12 @@
           {{item}}
         </div> -->
 
-        <div class="test1"></div>
+        <div
+          v-for="input in inputs"
+          :key="input.num"
+          class="test1"
+        >
+        </div>
         <div class="test2"></div>
         <!-- <div class="test3 fxcenter">3</div> -->
         <!-- 左半圓框：給最後一個內容放的 -->
@@ -95,10 +96,29 @@ export default {
   name: 'Wheel',
   data: () => ({
     dialogSet: false,
-    items: [1]
+    // 預設選擇方式
+    radioSet: 'w1',
+    inputs: [
+      { num: '項目1', item: '睡覺😴', style: 'transform:rotate(90deg);' },
+      { num: '項目2', item: '去游泳🏊‍♂', style: 'transform:rotate(210deg);' },
+      { num: '項目3', item: '看Netflex🎬', style: 'transform:rotate(330deg);' }
+    ]
+    // items: [1]
   }),
-  computed: {
+  methods: {
 
+  },
+  computed: {
+  //   rotatePart () {
+  //     let d = 90
+  //     let part = document.getElementsByClassName('test1')
+  //   }
   }
 }
+
+// const d = 90
+// const part = document.getElementsByClassName('test1')
+// for (let i = 0; i <= 2; i++) {
+//   part[i].style.transform = `rotate(${d + (360 / 3) * i}deg)`
+// }
 </script>

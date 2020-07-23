@@ -152,6 +152,11 @@ a {
 }
 
 /* 通用各尺寸 */
+.ps {
+  height: 300px;
+  width: 100%;
+}
+
 /* #app 區--------------------------------------- */
 #app {
   width: 100%;
@@ -315,6 +320,20 @@ a {
 }
 
 /* test 為測試每個圓的設定 */
+.test {
+  width: 100%;
+  height: 50%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  background: #F9e54E;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
 .test1 {
   width: 100%;
   height: 50%;
@@ -383,14 +402,14 @@ a {
 
 /* wheelText 為測試每個圓內的文字 */
 /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
-.wheelText1 {
-  width: 33.33333%;
+.wheelText {
+  width: 100%/n;
   height: 50%;
   position: absolute;
   left: 50%;
   top: 0%;
-  -webkit-transform: translateX(-50%) rotate(15deg);
-          transform: translateX(-50%) rotate(15deg);
+  -webkit-transform: translateX(-50%) rotate(180deg/n);
+          transform: translateX(-50%) rotate(180deg/n);
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
   z-index: 10;
@@ -405,7 +424,33 @@ a {
           align-items: center;
   background: #3336;
   color: #000;
-  font-size: 1rem;
+  font-size: n rem;
+  font-weight: 550;
+}
+
+.wheelText1 {
+  width: 33.33333%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translateX(-50%) rotate(60deg);
+          transform: translateX(-50%) rotate(60deg);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #3336;
+  color: #000;
+  font-size: 2rem;
   font-weight: 550;
 }
 
@@ -415,8 +460,8 @@ a {
   position: absolute;
   left: 50%;
   top: 0%;
-  -webkit-transform: translateX(-50%) rotate(45deg);
-          transform: translateX(-50%) rotate(45deg);
+  -webkit-transform: translateX(-50%) rotate(180deg);
+          transform: translateX(-50%) rotate(180deg);
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
   z-index: 10;
@@ -431,7 +476,7 @@ a {
           align-items: center;
   background: #3336;
   color: #000;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 550;
 }
 
@@ -441,8 +486,8 @@ a {
   position: absolute;
   left: 50%;
   top: 0%;
-  -webkit-transform: translateX(-50%) rotate(75deg);
-          transform: translateX(-50%) rotate(75deg);
+  -webkit-transform: translateX(-50%) rotate(300deg);
+          transform: translateX(-50%) rotate(300deg);
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
   z-index: 10;
@@ -457,7 +502,7 @@ a {
           align-items: center;
   background: #3336;
   color: #000;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 550;
 }
 
