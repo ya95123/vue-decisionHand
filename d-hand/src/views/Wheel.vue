@@ -193,6 +193,7 @@ export default {
         textPart.style.transform = `translateX(-50%) rotate(${(360 / tLength / 2) * i}deg)`
         i += 2
       }
+      // *圖形區
     }
   }
 }
