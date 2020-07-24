@@ -77,7 +77,7 @@
               color="green darken-1"
               style="height:30px;font-size:0.95rem;"
               text
-              @click="dialogSet = false"
+              @click="submitInput"
             >
               確定
             </v-btn>
@@ -97,21 +97,30 @@
         </div> -->
 
         <div
-          v-for="input in inputs"
-          :key="input.num"
+          v-for="(input,idx) in inputs"
+          :key="idx"
           class="test1"
         >
         </div>
-        <div class="test2"></div>
+        <!-- <div class="test2"></div> -->
         <!-- <div class="test3 fxcenter">3</div> -->
         <!-- 左半圓框：給最後一個內容放的 -->
         <div class="halfRound leftRound">
           <div class="test3"></div>
         </div>
         <!-- 文字區 -->
-        <div class="wheelText1">1111111</div>
-        <div class="wheelText2">2222222</div>
-        <div class="wheelText3">3333333</div>
+        <!-- TODO 要把 class 分開 -->
+        <div v-if="!rotate" class="init wheelText1">睡覺😴</div>
+        <div v-if="!rotate" class="init wheelText2">去游泳🏊‍♂</div>
+        <div v-if="!rotate" class="init wheelText3">看Netflex🎬</div>
+        <div
+          v-for="input in inputs"
+          :key="input.num"
+          class="wheelText1"
+          :style="show"
+        >
+          {{input.item}}
+        </div>
       </div>
     </div>
   </div>
@@ -128,12 +137,13 @@ export default {
     dialogSet: false,
     // 預設選擇方式
     radioSet: 'w1',
+    rotate: false,
+    show: 'display:none;',
     inputs: [
       { num: '項目1', item: '睡覺😴', style: 'transform:rotate(90deg);' },
       { num: '項目2', item: '去游泳🏊‍♂', style: 'transform:rotate(210deg);' },
       { num: '項目3', item: '看Netflex🎬', style: 'transform:rotate(330deg);' }
     ]
-    // items: [1]
   }),
   methods: {
     addInput () {
@@ -160,13 +170,30 @@ export default {
       }
       // *刪掉該 input (後刪：先後順序有差)
       inputs.splice(idx, 1)
+    },
+    submitInput () {
+      // 關掉對話框
+      this.$data.dialogSet = false
+      this.$data.rotate = true
+      this.$data.show = 'display:flex;'
+      // *rotate 部分
+      // *文字區
+      // const inits = document.getElementsByClassName('init')
+      const textParts = document.getElementsByClassName('wheelText1')
+      const tLength = textParts.length
+      // for (const init of inits) {
+      //   init.style.display = 'none'
+      // }
+      // r = 各個 input 的要轉的角度，起始點為 90 度
+      // const r = 90
+      let i = 1
+      console.log(tLength)
+      for (const textPart of textParts) {
+        // console.log(i)
+        textPart.style.transform = `translateX(-50%) rotate(${(360 / tLength / 2) * i}deg)`
+        i += 2
+      }
     }
-  },
-  computed: {
-  //   rotatePart () {
-  //     let d = 90
-  //     let part = document.getElementsByClassName('test1')
-  //   }
   }
 }
 

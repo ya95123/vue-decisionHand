@@ -317,9 +317,9 @@ a{
     // transform: translate(-50%,-50%);
     overflow: hidden;
     transition: transform 3s;
-    &:active{
-      transform: rotate(720deg);
-    }
+    // &:active{
+    //   transform: rotate(720deg);
+    // }
   }
   .part{
     width: 50%;
@@ -443,7 +443,8 @@ a{
   align-items: center;
   background: #3336;
 
-  color: #000;
+  color: #fff;
+  text-shadow: 0 0.18rem 0rem #ccc;
   font-size: 2rem;
   font-weight: 550;
 }

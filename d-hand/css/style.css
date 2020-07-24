@@ -306,11 +306,6 @@ a {
   transition: transform 3s, -webkit-transform 3s;
 }
 
-#wheel #turnTable:active {
-  -webkit-transform: rotate(720deg);
-          transform: rotate(720deg);
-}
-
 #wheel .part {
   width: 50%;
   height: 100%;
@@ -461,7 +456,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   background: #3336;
-  color: #000;
+  color: #fff;
+  text-shadow: 0 0.18rem 0rem #ccc;
   font-size: 2rem;
   font-weight: 550;
 }
