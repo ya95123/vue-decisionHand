@@ -318,14 +318,15 @@ a {
           transform-origin: 0% 100%;
 }
 
-#wheel .part:nth-child(even) {
-  background: #F9e54E;
-}
-
 #wheel .part:nth-child(odd) {
   background: #E12E4B;
 }
 
+#wheel .part:nth-child(even) {
+  background: #F9e54E;
+}
+
+/* 初始圓 pie 設定 */
 /* test 為測試每個圓的設定 */
 .test {
   width: 100%;
@@ -334,67 +335,49 @@ a {
           transform: rotate(90deg);
   -webkit-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
-  background: #F9e54E;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 1;
 }
 
-.test1 {
+.test:nth-child(odd) {
+  background: #E12E4B;
+}
+
+.test:nth-child(even) {
+  background: #F9e54E;
+}
+
+.initPart {
   width: 100%;
   height: 50%;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.part-1 {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
   background: #E12E4B;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }
 
-.test2 {
-  width: 100%;
-  height: 50%;
+.part-2 {
   -webkit-transform: rotate(210deg);
           transform: rotate(210deg);
-  -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
   background: #F9e54E;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }
 
-.test32 {
-  width: 100%;
-  height: 50%;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-  -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
-  background: #F8981D;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.test3 {
+.part-3 {
   width: 200%;
-  height: 50%;
   -webkit-transform: rotate(330deg);
           transform: rotate(330deg);
-  -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
   background: #5BBDC8;
-  position: absolute;
   right: -100%;
-  top: 0;
-  z-index: 1;
 }
 
 /* 左半圓來切掉多餘部分 */
@@ -407,8 +390,9 @@ a {
   overflow: hidden;
 }
 
-/* wheelText 為測試每個圓內的文字 */
+/* 轉盤文字--- */
 /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
+/* wheelText 為每個文字的專屬一片 pie */
 .wheelText {
   width: 33.33333%;
   height: 50%;
@@ -435,6 +419,7 @@ a {
   font-weight: 550;
 }
 
+/* 文字 */
 .text {
   text-align: center;
   overflow: hidden;
@@ -445,7 +430,8 @@ a {
   word-break: break-all;
 }
 
-.init {
+/* 初始圓內文字設定 */
+.initText {
   width: 33.33333%;
   height: 50%;
   position: absolute;
@@ -470,17 +456,17 @@ a {
   text-align: center;
 }
 
-.init-1 {
+.text-1 {
   -webkit-transform: translateX(-50%) rotate(60deg);
           transform: translateX(-50%) rotate(60deg);
 }
 
-.init-2 {
+.text-2 {
   -webkit-transform: translateX(-50%) rotate(180deg);
           transform: translateX(-50%) rotate(180deg);
 }
 
-.init-3 {
+.text-3 {
   -webkit-transform: translateX(-50%) rotate(300deg);
           transform: translateX(-50%) rotate(300deg);
 }

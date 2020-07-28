@@ -329,72 +329,65 @@ a{
     top: 0;
     transform: rotate(0deg) skewY(0deg);
     transform-origin: 0% 100%;
+    // 奇數
+    &:nth-child(odd){
+      background: $dh-red;
+    }
+    // 偶數
     &:nth-child(even){
     background: $dh-yellow;
     }
-    &:nth-child(odd){
-      background: $dh-red;
-      }
   }
 }
+/* 初始圓 pie 設定 */
 /* test 為測試每個圓的設定 */
-// DEMO
 .test{
   width: 100%;
   height: 50%;
-  transform: rotate(90deg + (360/3)*0);
+  transform: rotate(90deg);
   transform-origin: 50% 100%;
+  // background: $dh-yellow;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  // 奇數
+  &:nth-child(odd){
+    background: $dh-red;
+  }
+  // 偶數
+  &:nth-child(even){
   background: $dh-yellow;
+  }
+}
+
+.initPart{
+  width: 100%;
+  height: 50%;
+  transform-origin: 50% 100%;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 1;
 }
 
-.test1{
-  width: 100%;
-  height: 50%;
+.part-1{
   transform: rotate(90deg);
-  transform-origin: 50% 100%;
   background: $dh-red;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }
-.test2{
-  width: 100%;
-  height: 50%;
+
+.part-2{
   transform: rotate(90deg + (360/3));
-  transform-origin: 50% 100%;
   background: $dh-yellow;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
 }
-.test32{
-  width: 100%;
-  height: 50%;
-  transform: rotate(90deg + (360/4)*2);
-  transform-origin: 50% 100%;
-  background: $dh-orange;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-.test3{
+
+.part-3{
   width: 200%;
-  height: 50%;
   transform: rotate(90deg + (360/3)*2);
-  transform-origin: 50% 100%;
   background: $dh-blue;
-  position: absolute;
   right: -100%;
-  top: 0;
-  z-index: 1;
 }
+
 /* 左半圓來切掉多餘部分 */
 .halfRound{
   display: inline-block;
@@ -405,9 +398,9 @@ a{
   overflow: hidden;
 }
 
-/* wheelText 為測試每個圓內的文字 */
+/* 轉盤文字--- */
 /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
-// DEMO
+/* wheelText 為每個文字的專屬一片 pie */
 .wheelText{
   width: (100%/3);
   height: 50%;
@@ -426,13 +419,9 @@ a{
   color: #fff;
   font-size: 2rem;
   font-weight: 550;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // line-clamp: 2;
-  // // 強制英文斷行
-  // word-break:break-all;
 }
 
+/* 文字 */
 .text{
   text-align: center;
   // 設定超過兩行 就會變 '...'
@@ -445,7 +434,8 @@ a{
     word-break:break-all;
 }
 
-.init{
+/* 初始圓內文字設定 */
+.initText{
   width: (100%/3);
   height: 50%;
   position: absolute;
@@ -466,18 +456,17 @@ a{
   text-align: center;
 }
 
-.init-1{
+.text-1{
   transform: translateX(-50%) rotate((360deg/3/2)*1);
 }
 
-.init-2{
+.text-2{
   transform: translateX(-50%) rotate((360deg/3/2)*3);
 }
 
-.init-3{
+.text-3{
   transform: translateX(-50%) rotate((360deg/3/2)*5);
 }
-
 
 /* raffle 區------------------------------------------ */
 #raffle{
