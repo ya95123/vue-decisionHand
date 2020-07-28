@@ -41,9 +41,9 @@ a {
   }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
-    border: 0.65rem solid #4725 !important;
-    -webkit-filter: drop-shadow(0 0 0.35rem #ccc) !important;
-            filter: drop-shadow(0 0 0.35rem #ccc) !important;
+    border: 0.65rem solid #6636 !important;
+    -webkit-filter: drop-shadow(0 0 0.25rem #222) !important;
+            filter: drop-shadow(0 0 0.25rem #222) !important;
   }
   #wheel .wheelText {
     font-size: 0.6rem !important;
@@ -105,9 +105,9 @@ a {
   }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
-    border: 0.65rem solid #4725;
-    -webkit-filter: drop-shadow(0 0 0.35rem #ccc);
-            filter: drop-shadow(0 0 0.35rem #ccc);
+    border: 0.65rem solid #6636;
+    -webkit-filter: drop-shadow(0 0 0.35rem #222);
+            filter: drop-shadow(0 0 0.35rem #222);
   }
   #wheel .wheelText {
     font-size: 1.85rem;
@@ -164,9 +164,9 @@ a {
   }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
-    border: 0.65rem solid #4725;
-    -webkit-filter: drop-shadow(0 0 0.35rem #ccc);
-            filter: drop-shadow(0 0 0.35rem #ccc);
+    border: 0.65rem solid #6636;
+    -webkit-filter: drop-shadow(0 0 0.35rem #222);
+            filter: drop-shadow(0 0 0.35rem #222);
   }
   #wheel .wheelText {
     font-size: 2rem;
@@ -352,9 +352,11 @@ a {
   width: 60vmin;
   height: 60vmin;
   border-radius: 50%;
-  border: 1.25rem solid #4725;
-  -webkit-filter: drop-shadow(0 0 0.65rem #ccc);
-          filter: drop-shadow(0 0 0.65rem #ccc);
+  border: 1.25rem solid #6636;
+  -webkit-filter: drop-shadow(0 0 0.65rem #222);
+          filter: drop-shadow(0 0 0.65rem #222);
+  -webkit-animation: wheelChange infinite 8s;
+          animation: wheelChange infinite 8s;
 }
 
 #wheel .part {
@@ -569,3 +571,23 @@ a {
 }
 
 /* @keframes 動畫區------------------------------------ */
+@-webkit-keyframes wheelChange {
+  0% {
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+  }
+}
+@keyframes wheelChange {
+  0% {
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+  }
+}

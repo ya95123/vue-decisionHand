@@ -81,7 +81,7 @@
               color="green darken-1"
               style="height:30px;font-size:0.95rem;"
               text
-              @click="submitText();submitPart()"
+              @click="submitText();rPart();lPart()"
             >
               確定
             </v-btn>
@@ -93,20 +93,19 @@
       <!-- 一樣要把class 分開 -->
       <div id="turnTable">
         <!-- 圓 -->
-        <div v-if="!rotate" class="initPart part-1"></div>
-        <div v-if="!rotate" class="initPart part-2"></div>
         <!-- submit 後 -->
         <div
           v-for="(input,idx) in inputs"
           :key="idx"
           class="test"
-          :style="show"
         >
         </div>
+        <!-- 初始 -->
+        <div v-if="!rotate" class="initPart part-1"></div>
+        <div v-if="!rotate" class="initPart part-2"></div>
         <!-- 左半圓框：給最後一個內容放的 -->
+
         <div class="halfRound leftRound">
-          <!-- 初始 -->
-          <div v-if="!rotate" class="initPart part-3"></div>
           <!-- submit後 -->
           <div
             v-for="(input,idx) in inputs"
@@ -115,6 +114,8 @@
             :style="show"
           >
           </div>
+          <!-- 初始 -->
+          <div v-if="!rotate" class="initPart part-3"></div>
         </div>
 
         <!-- 文字區 -->
@@ -202,30 +203,58 @@ export default {
         i += 2
       }
     },
-    submitPart () {
+    rPart () {
       // *圖形區
       const rightParts = document.getElementsByClassName('test')
-      const leftParts = document.getElementsByClassName('leftPart')
+      // const leftParts = document.getElementsByClassName('leftPart')
       const pLength = rightParts.length
       // r = 各個 input 的要轉的角度，起始點為 90 度
       const r = 90
       const pie = pLength
-      let blue = pLength
+      // let blue = pLength
       // (pie/2)後，小數點無條件進位，再加 1 => 為跨足左圓的第 n 個 part (因為 k 從 0 開始，所以不用 +1 了)
       const dividePie = Math.ceil((pie / 2))
       console.log('第 ' + dividePie + '+1 個分到左半圓')
       console.log(rightParts)
-      console.log(leftParts)
+      // console.log(leftParts)
       for (let k = 0; k < pLength; k++) {
         if (k < dividePie) {
           // 右半圓 (重新調整 opacity，多次使用會被蓋掉)
-          leftParts[k].style.opacity = '0'
+          // leftParts[k].style.opacity = '0'
           rightParts[k].style.opacity = '1'
           rightParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
           // console.log(k)
         } else if (k >= dividePie) {
           // 左半圓處理
           rightParts[k].style.opacity = '0'
+          // leftParts[k].style.opacity = '1'
+          // leftParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
+        }
+      }
+      // 顏色變換，使之不連續
+      // if ((blue %= 2) !== 0) {
+      //   blue = pLength
+      //   console.log(blue)
+      //   blue--
+      //   leftParts[blue].style.background = '#5BBDC8'
+      // }
+      // console.log(blue)
+    },
+    lPart () {
+      const leftParts = document.getElementsByClassName('leftPart')
+      const pLength = leftParts.length
+      const r = 90
+      const pie = pLength
+      const dividePie = Math.ceil((pie / 2))
+      let blue = pLength
+      console.log(leftParts)
+      for (let k = 0; k < pLength; k++) {
+        if (k < dividePie) {
+          // 右半圓 (重新調整 opacity，多次使用會被蓋掉)
+          leftParts[k].style.opacity = '0'
+          // console.log(k)
+        } else if (k >= dividePie) {
+          // 左半圓處理
           leftParts[k].style.opacity = '1'
           leftParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
         }

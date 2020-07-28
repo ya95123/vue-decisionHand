@@ -59,8 +59,8 @@ a{
   #wheel{
     #turnTable{
       &::before{
-        border: 0.65rem solid #4725 !important;
-        filter: drop-shadow(0 0 0.35rem #ccc) !important;
+        border: 0.65rem solid #6636 !important;
+        filter: drop-shadow(0 0 0.25rem #222) !important;
       }
     }
     .wheelText{
@@ -128,8 +128,8 @@ a{
     #wheel{
       #turnTable{
         &::before{
-          border: 0.65rem solid #4725;
-          filter: drop-shadow(0 0 0.35rem #ccc);
+          border: 0.65rem solid #6636;
+          filter: drop-shadow(0 0 0.35rem #222);
         }
       }
       .wheelText{
@@ -194,8 +194,8 @@ a{
   #wheel{
     #turnTable{
       &::before{
-        border: 0.65rem solid #4725;
-        filter: drop-shadow(0 0 0.35rem #ccc);
+        border: 0.65rem solid #6636;
+        filter: drop-shadow(0 0 0.35rem #222);
       }
     }
     .wheelText{
@@ -377,8 +377,9 @@ a{
       width: 60vmin;
       height: 60vmin;
       border-radius: 50%;
-      border: 1.25rem solid #4725;
-      filter: drop-shadow(0 0 0.65rem #ccc);
+      border: 1.25rem solid #6636;
+      filter: drop-shadow(0 0 0.65rem #222);
+      animation: wheelChange infinite 8s;
     }
   }
   .part{
@@ -573,4 +574,12 @@ a{
 }
 
 /* @keframes 動畫區------------------------------------ */
+@keyframes wheelChange{
+  0%{
+    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+  }
+  100%{
+    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+  }
+}
 
