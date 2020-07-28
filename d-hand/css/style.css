@@ -40,6 +40,11 @@ a {
     font-size: 1rem !important;
   }
   /* wheel 區------------------------------------------ */
+  #wheel #turnTable::before {
+    border: 0.65rem solid #4725 !important;
+    -webkit-filter: drop-shadow(0 0 0.35rem #ccc) !important;
+            filter: drop-shadow(0 0 0.35rem #ccc) !important;
+  }
   #wheel .wheelText {
     font-size: 0.6rem !important;
   }
@@ -99,6 +104,11 @@ a {
     transition: 2.7s;
   }
   /* wheel 區------------------------------------------ */
+  #wheel #turnTable::before {
+    border: 0.65rem solid #4725;
+    -webkit-filter: drop-shadow(0 0 0.35rem #ccc);
+            filter: drop-shadow(0 0 0.35rem #ccc);
+  }
   #wheel .wheelText {
     font-size: 1.85rem;
   }
@@ -151,6 +161,18 @@ a {
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
     display: none;
+  }
+  /* wheel 區------------------------------------------ */
+  #wheel #turnTable::before {
+    border: 0.65rem solid #4725;
+    -webkit-filter: drop-shadow(0 0 0.35rem #ccc);
+            filter: drop-shadow(0 0 0.35rem #ccc);
+  }
+  #wheel .wheelText {
+    font-size: 2rem;
+  }
+  #wheel .initText {
+    font-size: 2rem;
   }
   /* raffle 區------------------------------------------ */
   #raffle #box {
@@ -451,7 +473,6 @@ a {
       -ms-flex-align: center;
           align-items: center;
   color: #fff;
-  font-size: 2rem;
   font-weight: 550;
 }
 

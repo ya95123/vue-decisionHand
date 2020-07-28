@@ -57,6 +57,12 @@ a{
 
   /* wheel 區------------------------------------------ */
   #wheel{
+    #turnTable{
+      &::before{
+        border: 0.65rem solid #4725 !important;
+        filter: drop-shadow(0 0 0.35rem #ccc) !important;
+      }
+    }
     .wheelText{
       font-size: 0.6rem !important;
     }
@@ -120,6 +126,12 @@ a{
   }
     /* wheel 區------------------------------------------ */
     #wheel{
+      #turnTable{
+        &::before{
+          border: 0.65rem solid #4725;
+          filter: drop-shadow(0 0 0.35rem #ccc);
+        }
+      }
       .wheelText{
         font-size: 1.85rem;
       }
@@ -176,6 +188,21 @@ a{
   #bottle{
     #wine{
       display: none;
+    }
+  }
+  /* wheel 區------------------------------------------ */
+  #wheel{
+    #turnTable{
+      &::before{
+        border: 0.65rem solid #4725;
+        filter: drop-shadow(0 0 0.35rem #ccc);
+      }
+    }
+    .wheelText{
+      font-size: 2rem;
+    }
+    .initText{
+      font-size: 2rem;
     }
   }
   /* raffle 區------------------------------------------ */
@@ -463,7 +490,6 @@ a{
   // background: #3336;
 
   color: #fff;
-  font-size: 2rem;
   font-weight: 550;
 }
 
