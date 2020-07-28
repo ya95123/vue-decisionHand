@@ -205,14 +205,17 @@ export default {
       // r = 各個 input 的要轉的角度，起始點為 90 度
       const r = 90
       const pie = pLength
-      // (pie/2)後，小數點無條件進位，再加 1 => 為跨足左圓的第 n 個 part
-      const dividePie = Math.ceil((pie / 2)) + 1
-      console.log(dividePie)
+      // (pie/2)後，小數點無條件進位，再加 1 => 為跨足左圓的第 n 個 part (因為 k 從 0 開始，所以不用 +1 了)
+      const dividePie = Math.ceil((pie / 2))
+      console.log('第 ' + dividePie + '+1 個分到左半圓')
+      console.log(parts)
       for (let k = 0; k < pLength; k++) {
         if (k < dividePie) {
-          // 右半圓
+          // 右半圓 (重新調整 opacity，多次使用會被蓋掉)
+          parts[k].style.opacity = '1'
           parts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
-        } else {
+          console.log(k)
+        } else if (k >= dividePie) {
           // 左半圓處理
           parts[k].style.opacity = '0'
           // parts[k].style.display = 'none'
