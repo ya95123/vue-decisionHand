@@ -89,8 +89,7 @@
         </v-card>
       </v-dialog>
 
-      <!-- TODO 內容要轉成 data+methods 搭配使用者輸入內容 大圓
-      submitInput之後改rotate屬性 把最後一個標籤刪掉，在左半圓增加最後一Part，也就是length長度去計算 -->
+      <!-- TODO 問老師為沒有同時起啟動 -->
       <!-- 一樣要把class 分開 -->
       <div id="turnTable">
         <!-- 圓 -->
