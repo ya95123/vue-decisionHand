@@ -410,32 +410,6 @@ a {
 /* wheelText 為測試每個圓內的文字 */
 /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
 .wheelText {
-  width: 100%/n;
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  -webkit-transform: translateX(-50%) rotate(180deg/n);
-          transform: translateX(-50%) rotate(180deg/n);
-  -webkit-transform-origin: bottom center;
-          transform-origin: bottom center;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #3336;
-  color: #000;
-  font-size: n rem;
-  font-weight: 550;
-}
-
-.wheelText1 {
   width: 33.33333%;
   height: 50%;
   position: absolute;
@@ -457,61 +431,58 @@ a {
           align-items: center;
   background: #3336;
   color: #fff;
-  text-shadow: 0 0.18rem 0rem #ccc;
   font-size: 2rem;
   font-weight: 550;
 }
 
-.wheelText2 {
+.text {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.init {
   width: 33.33333%;
   height: 50%;
   position: absolute;
   left: 50%;
   top: 0%;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #3336;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 550;
+  text-align: center;
+}
+
+.init-1 {
+  -webkit-transform: translateX(-50%) rotate(60deg);
+          transform: translateX(-50%) rotate(60deg);
+}
+
+.init-2 {
   -webkit-transform: translateX(-50%) rotate(180deg);
           transform: translateX(-50%) rotate(180deg);
-  -webkit-transform-origin: bottom center;
-          transform-origin: bottom center;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #3336;
-  color: #000;
-  font-size: 2rem;
-  font-weight: 550;
 }
 
-.wheelText3 {
-  width: 33.33333%;
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
+.init-3 {
   -webkit-transform: translateX(-50%) rotate(300deg);
           transform: translateX(-50%) rotate(300deg);
-  -webkit-transform-origin: bottom center;
-          transform-origin: bottom center;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #3336;
-  color: #000;
-  font-size: 2rem;
-  font-weight: 550;
 }
 
 /* raffle 區------------------------------------------ */

@@ -409,26 +409,6 @@ a{
 /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
 // DEMO
 .wheelText{
-  width: (100%/n);
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translateX(-50%) rotate((360deg/n/2)*1);
-  transform-origin: bottom center;
-  z-index: 10;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #3336;
-
-  color: #000;
-  font-size: (n)rem;
-  font-weight: 550;
-}
-
-.wheelText1{
   width: (100%/3);
   height: 50%;
   position: absolute;
@@ -444,50 +424,60 @@ a{
   background: #3336;
 
   color: #fff;
-  text-shadow: 0 0.18rem 0rem #ccc;
   font-size: 2rem;
   font-weight: 550;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // line-clamp: 2;
+  // // 強制英文斷行
+  // word-break:break-all;
 }
 
-.wheelText2{
+.text{
+  text-align: center;
+  // 設定超過兩行 就會變 '...'
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  // 強制英文斷行
+    word-break:break-all;
+}
+
+.init{
   width: (100%/3);
   height: 50%;
   position: absolute;
   left: 50%;
   top: 0%;
+  // transform: translateX(-50%) rotate((360deg/n/2)*1);
+  transform-origin: bottom center;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3336;
+
+  color: #000;
+  font-size: 2rem;
+  font-weight: 550;
+  text-align: center;
+}
+
+.init-1{
+  transform: translateX(-50%) rotate((360deg/3/2)*1);
+}
+
+.init-2{
   transform: translateX(-50%) rotate((360deg/3/2)*3);
-  transform-origin: bottom center;
-  z-index: 10;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #3336;
-
-  color: #000;
-  font-size: 2rem;
-  font-weight: 550;
 }
 
-.wheelText3{
-  width: (100%/3);
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
+.init-3{
   transform: translateX(-50%) rotate((360deg/3/2)*5);
-  transform-origin: bottom center;
-  z-index: 10;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #3336;
-
-  color: #000;
-  font-size: 2rem;
-  font-weight: 550;
 }
+
 
 /* raffle 區------------------------------------------ */
 #raffle{

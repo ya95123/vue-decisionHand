@@ -114,16 +114,16 @@
         </div>
         <!-- 文字區 -->
         <!-- TODO 要把 class 分開 就解決角度不對的問題了 -->
-        <!-- <div v-if="!rotate" class="init wheelText1">睡覺😴</div> -->
-        <div v-if="!rotate" class="init wheelText2">去游泳🏊‍♂</div>
-        <div v-if="!rotate" class="init wheelText3">看Netflex🎬</div>
+        <div v-if="!rotate" class="init init-1">睡覺😴</div>
+        <div v-if="!rotate" class="init init-2">去游泳🏊‍♂</div>
+        <div v-if="!rotate" class="init init-3">看Netflex🎬</div>
         <div
           v-for="input in inputs"
           :key="input.num"
-          class="wheelText1"
+          class="wheelText"
           :style="show"
         >
-          {{input.item}}
+          <div class="text">{{input.item}}</div>
         </div>
       </div>
     </div>
@@ -143,6 +143,7 @@ export default {
     radioSet: 'w1',
     rotate: false,
     show: 'display:none;',
+    width: '(100%/3)',
     inputs: [
       { num: '項目1', item: '睡覺😴', style: 'transform:rotate(90deg);' },
       { num: '項目2', item: '去游泳🏊‍♂', style: 'transform:rotate(210deg);' },
@@ -175,32 +176,30 @@ export default {
       // *刪掉該 input (後刪：先後順序有差)
       inputs.splice(idx, 1)
     },
-    // 在 gameSet 清除init
-    // clearInit () {
-    //   const inits = document.getElementsByClassName('init')
-    //   for (const init of inits) {
-    //     init.style.display = 'none'
-    //   }
-    // },
     submitInput () {
+      const textParts = document.getElementsByClassName('wheelText')
+      const tLength = textParts.length
       // 關掉對話框
       this.$data.dialogSet = false
       this.$data.rotate = true
       this.$data.show = 'display:flex;'
       // *rotate 部分
       // *文字區
-      const textParts = document.getElementsByClassName('wheelText1')
-      const tLength = textParts.length
-      // r = 各個 input 的要轉的角度，起始點為 90 度
-      // const r = 90
       let i = 1
       console.log(tLength)
       for (const textPart of textParts) {
+        // 寬度
+        textPart.style.width = `calc(100% / ${tLength})`
+        // 文字大小
+        tLength <= 4 ? textPart.style.fontSize = '2rem' : (tLength >= 5 && tLength <= 6) ? textPart.style.fontSize = '1.5rem' : textPart.style.fontSize = '1rem'
+        // 角度
         // console.log(i)
         textPart.style.transform = `translateX(-50%) rotate(${(360 / tLength / 2) * i}deg)`
         i += 2
       }
       // *圖形區
+      // r = 各個 input 的要轉的角度，起始點為 90 度
+      // const r = 90
     }
   }
 }
