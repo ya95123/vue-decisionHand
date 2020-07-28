@@ -3,7 +3,11 @@
     <div class="game d-flex justify-center align-center">
       <!-- 右側欄 -->
       <div class="gameSetFrame">
-        <v-icon class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
+        <v-icon class="gameSet"
+          @click.stop="dialogSet = true"
+        >
+          mdi-cog-outline
+        </v-icon>
         <v-icon class="gameSet mt-2">mdi-history</v-icon>
       </div>
       <!-- 設定對話框 -->
@@ -95,7 +99,7 @@
         >
           {{item}}
         </div> -->
-
+        <!-- 圓 -->
         <div
           v-for="(input,idx) in inputs"
           :key="idx"
@@ -109,8 +113,8 @@
           <div class="test3"></div>
         </div>
         <!-- 文字區 -->
-        <!-- TODO 要把 class 分開 -->
-        <div v-if="!rotate" class="init wheelText1">睡覺😴</div>
+        <!-- TODO 要把 class 分開 就解決角度不對的問題了 -->
+        <!-- <div v-if="!rotate" class="init wheelText1">睡覺😴</div> -->
         <div v-if="!rotate" class="init wheelText2">去游泳🏊‍♂</div>
         <div v-if="!rotate" class="init wheelText3">看Netflex🎬</div>
         <div
@@ -171,6 +175,13 @@ export default {
       // *刪掉該 input (後刪：先後順序有差)
       inputs.splice(idx, 1)
     },
+    // 在 gameSet 清除init
+    // clearInit () {
+    //   const inits = document.getElementsByClassName('init')
+    //   for (const init of inits) {
+    //     init.style.display = 'none'
+    //   }
+    // },
     submitInput () {
       // 關掉對話框
       this.$data.dialogSet = false
@@ -178,12 +189,8 @@ export default {
       this.$data.show = 'display:flex;'
       // *rotate 部分
       // *文字區
-      // const inits = document.getElementsByClassName('init')
       const textParts = document.getElementsByClassName('wheelText1')
       const tLength = textParts.length
-      // for (const init of inits) {
-      //   init.style.display = 'none'
-      // }
       // r = 各個 input 的要轉的角度，起始點為 90 度
       // const r = 90
       let i = 1
