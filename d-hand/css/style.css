@@ -39,6 +39,13 @@ a {
   #home #homeResult {
     font-size: 1rem !important;
   }
+  /* wheel 區------------------------------------------ */
+  #wheel .wheelText {
+    font-size: 0.6rem !important;
+  }
+  #wheel .initText {
+    font-size: 0.6rem !important;
+  }
   /* raffle 區------------------------------------------ */
   #raffle #box {
     width: 70% !important;
@@ -90,6 +97,13 @@ a {
     cursor: pointer;
     -webkit-transition: 2.7s;
     transition: 2.7s;
+  }
+  /* wheel 區------------------------------------------ */
+  #wheel .wheelText {
+    font-size: 1.85rem;
+  }
+  #wheel .initText {
+    font-size: 1.85rem;
   }
   /* raffle 區------------------------------------------ */
   #raffle #box {
@@ -306,6 +320,21 @@ a {
   transition: transform 3s, -webkit-transform 3s;
 }
 
+#wheel #turnTable::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 60vmin;
+  height: 60vmin;
+  border-radius: 50%;
+  border: 1.25rem solid #4725;
+  -webkit-filter: drop-shadow(0 0 0.65rem #ccc);
+          filter: drop-shadow(0 0 0.65rem #ccc);
+}
+
 #wheel .part {
   width: 50%;
   height: 100%;
@@ -346,6 +375,14 @@ a {
 }
 
 .test:nth-child(even) {
+  background: #F9e54E;
+}
+
+.leftPart:nth-child(odd) {
+  background: #E12E4B;
+}
+
+.leftPart:nth-child(even) {
   background: #F9e54E;
 }
 
@@ -413,7 +450,6 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #3336;
   color: #fff;
   font-size: 2rem;
   font-weight: 550;
@@ -432,7 +468,7 @@ a {
 
 /* 初始圓內文字設定 */
 .initText {
-  width: 33.33333%;
+  width: 39.33333%;
   height: 50%;
   position: absolute;
   left: 50%;
@@ -449,8 +485,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #3336;
-  color: #000;
+  color: #fff;
   font-size: 2rem;
   font-weight: 550;
   text-align: center;

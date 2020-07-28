@@ -54,6 +54,16 @@ a{
       font-size: 1rem !important;
     }
   }
+
+  /* wheel 區------------------------------------------ */
+  #wheel{
+    .wheelText{
+      font-size: 0.6rem !important;
+    }
+    .initText{
+      font-size: 0.6rem !important;
+    }
+  }
   /* raffle 區------------------------------------------ */
   #raffle{
     #box{
@@ -108,6 +118,15 @@ a{
       transition: 2.7s;
     }
   }
+    /* wheel 區------------------------------------------ */
+    #wheel{
+      .wheelText{
+        font-size: 1.85rem;
+      }
+      .initText{
+        font-size: 1.85rem;
+      }
+    }
   /* raffle 區------------------------------------------ */
   #raffle{
     #box{
@@ -320,6 +339,20 @@ a{
     // &:active{
     //   transform: rotate(720deg);
     // }
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      // box-sizing: border-box;
+      width: 60vmin;
+      height: 60vmin;
+      border-radius: 50%;
+      border: 1.25rem solid #4725;
+      filter: drop-shadow(0 0 0.65rem #ccc);
+    }
   }
   .part{
     width: 50%;
@@ -351,6 +384,18 @@ a{
   right: 0;
   top: 0;
   z-index: 1;
+  // border:0.26rem solid #fff9;
+  // 奇數
+  &:nth-child(odd){
+    background: $dh-red;
+  }
+  // 偶數
+  &:nth-child(even){
+  background: $dh-yellow;
+  }
+}
+
+.leftPart{
   // 奇數
   &:nth-child(odd){
     background: $dh-red;
@@ -369,6 +414,7 @@ a{
   right: 0;
   top: 0;
   z-index: 1;
+  // border:0.26rem solid #fff9;
 }
 
 .part-1{
@@ -414,7 +460,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #3336;
+  // background: #3336;
 
   color: #fff;
   font-size: 2rem;
@@ -436,7 +482,7 @@ a{
 
 /* 初始圓內文字設定 */
 .initText{
-  width: (100%/3);
+  width: (100%/3*1.18);
   height: 50%;
   position: absolute;
   left: 50%;
@@ -448,9 +494,9 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #3336;
+  // background: #3336;
 
-  color: #000;
+  color: #fff;
   font-size: 2rem;
   font-weight: 550;
   text-align: center;

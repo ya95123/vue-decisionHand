@@ -109,7 +109,13 @@
           <!-- 初始 -->
           <div v-if="!rotate" class="initPart part-3"></div>
           <!-- submit後 -->
-          <div id="lastPart" class="initPart part-3" :style="show"></div>
+          <div
+            v-for="(input,idx) in inputs"
+            :key="idx"
+            class="leftPart initPart part-3"
+            :style="show"
+          >
+          </div>
         </div>
 
         <!-- 文字區 -->
@@ -190,7 +196,7 @@ export default {
         // 文字大小
         tLength <= 4 ? textPart.style.fontSize = '2rem' : (tLength >= 5 && tLength <= 6) ? textPart.style.fontSize = '1.5rem' : textPart.style.fontSize = '1rem'
         // 寬度
-        textPart.style.width = `calc(100% / ${tLength})`
+        textPart.style.width = `calc(100% / ${tLength} * 1.18)`
         // 角度
         // console.log(i)
         textPart.style.transform = `translateX(-50%) rotate(${(360 / tLength / 2) * i}deg)`
@@ -199,44 +205,40 @@ export default {
     },
     submitPart () {
       // *圖形區
-      const parts = document.getElementsByClassName('test')
-      // const lastPart = document.getElementById('lastPart')
-      const pLength = parts.length
+      const rightParts = document.getElementsByClassName('test')
+      const leftParts = document.getElementsByClassName('leftPart')
+      const pLength = rightParts.length
       // r = 各個 input 的要轉的角度，起始點為 90 度
       const r = 90
       const pie = pLength
+      let blue = pLength
       // (pie/2)後，小數點無條件進位，再加 1 => 為跨足左圓的第 n 個 part (因為 k 從 0 開始，所以不用 +1 了)
       const dividePie = Math.ceil((pie / 2))
       console.log('第 ' + dividePie + '+1 個分到左半圓')
-      console.log(parts)
+      console.log(rightParts)
+      console.log(leftParts)
       for (let k = 0; k < pLength; k++) {
         if (k < dividePie) {
           // 右半圓 (重新調整 opacity，多次使用會被蓋掉)
-          parts[k].style.opacity = '1'
-          parts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
-          console.log(k)
+          leftParts[k].style.opacity = '0'
+          rightParts[k].style.opacity = '1'
+          rightParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
+          // console.log(k)
         } else if (k >= dividePie) {
           // 左半圓處理
-          parts[k].style.opacity = '0'
-          // parts[k].style.display = 'none'
+          rightParts[k].style.opacity = '0'
+          leftParts[k].style.opacity = '1'
+          leftParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
         }
       }
-
-      // let k = 0
-      // for (const part of parts) {
-      //   // 重置透明度
-      //   part.style.opacity = '1'
-      //   part.style.transform = `rotate(${r + (360 / pLength) * k}deg)`
-      //   k++
-      //   if (k === pLength) {
-      //     k--
-      //     lastPart.style.transform = `rotate(${r + (360 / pLength) * k}deg)`
-      //     parts[k].style.opacity = '0'
-      //   }
-      // }
-      // console.log(parts)
-      // console.log('長度' + pLength)
-      // // console.log(last)
+      // 顏色變換，使之不連續
+      if ((blue %= 2) !== 0) {
+        blue = pLength
+        console.log(blue)
+        blue--
+        leftParts[blue].style.background = '#5BBDC8'
+      }
+      console.log(blue)
     }
   }
 }
