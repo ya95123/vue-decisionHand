@@ -96,7 +96,7 @@
         <div
           v-for="(input,idx) in inputs"
           :key="idx"
-          class="test"
+          class="part"
           :style="showTable"
         >
         </div>
@@ -195,9 +195,9 @@ export default {
       // console.log(tLength)
       for (const textPart of textParts) {
         // 文字大小
-        tLength <= 4 ? textPart.style.fontSize = '2rem' : (tLength >= 5 && tLength <= 6) ? textPart.style.fontSize = '1.5rem' : textPart.style.fontSize = '1rem'
+        tLength <= 4 ? textPart.style.fontSize = '2rem' : (tLength >= 5 && tLength <= 8) ? textPart.style.fontSize = '1.5rem' : textPart.style.fontSize = '1.25rem'
         // 寬度
-        textPart.style.width = `calc(100% / ${tLength} * 1.18)`
+        textPart.style.width = `calc(100% / ${tLength} * 1.17)`
         // 角度
         // console.log(i)
         textPart.style.transform = `translateX(-50%) rotate(${(360 / tLength / 2) * i}deg)`
@@ -206,7 +206,7 @@ export default {
     },
     rPart () {
       // *圖形區
-      const rightParts = document.getElementsByClassName('test')
+      const rightParts = document.getElementsByClassName('part')
       const leftParts = document.getElementsByClassName('leftPart')
       const pLength = rightParts.length
       // r = 各個 input 的要轉的角度，起始點為 90 度
@@ -241,35 +241,6 @@ export default {
       }
       console.log(blue)
     }
-    // lPart () {
-    //   console.log('左邊')
-    //   const leftParts = document.getElementsByClassName('leftPart')
-    //   const pLength = leftParts.length
-    //   const r = 90
-    //   const pie = pLength
-    //   const dividePie = Math.ceil((pie / 2))
-    //   let blue = pLength
-    //   console.log(leftParts)
-    //   for (let k = 0; k < pLength; k++) {
-    //     if (k < dividePie) {
-    //       // 右半圓 (重新調整 opacity，多次使用會被蓋掉)
-    //       leftParts[k].style.opacity = '0'
-    //       // console.log(k)
-    //     } else if (k >= dividePie) {
-    //       // 左半圓處理
-    //       leftParts[k].style.opacity = '1'
-    //       leftParts[k].style.transform = `rotate(${r + (360 / pLength) * k}deg)`
-    //     }
-    //   }
-    //   // 顏色變換，使之不連續
-    //   if ((blue %= 2) !== 0) {
-    //     blue = pLength
-    //     console.log(blue)
-    //     blue--
-    //     leftParts[blue].style.background = '#5BBDC8'
-    //   }
-    //   console.log(blue)
-    // }
   }
 }
 </script>

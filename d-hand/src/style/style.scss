@@ -60,7 +60,7 @@ a{
     #turnTable{
       &::before{
         border: 0.65rem solid #6636 !important;
-        filter: drop-shadow(0 0 0.25rem #222) !important;
+        filter: drop-shadow(0 0 0.015rem #222) !important;
       }
     }
     .wheelText{
@@ -350,7 +350,7 @@ a{
     }
   }
 
-/* TODO wheel 區要結合到js裡-------------------------------- */
+/* wheel 區結合到js裡-------------------------------- */
 #wheel{
   #turnTable{
     background: #ccc9;
@@ -358,9 +358,6 @@ a{
     height: 60vmin;
     border-radius: 50%;
     position: relative;
-    // left: 50%;
-    // top: 50%;
-    // transform: translate(-50%,-50%);
     overflow: hidden;
     transition: transform 3s;
     // &:active{
@@ -381,15 +378,21 @@ a{
       filter: drop-shadow(0 0 0.65rem #222);
       animation: wheelChange infinite 8s;
     }
+
   }
   .part{
-    width: 50%;
-    height: 100%;
+    /* 初始圓 pie 設定 */
+    /* test 為測試每個圓的設定 */
+    width: 100%;
+    height: 50%;
+    transform: rotate(90deg);
+    transform-origin: 50% 100%;
+    // background: $dh-yellow;
     position: absolute;
     right: 0;
     top: 0;
-    transform: rotate(0deg) skewY(0deg);
-    transform-origin: 0% 100%;
+    z-index: 1;
+    // border:0.26rem solid #fff9;
     // 奇數
     &:nth-child(odd){
       background: $dh-red;
@@ -399,147 +402,125 @@ a{
     background: $dh-yellow;
     }
   }
-}
-/* 初始圓 pie 設定 */
-/* test 為測試每個圓的設定 */
-.test{
-  width: 100%;
-  height: 50%;
-  transform: rotate(90deg);
-  transform-origin: 50% 100%;
-  // background: $dh-yellow;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  // border:0.26rem solid #fff9;
-  // 奇數
-  &:nth-child(odd){
+  
+  .leftPart{
+    // 奇數
+    &:nth-child(odd){
+      background: $dh-red;
+    }
+    // 偶數
+    &:nth-child(even){
+    background: $dh-yellow;
+    }
+  }
+  
+  .initPart{
+    width: 100%;
+    height: 50%;
+    transform-origin: 50% 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    // border:0.26rem solid #fff9;
+  }
+  
+  .part-1{
+    transform: rotate(90deg);
     background: $dh-red;
   }
-  // 偶數
-  &:nth-child(even){
-  background: $dh-yellow;
+  
+  .part-2{
+    transform: rotate(90deg + (360/3));
+    background: $dh-yellow;
   }
-}
-
-.leftPart{
-  // 奇數
-  &:nth-child(odd){
-    background: $dh-red;
+  
+  .part-3{
+    width: 200%;
+    transform: rotate(90deg + (360/3)*2);
+    background: $dh-blue;
+    right: -100%;
   }
-  // 偶數
-  &:nth-child(even){
-  background: $dh-yellow;
+  
+  .halfRound{
+    /* 左半圓來切掉多餘部分 */
+    display: inline-block;
+    background: rgb(178, 255, 107);
+    width: 30vmin;
+    height: 60vmin;
+    position: relative;
+    overflow: hidden;
   }
-}
-
-.initPart{
-  width: 100%;
-  height: 50%;
-  transform-origin: 50% 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  // border:0.26rem solid #fff9;
-}
-
-.part-1{
-  transform: rotate(90deg);
-  background: $dh-red;
-}
-
-.part-2{
-  transform: rotate(90deg + (360/3));
-  background: $dh-yellow;
-}
-
-.part-3{
-  width: 200%;
-  transform: rotate(90deg + (360/3)*2);
-  background: $dh-blue;
-  right: -100%;
-}
-
-/* 左半圓來切掉多餘部分 */
-.halfRound{
-  display: inline-block;
-  background: rgb(178, 255, 107);
-  width: 30vmin;
-  height: 60vmin;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 轉盤文字--- */
-/* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
-/* wheelText 為每個文字的專屬一片 pie */
-.wheelText{
-  width: (100%/3);
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translateX(-50%) rotate((360deg/3/2)*1);
-  transform-origin: bottom center;
-  z-index: 10;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // background: #3336;
-
-  color: #fff;
-  font-weight: 550;
-}
-
-/* 文字 */
-.text{
-  text-align: center;
-  // 設定超過兩行 就會變 '...'
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  // 強制英文斷行
-    word-break:break-all;
-}
-
-/* 初始圓內文字設定 */
-.initText{
-  width: (100%/3*1.18);
-  height: 50%;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  // transform: translateX(-50%) rotate((360deg/n/2)*1);
-  transform-origin: bottom center;
-  z-index: 10;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // background: #3336;
-
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 550;
-  text-align: center;
-}
-
-.text-1{
-  transform: translateX(-50%) rotate((360deg/3/2)*1);
-}
-
-.text-2{
-  transform: translateX(-50%) rotate((360deg/3/2)*3);
-}
-
-.text-3{
-  transform: translateX(-50%) rotate((360deg/3/2)*5);
-}
+  
+  .wheelText{
+    /* 轉盤文字--- */
+    /* 限制 最多12個項目 字型大小 4個↓ 2rem 5-6個 1.5rem 7個↑ 1rem */
+    /* wheelText 為每個文字的專屬一片 pie */
+    width: (100%/3);
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%) rotate((360deg/3/2)*1);
+    transform-origin: bottom center;
+    z-index: 10;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: #3336;
+  
+    color: #fff;
+    font-weight: 550;
+  }
+  
+  .text{
+    /* 文字 */
+    text-align: center;
+    // 設定超過兩行 就會變 '...'
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    // 強制英文斷行
+      word-break:break-all;
+  }
+  
+  .initText{
+    /* 初始圓內文字設定 */
+    width: (100%/3*1.18);
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    // transform: translateX(-50%) rotate((360deg/n/2)*1);
+    transform-origin: bottom center;
+    z-index: 10;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: #3336;
+  
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 550;
+    text-align: center;
+  }
+  
+  .text-1{
+    transform: translateX(-50%) rotate((360deg/3/2)*1);
+  }
+  
+  .text-2{
+    transform: translateX(-50%) rotate((360deg/3/2)*3);
+  }
+  
+  .text-3{
+    transform: translateX(-50%) rotate((360deg/3/2)*5);
+  }
+  }
 
 /* raffle 區------------------------------------------ */
 #raffle{
