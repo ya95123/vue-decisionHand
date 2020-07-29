@@ -86,6 +86,8 @@
       <!-- 箱子 class shake-constant shake-hard -->
       <!-- TODO 抽出來時，做有手遮90%效果，製造刺激感(有時間就做) or 像魔術一樣用吸的上來 -->
       <div id="box" class="d-flex justify-center">
+        <!-- 盒子框 -->
+        <div id="border">
         <!-- TODO 紙條：開始後做翻面效果，好後做 shake + 紙條飄移 + (紙箱變色) -->
         <div
           v-for="(input,idx) in inputs"
@@ -94,6 +96,7 @@
           :style="input.position"
         >
           <span class="text">{{input.item}}</span>
+        </div>
         </div>
       </div>
     </div>
@@ -141,7 +144,7 @@ export default {
         item: '右上角',
         position: {
           transform: 'skew(-5deg,-5deg) rotate(-280deg)',
-          left: '68%',
+          left: '65%',
           bottom: '2%',
           background: '#5BBDC8'
         }
@@ -188,8 +191,8 @@ export default {
         // style 設定
         input.position = {
           transform: `skew(-${rand(5, 15)}deg,-${rand(0, 15)}deg) rotate(-${rand(45, 270)}deg)`,
-          left: `${rand(10, 75)}%`,
-          bottom: `${rand(1, 20)}%`,
+          left: `${rand(3, 77)}%`,
+          bottom: `${rand(0, 20)}%`,
           background: `${bgColor}`
         }
         i++

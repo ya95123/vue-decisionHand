@@ -62,6 +62,10 @@ a {
     content: '';
     width: 60% !important;
   }
+  #raffle .paper {
+    width: 26% !important;
+    height: 25% !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -126,6 +130,10 @@ a {
     content: '';
     width: 65%;
   }
+  #raffle .paper {
+    width: 22%;
+    height: 28%;
+  }
 }
 
 /* 電腦尺寸以上 */
@@ -185,6 +193,10 @@ a {
     content: '';
     width: 65%;
   }
+  #raffle .paper {
+    width: 15%;
+    height: 35%;
+  }
 }
 
 /* 通用各尺寸 */
@@ -230,8 +242,6 @@ a {
 #app #top {
   width: 100%;
   /* 讓 top 浮起來 */
-  position: absolute;
-  top: 0;
 }
 
 #app #top div {
@@ -510,12 +520,9 @@ a {
 
 /* raffle 區------------------------------------------ */
 #raffle #box {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
   position: absolute;
   bottom: 10%;
   border-color: #e3e3e3 !important;
-  z-index: 10;
 }
 
 #raffle #box::before {
@@ -528,11 +535,30 @@ a {
   background: #fff;
 }
 
+#raffle #box::after {
+  content: '';
+  width: 100%;
+  height: 12%;
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  border-radius: 0.7rem;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#7661), to(transparent));
+  background-image: linear-gradient(to top, #7661, transparent);
+}
+
+#raffle #box #border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 #raffle .paper {
   /* TODO 開始後做翻面效果 */
-  width: 15%;
-  height: 35%;
   position: absolute;
+  z-index: 1;
   bottom: 5%;
   border-radius: 0.1rem;
   opacity: 0.88;

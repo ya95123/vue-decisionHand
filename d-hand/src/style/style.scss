@@ -82,6 +82,10 @@ a{
         width: 60% !important;
       }
     }
+    .paper{
+      width: 26% !important;
+      height: 25% !important;
+    }
   }
 }
 @media (max-width: 1024px) { 
@@ -151,6 +155,10 @@ a{
         width: 65%;
       }
     }
+    .paper{
+      width: 22%;
+      height: 28%;
+    }
   }
 }
 
@@ -217,6 +225,10 @@ a{
         width: 65%;
       }
     }
+    .paper{
+      width: 15%;
+      height: 35%;
+    }
   }
 }
 
@@ -265,8 +277,8 @@ a{
   #top{
     width: 100%;
     /* 讓 top 浮起來 */
-    position: absolute;
-    top: 0;
+    // position: absolute;
+    // top: 0;
     div{
       height: 100%;
       padding: 0;
@@ -523,11 +535,9 @@ a{
 /* raffle 區------------------------------------------ */
 #raffle{
   #box{
-    box-sizing: content-box;
     position: absolute;
     bottom: 10%;
     border-color: #e3e3e3 !important;
-    z-index: 10;
     // overflow: hidden;
     &::before{
       content: '';
@@ -538,13 +548,31 @@ a{
       height: 15%;
       background: #fff;
     }
+    &::after{
+      content: '';
+      width: 100%;
+      height: 12%;
+      display: block;
+      position: absolute;
+      bottom: 0%;
+      z-index: 0;
+      border-radius: 0.7rem;
+      background-image: linear-gradient(to top,#7661 ,transparent);
+    }
+    #border{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
   }
 
   .paper{
     /* TODO 開始後做翻面效果 */
-    width: 15%;
-    height: 35%;
+    // width: 15%;
+    // height: 35%;
     position: absolute;
+    z-index: 1;
     bottom: 5%;
     // max X -(5-20) Y -(0-20)
     // transform: skew(-20deg,-20deg) rotate(-60deg);
