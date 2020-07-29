@@ -54,7 +54,7 @@
                 >
                   <v-icon
                     class="inputDel"
-                    @click="deletInput(idx);rPart()"
+                    @click="deletInput(idx);submitInput()"
                   >
                     mdi-delete-forever
                   </v-icon>
@@ -69,7 +69,7 @@
               </div>
               <v-icon
                 class="inputAdd"
-                @click="addInput();rPart()"
+                @click="addInput();submitInput()"
               >
                 mdi-plus-circle-outline
               </v-icon>
@@ -81,7 +81,7 @@
               color="green darken-1"
               style="height:30px;font-size:0.95rem;"
               text
-              @click="rPart();submitText()"
+              @click="submitInput();submitText()"
             >
               確定
             </v-btn>
@@ -204,7 +204,7 @@ export default {
         i += 2
       }
     },
-    rPart () {
+    submitInput () {
       // *圖形區
       const rightParts = document.getElementsByClassName('part')
       const leftParts = document.getElementsByClassName('leftPart')
