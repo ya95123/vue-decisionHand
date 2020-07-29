@@ -351,6 +351,9 @@ a{
       color: $dh-red;
     }
   }
+  .start{
+    animation: startColor 1.5s infinite;
+  }
 }
 /* home 區------------------------------------------ */
   #home{
@@ -593,6 +596,15 @@ a{
   }
   100%{
     filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+  }
+}
+
+@keyframes startColor{
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
   }
 }
 

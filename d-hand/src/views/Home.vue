@@ -5,6 +5,7 @@
       <div class="gameSetFrame">
         <v-icon class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
         <v-icon class="gameSet mt-2">mdi-history</v-icon>
+        <v-icon class="start gameSet mt-2">mdi-alpha-s-circle</v-icon>
       </div>
       <!-- 設定對話框 -->
       <v-dialog
