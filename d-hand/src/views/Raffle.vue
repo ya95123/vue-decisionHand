@@ -96,7 +96,6 @@
           <span class="text">{{input.item}}</span>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -121,9 +120,9 @@ export default {
         num: '紙條1',
         item: '😊',
         position: {
-          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
-          left: `${rand(18, 68)}%`,
-          bottom: `${rand(1, 20)}%`,
+          transform: 'skew(-20deg,-10deg) rotate(-270deg)',
+          left: '15%',
+          bottom: '2%',
           background: '#E12E4B'
         }
       },
@@ -131,9 +130,9 @@ export default {
         num: '紙條2',
         item: '請點選',
         position: {
-          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
-          left: `${rand(18, 68)}%`,
-          bottom: `${rand(1, 20)}%`,
+          transform: 'skew(-10deg,-10deg) rotate(-60deg)',
+          left: '42%',
+          bottom: '2%',
           background: '#F9e54E'
         }
       },
@@ -141,9 +140,9 @@ export default {
         num: '紙條3',
         item: '右上角',
         position: {
-          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
-          left: `${rand(18, 68)}%`,
-          bottom: `${rand(1, 20)}%`,
+          transform: 'skew(-5deg,-5deg) rotate(-280deg)',
+          left: '68%',
+          bottom: '2%',
           background: '#5BBDC8'
         }
       }
@@ -188,8 +187,8 @@ export default {
         k === 0 ? bgColor = '#E12E4B' : k === 1 ? bgColor = '#F9e54E' : bgColor = '#5BBDC8'
         // style 設定
         input.position = {
-          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
-          left: `${rand(18, 68)}%`,
+          transform: `skew(-${rand(5, 15)}deg,-${rand(0, 15)}deg) rotate(-${rand(45, 270)}deg)`,
+          left: `${rand(10, 75)}%`,
           bottom: `${rand(1, 20)}%`,
           background: `${bgColor}`
         }

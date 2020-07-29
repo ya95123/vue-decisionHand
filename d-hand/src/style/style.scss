@@ -523,19 +523,23 @@ a{
 /* raffle 區------------------------------------------ */
 #raffle{
   #box{
+    box-sizing: content-box;
     position: absolute;
     bottom: 10%;
     border-color: #e3e3e3 !important;
+    z-index: 10;
+    // overflow: hidden;
     &::before{
       content: '';
       display: block;
       position: absolute;
+      z-index: 10;
       top: -10%;
       height: 15%;
       background: #fff;
     }
   }
-  
+
   .paper{
     /* TODO 開始後做翻面效果 */
     width: 15%;

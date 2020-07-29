@@ -510,15 +510,19 @@ a {
 
 /* raffle 區------------------------------------------ */
 #raffle #box {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   position: absolute;
   bottom: 10%;
   border-color: #e3e3e3 !important;
+  z-index: 10;
 }
 
 #raffle #box::before {
   content: '';
   display: block;
   position: absolute;
+  z-index: 10;
   top: -10%;
   height: 15%;
   background: #fff;
