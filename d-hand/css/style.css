@@ -510,10 +510,6 @@ a {
 }
 
 /* raffle 區------------------------------------------ */
-#raffle {
-  /* TODO 開始後做翻面效果 */
-}
-
 #raffle #box {
   position: absolute;
   bottom: 10%;
@@ -530,6 +526,7 @@ a {
 }
 
 #raffle .paper {
+  /* TODO 開始後做翻面效果 */
   width: 15%;
   height: 35%;
   position: absolute;
