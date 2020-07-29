@@ -250,6 +250,17 @@ a{
       cursor: pointer;
     }
   }
+  .text{
+    text-align: center;
+    // 設定超過三行 就會變 '...'
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    // 強制英文斷行
+      word-break:break-all;
+  }
 
   #top{
     width: 100%;
@@ -474,19 +485,6 @@ a{
     font-weight: 550;
   }
   
-  .text{
-    /* 文字 */
-    text-align: center;
-    // 設定超過兩行 就會變 '...'
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    // 強制英文斷行
-      word-break:break-all;
-  }
-  
   .initText{
     /* 初始圓內文字設定 */
     width: (100%/3*1.18);
@@ -544,14 +542,15 @@ a{
     height: 35%;
     position: absolute;
     bottom: 5%;
-    // max X (0-20) Y(0-20)
-    transform: skew(-20deg,-20deg) rotate(-60deg);
-    background: #5BBDC8;
+    // max X -(5-20) Y -(0-20)
+    // transform: skew(-20deg,-20deg) rotate(-60deg);
+    // background: #5BBDC8;
     border-radius: 0.1rem;
-    opacity: 0.6;
+    opacity: 0.88;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 550;
   }
 }
 

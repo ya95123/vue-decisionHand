@@ -217,6 +217,16 @@ a {
   cursor: pointer;
 }
 
+#app .text {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
 #app #top {
   width: 100%;
   /* 讓 top 浮起來 */
@@ -458,17 +468,6 @@ a {
   font-weight: 550;
 }
 
-#wheel .text {
-  /* 文字 */
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-}
-
 #wheel .initText {
   /* 初始圓內文字設定 */
   width: 39.33333%;
@@ -531,11 +530,8 @@ a {
   height: 35%;
   position: absolute;
   bottom: 5%;
-  -webkit-transform: skew(-20deg, -20deg) rotate(-60deg);
-          transform: skew(-20deg, -20deg) rotate(-60deg);
-  background: #5BBDC8;
   border-radius: 0.1rem;
-  opacity: 0.6;
+  opacity: 0.88;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -545,6 +541,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-weight: 550;
 }
 
 /* @keframes 動畫區------------------------------------ */

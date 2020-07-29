@@ -75,7 +75,7 @@
               color="green darken-1"
               style="height:30px;font-size:0.95rem;"
               text
-              @click="dialogSet = false"
+              @click="submitInput"
             >
               確定
             </v-btn>
@@ -84,11 +84,17 @@
       </v-dialog>
 
       <!-- 箱子 class shake-constant shake-hard -->
-      <!-- TODO 抽出來時，做有手遮90%效果，製造刺激感(有時間就做) -->
+      <!-- TODO 抽出來時，做有手遮90%效果，製造刺激感(有時間就做) or 像魔術一樣用吸的上來 -->
       <div id="box" class="d-flex justify-center">
         <!-- TODO 紙條：開始後做翻面效果，好後做 shake + 紙條飄移 + (紙箱變色) -->
-        <div class="paper">...</div>
-        <div class="paper" style="left:30%;">321</div>
+        <div
+          v-for="(input,idx) in inputs"
+          :key="idx"
+          class="paper"
+          :style="input.position"
+        >
+          <span class="text">{{input.item}}</span>
+        </div>
       </div>
 
     </div>
@@ -100,6 +106,10 @@
 const number = (str) => {
   return str.replace(/\D/g, '')
 }
+// 區間隨機數
+const rand = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min)
+}
 export default {
   name: 'Raffle',
   data: () => ({
@@ -107,9 +117,36 @@ export default {
     // 預設選擇方式
     radioSet: 'w2',
     inputs: [
-      { num: '紙條1', item: '' },
-      { num: '紙條2', item: '' },
-      { num: '紙條3', item: '' }
+      {
+        num: '紙條1',
+        item: '😊',
+        position: {
+          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
+          left: `${rand(18, 68)}%`,
+          bottom: `${rand(1, 20)}%`,
+          background: '#E12E4B'
+        }
+      },
+      {
+        num: '紙條2',
+        item: '請點選',
+        position: {
+          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
+          left: `${rand(18, 68)}%`,
+          bottom: `${rand(1, 20)}%`,
+          background: '#F9e54E'
+        }
+      },
+      {
+        num: '紙條3',
+        item: '右上角',
+        position: {
+          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
+          left: `${rand(18, 68)}%`,
+          bottom: `${rand(1, 20)}%`,
+          background: '#5BBDC8'
+        }
+      }
     ]
   }),
   methods: {
@@ -135,6 +172,29 @@ export default {
       }
       // *刪掉該 input (後刪：先後順序有差)
       inputs.splice(idx, 1)
+    },
+    submitInput () {
+      this.$data.dialogSet = false
+      const inputs = this.$data.inputs
+      let i = 0
+      let j = i
+      let k = j
+      let bgColor = ''
+      for (const input of inputs) {
+        // 重置 k
+        j = i
+        k = (j %= 3)
+        // 判斷顏色
+        k === 0 ? bgColor = '#E12E4B' : k === 1 ? bgColor = '#F9e54E' : bgColor = '#5BBDC8'
+        // style 設定
+        input.position = {
+          transform: `skew(-${rand(5, 20)}deg,-${rand(0, 20)}deg) rotate(-${rand(45, 270)}deg)`,
+          left: `${rand(18, 68)}%`,
+          bottom: `${rand(1, 20)}%`,
+          background: `${bgColor}`
+        }
+        i++
+      }
     }
   }
 }
