@@ -327,9 +327,25 @@ a {
   color: #E12E4B;
 }
 
-#home .start, #wheel .start, #raffle .start, #bottle .start, #group .start {
+#home .startSmall, #wheel .startSmall, #raffle .startSmall, #bottle .startSmall, #group .startSmall {
   -webkit-animation: startColor 1.5s infinite;
           animation: startColor 1.5s infinite;
+  display: none;
+}
+
+#home .startBig, #wheel .startBig, #raffle .startBig, #bottle .startBig, #group .startBig {
+  width: 6rem;
+  height: 6rem;
+  background: #E12E4B;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 18%;
+  right: 23%;
+  -webkit-transform: skew(0deg, -50deg);
+          transform: skew(0deg, -50deg);
 }
 
 /* home 區------------------------------------------ */
@@ -607,10 +623,18 @@ a {
   0% {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.22);
+            transform: scale(1.22);
   }
   100% {
     -webkit-filter: hue-rotate(360deg);
             filter: hue-rotate(360deg);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -618,9 +642,17 @@ a {
   0% {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.22);
+            transform: scale(1.22);
   }
   100% {
     -webkit-filter: hue-rotate(360deg);
             filter: hue-rotate(360deg);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }

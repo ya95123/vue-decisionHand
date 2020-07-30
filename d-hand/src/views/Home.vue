@@ -5,7 +5,7 @@
       <div class="gameSetFrame">
         <v-icon class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
         <v-icon class="gameSet mt-2">mdi-history</v-icon>
-        <v-icon class="start gameSet mt-2">mdi-alpha-s-circle</v-icon>
+        <v-icon class="startSmall gameSet mt-2">mdi-alpha-s-circle</v-icon>
       </div>
       <!-- 設定對話框 -->
       <v-dialog
@@ -73,6 +73,9 @@
         <p class="dhred--text">贏：{{win}}</p>
         <p class="success--text">輸：{{lose}}</p>
       </div>
+      <!-- 開始鍵 -->
+      <!-- <v-btn outlined large color="dhblue" class="startBig">START</v-btn> -->
+      <div class="startBig d-flex justify-center align-center">GO</div>
     </div>
   </div>
 </template>

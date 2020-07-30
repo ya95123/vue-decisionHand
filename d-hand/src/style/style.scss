@@ -351,8 +351,34 @@ a{
       color: $dh-red;
     }
   }
-  .start{
+  .startSmall{
     animation: startColor 1.5s infinite;
+    display: none;
+  }
+  .startBig{
+    // height: 4rem;
+    // position: absolute;
+    // right:0 ;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // z-index: 10;
+    // font-style: italic;
+    // font-weight: 550;
+    // font-size: 3rem;
+    // border-width: 0.2rem;
+    // border-radius: 1.22rem;
+    // animation: startColor 1.25s infinite;
+    width: 6rem;
+    height: 6rem;
+    background: $dh-red;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;
+    position: absolute;
+    bottom: 18%;
+    right: 23%;
+    transform: skew(0deg,-50deg);
   }
 }
 /* home 區------------------------------------------ */
@@ -602,9 +628,26 @@ a{
 @keyframes startColor{
   0%{
     filter: hue-rotate(0deg);
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.22);
   }
   100%{
     filter: hue-rotate(360deg);
+    transform: scale(1);
   }
 }
+
+// @keyframes jumping{
+//   0%{
+//     transform: scale(1);
+//   }
+//   50%{
+//     transform: scale(1.22);
+//   }
+//   100%{
+//     transform: scale(1);
+//   }
+// }
 
