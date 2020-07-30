@@ -242,6 +242,8 @@ a {
 #app #top {
   width: 100%;
   /* 讓 top 浮起來 */
+  position: absolute;
+  top: 0;
 }
 
 #app #top div {

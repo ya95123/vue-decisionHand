@@ -3,7 +3,7 @@
     <!-- 電腦尺寸 NavT -->
     <v-bottom-navigation
       id="top"
-      class="elevation-6 py-2"
+      class="elevation-0 py-2"
       background-color="transparent"
       height="calc(64px + 16px)"
       v-model="navT"
