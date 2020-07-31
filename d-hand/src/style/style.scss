@@ -51,15 +51,10 @@ a{
       width: 4rem !important;
       height: 4rem !important;
       font-size: 2rem !important;
-      bottom: 27% !important;
-      transform: translateX(-50%);
       box-shadow:0 0.36rem 0 #be263f,0 0.55rem #333 !important;
       border: 0.091rem solid #df5d73 !important;
-      // 小尺寸要0.12s
-      transition: 0.12s !important;
       /* 點擊效果 */
       &:active{
-        bottom: calc(27% - 0.9rem) !important;
         box-shadow:0 0.12rem 0 #333 !important;
         filter: drop-shadow(0 0 0.8rem #f66) !important;
       }
@@ -69,6 +64,13 @@ a{
   #home{
     #homeResult{
       font-size: 1rem !important;
+    }
+    .startBig{
+      bottom: 27% !important;
+      /* 點擊效果 */
+      &:active{
+        bottom: calc(27% - 0.9rem) !important;
+      }
     }
   }
 
@@ -131,16 +133,12 @@ a{
       width: 6rem;
       height: 6rem;
       font-size: 3rem;
-      bottom: 32%;
-      left: 50%;
-      transform: translateX(-50%);
       box-shadow:0 0.56rem 0 #be263f,0 0.75rem #333;
       border: 0.1rem solid #df5d73;
       // 小尺寸要0.12s
       transition: 0.12s;
       /* 點擊效果 */
       &:active{
-        bottom: calc(32.5% - 1rem);
         box-shadow:0 0.12rem 0 #333;
         filter: drop-shadow(0 0 1.2rem #f66);
       }
@@ -153,6 +151,15 @@ a{
     }
     .hand{
       font-size: 25vmin;
+    }
+    .startBig{
+      bottom: 32%;
+      left: 50%;
+      transform: translateX(-50%);
+      /* 點擊效果 */
+      &:active{
+        bottom: calc(32.5% - 1rem);
+      }
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
@@ -221,14 +228,11 @@ a{
       width: 6rem;
       height: 6rem;
       font-size: 3rem;
-      bottom: 18%;
-      right: 22%;
       box-shadow:0 0.56rem 0 #be263f,0 0.75rem #333;
       border: 0.1rem solid #df5d73;
       transition: 0.15s;
       /* 點擊效果 */
       &:active{
-        bottom: calc(18% - 1rem);
         box-shadow:0 0.12rem 0 #333;
         filter: drop-shadow(0 0 1.2rem #f66);
       }
@@ -241,6 +245,14 @@ a{
     }
     .hand{
       font-size: 20vmin;
+    }
+    .startBig{
+      bottom: 18%;
+      right: 22%;
+      /* 點擊效果 */
+      &:active{
+        bottom: calc(18% - 1rem);
+      }
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */

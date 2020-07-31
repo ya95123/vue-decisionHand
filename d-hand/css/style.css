@@ -39,18 +39,12 @@ a {
     width: 4rem !important;
     height: 4rem !important;
     font-size: 2rem !important;
-    bottom: 27% !important;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
     -webkit-box-shadow: 0 0.36rem 0 #be263f,0 0.55rem #333 !important;
             box-shadow: 0 0.36rem 0 #be263f,0 0.55rem #333 !important;
     border: 0.091rem solid #df5d73 !important;
-    -webkit-transition: 0.12s !important;
-    transition: 0.12s !important;
     /* 點擊效果 */
   }
   #home .startBig:active, #wheel .startBig:active, #raffle .startBig:active, #bottle .startBig:active, #group .startBig:active {
-    bottom: calc(27% - 0.9rem) !important;
     -webkit-box-shadow: 0 0.12rem 0 #333 !important;
             box-shadow: 0 0.12rem 0 #333 !important;
     -webkit-filter: drop-shadow(0 0 0.8rem #f66) !important;
@@ -59,6 +53,13 @@ a {
   /* home 區------------------------------------------ */
   #home #homeResult {
     font-size: 1rem !important;
+  }
+  #home .startBig {
+    bottom: 27% !important;
+    /* 點擊效果 */
+  }
+  #home .startBig:active {
+    bottom: calc(27% - 0.9rem) !important;
   }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
@@ -118,10 +119,6 @@ a {
     width: 6rem;
     height: 6rem;
     font-size: 3rem;
-    bottom: 32%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
     -webkit-box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
             box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
     border: 0.1rem solid #df5d73;
@@ -130,7 +127,6 @@ a {
     /* 點擊效果 */
   }
   #home .startBig:active, #wheel .startBig:active, #raffle .startBig:active, #bottle .startBig:active, #group .startBig:active {
-    bottom: calc(32.5% - 1rem);
     -webkit-box-shadow: 0 0.12rem 0 #333;
             box-shadow: 0 0.12rem 0 #333;
     -webkit-filter: drop-shadow(0 0 1.2rem #f66);
@@ -142,6 +138,16 @@ a {
   }
   #home .hand {
     font-size: 25vmin;
+  }
+  #home .startBig {
+    bottom: 32%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    /* 點擊效果 */
+  }
+  #home .startBig:active {
+    bottom: calc(32.5% - 1rem);
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -206,8 +212,6 @@ a {
     width: 6rem;
     height: 6rem;
     font-size: 3rem;
-    bottom: 18%;
-    right: 22%;
     -webkit-box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
             box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
     border: 0.1rem solid #df5d73;
@@ -216,7 +220,6 @@ a {
     /* 點擊效果 */
   }
   #home .startBig:active, #wheel .startBig:active, #raffle .startBig:active, #bottle .startBig:active, #group .startBig:active {
-    bottom: calc(18% - 1rem);
     -webkit-box-shadow: 0 0.12rem 0 #333;
             box-shadow: 0 0.12rem 0 #333;
     -webkit-filter: drop-shadow(0 0 1.2rem #f66);
@@ -228,6 +231,14 @@ a {
   }
   #home .hand {
     font-size: 20vmin;
+  }
+  #home .startBig {
+    bottom: 18%;
+    right: 22%;
+    /* 點擊效果 */
+  }
+  #home .startBig:active {
+    bottom: calc(18% - 1rem);
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {

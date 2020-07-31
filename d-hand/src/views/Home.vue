@@ -74,7 +74,6 @@
         <p class="success--text">輸：{{lose}}</p>
       </div>
       <!-- 開始鍵 -->
-      <!-- <v-btn outlined large color="dhblue" class="startBig">START</v-btn> -->
       <div class="startBig d-flex justify-center align-center">GO</div>
     </div>
   </div>
