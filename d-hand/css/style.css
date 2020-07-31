@@ -420,6 +420,7 @@ a {
   background: #fff;
   border-radius: 0.5rem;
   position: relative;
+  overflow: hidden;
 }
 
 #home .gameSetFrame, #wheel .gameSetFrame, #raffle .gameSetFrame, #bottle .gameSetFrame, #group .gameSetFrame {
@@ -464,10 +465,43 @@ a {
           user-select: none;
 }
 
+#home .mask, #wheel .mask, #raffle .mask, #bottle .mask, #group .mask {
+  width: 100vw;
+  height: 100vh;
+  background: #7752;
+  position: absolute;
+  z-index: 0;
+  display: none;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 /* home 區------------------------------------------ */
 #home #topHand {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+  position: absolute;
+  -webkit-transition: 1s;
+  transition: 1s;
+  top: 0;
+}
+
+#home #bottomHand {
+  position: absolute;
+  -webkit-transition: 1s;
+  transition: 1s;
+  bottom: 0;
+}
+
+#home .a-Top {
+  -webkit-animation: guessTop 0.35s infinite alternate;
+          animation: guessTop 0.35s infinite alternate;
+}
+
+#home .a-Bottom {
+  -webkit-animation: guessBottom 0.35s infinite alternate;
+          animation: guessBottom 0.35s infinite alternate;
 }
 
 #home #homeResult {
@@ -485,6 +519,39 @@ a {
 #home .hand {
   position: absolute;
   z-index: 1;
+}
+
+#home .chooseFrame {
+  width: 55%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: none;
+}
+
+#home .chooseFrame .choose {
+  width: 10rem;
+  height: 10rem;
+  font-size: 5rem;
+  border-radius: 50%;
+  background: #58d0dbcc;
+  cursor: pointer;
+  -webkit-animation: choose 0.95s infinite;
+          animation: choose 0.95s infinite;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#home .chooseFrame .choose:hover {
+  -webkit-box-shadow: 0 0 1.3rem #F9e54E99;
+          box-shadow: 0 0 1.3rem #F9e54E99;
+  -webkit-filter: brightness(1.02) drop-shadow(0 0 1.3rem #fff9);
+          filter: brightness(1.02) drop-shadow(0 0 1.3rem #fff9);
 }
 
 /* wheel 區結合到js裡-------------------------------- */
@@ -770,5 +837,79 @@ a {
             filter: hue-rotate(360deg);
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@-webkit-keyframes choose {
+  0% {
+    -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+  }
+}
+
+@keyframes choose {
+  0% {
+    -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+  }
+}
+
+@-webkit-keyframes guessTop {
+  0% {
+    -webkit-transform: rotate(190deg);
+            transform: rotate(190deg);
+  }
+  100% {
+    -webkit-transform: rotate(167deg);
+            transform: rotate(167deg);
+  }
+}
+
+@keyframes guessTop {
+  0% {
+    -webkit-transform: rotate(190deg);
+            transform: rotate(190deg);
+  }
+  100% {
+    -webkit-transform: rotate(167deg);
+            transform: rotate(167deg);
+  }
+}
+
+@-webkit-keyframes guessBottom {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-13deg);
+            transform: rotate(-13deg);
+  }
+}
+
+@keyframes guessBottom {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-13deg);
+            transform: rotate(-13deg);
   }
 }

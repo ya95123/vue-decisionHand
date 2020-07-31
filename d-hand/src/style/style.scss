@@ -67,6 +67,7 @@ a{
     }
     .startBig{
       bottom: 27% !important;
+      // pointer-events: none;
       /* 點擊效果 */
       &:active{
         bottom: calc(27% - 0.9rem) !important;
@@ -436,6 +437,7 @@ a{
     background: #fff;
     border-radius: 0.5rem;
     position: relative;
+    overflow: hidden;
     // border: 0.1rem solid black;
   }
   .gameSetFrame{
@@ -469,12 +471,41 @@ a{
     cursor: pointer;
     user-select: none;
   }
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    background: #7752;
+    position: absolute;
+    z-index: 0;
+    display: none;
+    opacity: 0;
+    transition: 0.3s;
+  }
 }
 /* home 區------------------------------------------ */
   #home{
     #topHand{
-      transform: rotate(180deg); 
+      transform: rotate(180deg);
+      position: absolute;
+      transition: 1s;
+      top: 0;
+      // animation: guessTop 0.3s infinite alternate;
     }
+    #bottomHand{
+      position: absolute;
+      transition: 1s;
+      bottom: 0;
+      // animation: guessBottom 0.3s infinite alternate;
+    }
+
+    .a-Top{
+      animation: guessTop 0.35s infinite alternate;
+    }
+
+    .a-Bottom{
+      animation: guessBottom 0.35s infinite alternate;
+    }
+
     #homeResult{
       position: absolute;
       left: 50%;
@@ -488,6 +519,31 @@ a{
     .hand{
       position: absolute;
       z-index: 1;
+    }
+    .chooseFrame{
+      width: 55%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 20;
+      transform: translate(-50%,-50%);
+      transition: 0.3s;
+      display: none;
+      // border: 1px solid #000;
+      .choose{
+        width: 10rem;
+        height: 10rem;
+        font-size: 5rem;
+        border-radius: 50%;
+        background: #58d0dbcc;
+        cursor: pointer;
+        animation: choose 0.95s infinite;
+        transition: 0.2s;
+        &:hover{
+          box-shadow: 0 0 1.3rem #F9e54E99;
+          filter: brightness(1.02) drop-shadow(0 0 1.3rem #fff9);
+        }
+      }
     }
   }
 
@@ -739,4 +795,55 @@ a{
 //     transform: scale(1);
 //   }
 // }
+
+@keyframes choose{
+  0%{
+    transform: scale(0.86);  
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0.86);  
+  }
+}
+
+// @keyframes guessTop {
+//   0%{
+//     top: 0%;
+//   }
+//   3%{
+//     top: -50%;
+//   }
+//   6%{
+//     top: 0%;
+//   }
+// }
+
+@keyframes guessTop {
+  // 0%{
+  //   transform: rotate(180deg);
+  // }
+  0%{
+    transform: rotate(190deg);
+  }
+  // 50%{
+    //   transform: rotate(180deg);
+    // }
+    100%{
+      transform: rotate(167deg);
+  }
+  // 100%{
+  //   transform: rotate(180deg);
+  // }
+}
+
+@keyframes guessBottom{
+  0%{
+    transform: rotate(10deg);
+  }
+  100%{
+    transform: rotate(-13deg);
+  }
+}
 
