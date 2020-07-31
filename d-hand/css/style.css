@@ -336,16 +336,33 @@ a {
 #home .startBig, #wheel .startBig, #raffle .startBig, #bottle .startBig, #group .startBig {
   width: 6rem;
   height: 6rem;
-  background: #E12E4B;
-  border-radius: 50%;
+  background: #e63753;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 3rem;
   position: absolute;
   bottom: 18%;
-  right: 23%;
-  -webkit-transform: skew(0deg, -50deg);
-          transform: skew(0deg, -50deg);
+  right: 22%;
+  z-index: 10;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
+          box-shadow: 0 0.56rem 0 #be263f,0 0.75rem #333;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  /* 點擊效果 */
+}
+
+#home .startBig:active, #wheel .startBig:active, #raffle .startBig:active, #bottle .startBig:active, #group .startBig:active {
+  bottom: calc(18% - 1rem);
+  -webkit-box-shadow: 0 0.12rem 0 #333;
+          box-shadow: 0 0.12rem 0 #333;
+  -webkit-filter: drop-shadow(0 0 1.2rem #f66);
+          filter: drop-shadow(0 0 1.2rem #f66);
 }
 
 /* home 區------------------------------------------ */
