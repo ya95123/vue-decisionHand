@@ -132,6 +132,8 @@
           <div class="text">{{input.item}}</div>
         </div>
       </div>
+      <!-- 開始鍵 -->
+      <div class="startBig d-flex justify-center align-center">GO</div>
     </div>
   </div>
 </template>

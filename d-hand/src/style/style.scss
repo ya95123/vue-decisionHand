@@ -105,6 +105,13 @@ a{
       width: 26% !important;
       height: 25% !important;
     }
+    .startBig{
+      top: 40% !important;
+      /* 點擊效果 */
+      &:active{
+        top: calc(40% + 0.9rem) !important;
+      }
+    }
   }
 }
 @media (max-width: 1024px) { 
@@ -184,6 +191,15 @@ a{
       .initText{
         font-size: 1.85rem;
       }
+      .startBig{
+        bottom: 9%;
+        left: 50%;
+        transform: translateX(-50%);
+        /* 點擊效果 */
+        &:active{
+          bottom: calc(9% - 1rem);
+        }
+      }
     }
   /* raffle 區------------------------------------------ */
   #raffle{
@@ -200,6 +216,15 @@ a{
     .paper{
       width: 22%;
       height: 28%;
+    }
+    .startBig{
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      /* 點擊效果 */
+      &:active{
+        top: calc(30% + 1rem);
+      }
     }
   }
 }
@@ -247,11 +272,11 @@ a{
       font-size: 20vmin;
     }
     .startBig{
-      bottom: 18%;
-      right: 22%;
+      bottom: 15%;
+      right: 10%;
       /* 點擊效果 */
       &:active{
-        bottom: calc(18% - 1rem);
+        bottom: calc(15% - 1rem);
       }
     }
   }
@@ -275,6 +300,14 @@ a{
     .initText{
       font-size: 2rem;
     }
+    .startBig{
+      bottom: 15%;
+      right: 10%;
+      /* 點擊效果 */
+      &:active{
+        bottom: calc(15% - 1rem);
+      }
+    }
   }
   /* raffle 區------------------------------------------ */
   #raffle{
@@ -291,6 +324,14 @@ a{
     .paper{
       width: 15%;
       height: 35%;
+    }
+    .startBig{
+      bottom: 15%;
+      right: 5%;
+      /* 點擊效果 */
+      &:active{
+        bottom: calc(15% - 1rem);
+      }
     }
   }
 }

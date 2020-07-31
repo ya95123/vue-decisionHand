@@ -88,6 +88,13 @@ a {
     width: 26% !important;
     height: 25% !important;
   }
+  #raffle .startBig {
+    top: 40% !important;
+    /* 點擊效果 */
+  }
+  #raffle .startBig:active {
+    top: calc(40% + 0.9rem) !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -168,6 +175,16 @@ a {
   #wheel .initText {
     font-size: 1.85rem;
   }
+  #wheel .startBig {
+    bottom: 9%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    /* 點擊效果 */
+  }
+  #wheel .startBig:active {
+    bottom: calc(9% - 1rem);
+  }
   /* raffle 區------------------------------------------ */
   #raffle #box {
     width: 65%;
@@ -182,6 +199,16 @@ a {
   #raffle .paper {
     width: 22%;
     height: 28%;
+  }
+  #raffle .startBig {
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    /* 點擊效果 */
+  }
+  #raffle .startBig:active {
+    top: calc(30% + 1rem);
   }
 }
 
@@ -233,12 +260,12 @@ a {
     font-size: 20vmin;
   }
   #home .startBig {
-    bottom: 18%;
-    right: 22%;
+    bottom: 15%;
+    right: 10%;
     /* 點擊效果 */
   }
   #home .startBig:active {
-    bottom: calc(18% - 1rem);
+    bottom: calc(15% - 1rem);
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -256,6 +283,14 @@ a {
   #wheel .initText {
     font-size: 2rem;
   }
+  #wheel .startBig {
+    bottom: 15%;
+    right: 10%;
+    /* 點擊效果 */
+  }
+  #wheel .startBig:active {
+    bottom: calc(15% - 1rem);
+  }
   /* raffle 區------------------------------------------ */
   #raffle #box {
     width: 60%;
@@ -270,6 +305,14 @@ a {
   #raffle .paper {
     width: 15%;
     height: 35%;
+  }
+  #raffle .startBig {
+    bottom: 15%;
+    right: 5%;
+    /* 點擊效果 */
+  }
+  #raffle .startBig:active {
+    bottom: calc(15% - 1rem);
   }
 }
 
