@@ -8,6 +8,11 @@
 html, body {
   height: 100%;
   overflow: hidden;
+  /* 3D */
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
 }
 
 a {
@@ -793,6 +798,8 @@ a {
   position: absolute;
   z-index: 1;
   bottom: 5%;
+  -webkit-transform: skew(-20deg, -20deg) rotateX(-60deg);
+          transform: skew(-20deg, -20deg) rotateX(-60deg);
   border-radius: 0.1rem;
   opacity: 0.88;
   display: -webkit-box;
@@ -805,6 +812,17 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 550;
+}
+
+#raffle .maskHand {
+  color: white;
+  font-size: 20vmin;
+  -webkit-transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
+          transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
+  position: absolute;
+  z-index: 15;
+  -webkit-animation: changeY 1.25s infinite;
+          animation: changeY 1.25s infinite;
 }
 
 /* @keframes 動畫區------------------------------------ */
@@ -938,5 +956,23 @@ a {
   100% {
     -webkit-transform: rotate(-13deg);
             transform: rotate(-13deg);
+  }
+}
+
+@-webkit-keyframes changeY {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: calc(50% + 15px);
+  }
+}
+
+@keyframes changeY {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: calc(50% + 15px);
   }
 }

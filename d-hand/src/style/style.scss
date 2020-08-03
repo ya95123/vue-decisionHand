@@ -18,6 +18,9 @@ $dh-blue: #5BBDC8;
 html,body{
   height: 100%;
   overflow: hidden;
+  /* 3D */
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 a{
@@ -779,7 +782,7 @@ a{
     z-index: 1;
     bottom: 5%;
     // max X -(5-20) Y -(0-20)
-    // transform: skew(-20deg,-20deg) rotate(-60deg);
+    transform: skew(-20deg,-20deg) rotateX(-60deg);
     // background: #5BBDC8;
     border-radius: 0.1rem;
     opacity: 0.88;
@@ -787,6 +790,15 @@ a{
     justify-content: center;
     align-items: center;
     font-weight: 550;
+  }
+
+  .maskHand{
+    color: white;
+    font-size: 20vmin;
+    transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
+    position: absolute;
+    z-index: 15;
+    animation: changeY 1.25s infinite;
   }
 }
 
@@ -838,34 +850,13 @@ a{
   }
 }
 
-// @keyframes guessTop {
-//   0%{
-//     top: 0%;
-//   }
-//   3%{
-//     top: -50%;
-//   }
-//   6%{
-//     top: 0%;
-//   }
-// }
-
 @keyframes guessTop {
-  // 0%{
-  //   transform: rotate(180deg);
-  // }
   0%{
     transform: rotate(190deg);
   }
-  // 50%{
-    //   transform: rotate(180deg);
-    // }
-    100%{
-      transform: rotate(167deg);
+  100%{
+    transform: rotate(167deg);
   }
-  // 100%{
-  //   transform: rotate(180deg);
-  // }
 }
 
 @keyframes guessBottom{
@@ -874,6 +865,15 @@ a{
   }
   100%{
     transform: rotate(-13deg);
+  }
+}
+
+@keyframes changeY{
+  0%{
+    top: 50%;
+  }
+  100%{
+    top: calc(50% + 15px);
   }
 }
 

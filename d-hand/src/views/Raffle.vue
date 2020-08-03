@@ -85,7 +85,7 @@
 
       <!-- 箱子 class shake-constant shake-hard -->
       <!-- TODO 抽出來時，做有手遮90%效果，製造刺激感(有時間就做) or 像魔術一樣用吸的上來 -->
-      <div id="box" class="d-flex justify-center">
+      <div id="box" ref="box" class="d-flex justify-center">
         <!-- 盒子框 -->
         <div id="border">
         <!-- TODO 紙條：開始後做翻面效果，好後做 shake + 紙條飄移 + (紙箱變色) -->
@@ -100,7 +100,15 @@
         </div>
       </div>
       <!-- 開始鍵 -->
-      <div class="startBig d-flex justify-center align-center">GO</div>
+      <div
+        class="startBig d-flex justify-center align-center"
+        ref="startBig"
+        @click="start($event)"
+      >
+        GO
+      </div>
+      <!-- 遮手 -->
+      <span class="maskHand">🤚</span>
     </div>
   </div>
 </template>
@@ -118,6 +126,8 @@ export default {
   name: 'Raffle',
   data: () => ({
     dialogSet: false,
+    dialogResult: false,
+    result: '',
     // 預設選擇方式
     radioSet: 'w2',
     inputs: [
@@ -199,6 +209,35 @@ export default {
         }
         i++
       }
+    },
+    // 開始按鈕
+    start (e) {
+      // 按鈕失效
+      e.target.style.pointerEvents = 'none'
+      // 按鈕隱藏
+      e.target.style.opacity = '0'
+
+      setTimeout(() => {
+        // 晃動箱子
+        this.$refs.box.classList.add('shake-constant', 'shake-hard')
+      }, 180)
+
+      setTimeout(() => {
+        // 停止晃動箱子
+        this.$refs.box.classList.remove('shake-constant', 'shake-hard')
+      }, 2000)
+    },
+    // 返回鍵
+    back () {
+      // 返回鍵消失
+      this.$refs.back.style.display = 'none'
+      // 選項消失
+      this.$refs.choose.style.display = 'none'
+      setTimeout(() => {
+        // 按鈕出現
+        this.$refs.startBig.style.opacity = '1'
+        this.$refs.startBig.style.pointerEvents = 'auto'
+      }, 180)
     }
   }
 }
