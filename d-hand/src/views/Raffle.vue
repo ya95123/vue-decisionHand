@@ -108,9 +108,7 @@
         GO
       </div>
       <!-- 遮手 -->
-        <span class="maskHand changeY">🤚</span>
-      <!-- <div class="maskHandFrame">
-      </div> -->
+      <span class="maskHand">🤚</span>
     </div>
   </div>
 </template>
@@ -214,6 +212,7 @@ export default {
     },
     // 開始按鈕
     start (e) {
+      const papers = document.getElementsByClassName('paper')
       // 按鈕失效
       e.target.style.pointerEvents = 'none'
       // 按鈕隱藏
@@ -222,11 +221,20 @@ export default {
       setTimeout(() => {
         // 晃動箱子
         this.$refs.box.classList.add('shake-constant', 'shake-hard')
+        // 晃動紙條、字轉白色
+        for (const paper of papers) {
+          // 想別的辦法搖動紙條
+          paper.classList.add('paperBack', 'shake-constant', 'shake-hard')
+        }
       }, 180)
 
       setTimeout(() => {
         // 停止晃動箱子
         this.$refs.box.classList.remove('shake-constant', 'shake-hard')
+        // 紙條上升
+        // 遮手
+        // 紙條轉正、字轉黑色
+        // TODO 確認"打開btn"亮出紙條
       }, 2000)
     },
     // 返回鍵

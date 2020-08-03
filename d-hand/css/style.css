@@ -814,6 +814,10 @@ a {
   font-weight: 550;
 }
 
+#raffle .paperBack {
+  color: white;
+}
+
 #raffle .maskHand {
   color: white;
   font-size: 20vmin;
@@ -964,5 +968,23 @@ a {
   100% {
     -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
             filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+  }
+}
+
+@-webkit-keyframes changeY {
+  0% {
+    top: 20%;
+  }
+  100% {
+    top: 21%;
+  }
+}
+
+@keyframes changeY {
+  0% {
+    top: 20%;
+  }
+  100% {
+    top: 21%;
   }
 }

@@ -791,6 +791,10 @@ a{
     align-items: center;
     font-weight: 550;
   }
+  // 翻轉紙條
+  .paperBack{
+    color: white;
+  }
 
   .maskHand{
     // width: 20vmin;
@@ -826,18 +830,6 @@ a{
     transform: scale(1);
   }
 }
-
-// @keyframes jumping{
-//   0%{
-//     transform: scale(1);
-//   }
-//   50%{
-//     transform: scale(1.22);
-//   }
-//   100%{
-//     transform: scale(1);
-//   }
-// }
 
 // home 猜拳
 @keyframes choose{
@@ -881,14 +873,19 @@ a{
 }
 
 // raffle 遮手
-// @keyframes changeY{
-//   0%{
-//     top: 20%;
-//     // right: 50%;
-//   }
-//   100%{
-//     top: 21%;
-//     // right: 50%;
-//   }
+@keyframes changeY{
+  0%{
+    top: 20%;
+    // right: 50%;
+  }
+  100%{
+    top: 21%;
+    // right: 50%;
+  }
+}
+
+// raffle 紙條移動
+// @keyframes shakePaper{
+//   0%
 // }
 
