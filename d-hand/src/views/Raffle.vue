@@ -108,7 +108,9 @@
         GO
       </div>
       <!-- 遮手 -->
-      <span class="maskHand">🤚</span>
+        <span class="maskHand changeY">🤚</span>
+      <!-- <div class="maskHandFrame">
+      </div> -->
     </div>
   </div>
 </template>

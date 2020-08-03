@@ -792,26 +792,29 @@ a{
     font-weight: 550;
   }
 
-  .maskHand{
-    color: white;
-    font-size: 20vmin;
-    transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
-    position: absolute;
-    z-index: 15;
-    animation: changeY 1.25s infinite;
+  // .maskHandFrame{
+  //   position: absolute;
+    // right: 50%;
+    // transform: translateX(-50%);
+    animation: changeY 0.99s infinite;
+    .maskHand{
+      color: white;
+      font-size: 20vmin;
+      transform: rotateX(180deg) rotate(-90deg);
+      position: absolute;
+      z-index: 15;
+      transition: 0.3s;
+      top: 20%;
+    }
+  // }
+  .changeY{
+    right:0%
   }
+
 }
 
 /* @keframes 動畫區------------------------------------ */
-@keyframes wheelChange{
-  0%{
-    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
-  }
-  100%{
-    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
-  }
-}
-
+// gameSet 小按鈕 變色
 @keyframes startColor{
   0%{
     filter: hue-rotate(0deg);
@@ -838,6 +841,7 @@ a{
 //   }
 // }
 
+// home 猜拳
 @keyframes choose{
   0%{
     transform: scale(0.86);  
@@ -868,12 +872,25 @@ a{
   }
 }
 
-@keyframes changeY{
+// wheel 變色
+@keyframes wheelChange{
   0%{
-    top: 50%;
+    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
   }
   100%{
-    top: calc(50% + 15px);
+    filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
   }
 }
+
+// raffle 遮手
+// @keyframes changeY{
+//   0%{
+//     top: 20%;
+//     // right: 50%;
+//   }
+//   100%{
+//     top: 21%;
+//     // right: 50%;
+//   }
+// }
 

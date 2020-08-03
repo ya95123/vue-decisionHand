@@ -757,6 +757,11 @@ a {
 }
 
 /* raffle 區------------------------------------------ */
+#raffle {
+  -webkit-animation: changeY 0.99s infinite;
+          animation: changeY 0.99s infinite;
+}
+
 #raffle #box {
   position: absolute;
   bottom: 10%;
@@ -817,36 +822,20 @@ a {
 #raffle .maskHand {
   color: white;
   font-size: 20vmin;
-  -webkit-transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
-          transform: rotateX(180deg) rotate(-90deg) translateX(-50%);
+  -webkit-transform: rotateX(180deg) rotate(-90deg);
+          transform: rotateX(180deg) rotate(-90deg);
   position: absolute;
   z-index: 15;
-  -webkit-animation: changeY 1.25s infinite;
-          animation: changeY 1.25s infinite;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  top: 20%;
+}
+
+#raffle .changeY {
+  right: 0%;
 }
 
 /* @keframes 動畫區------------------------------------ */
-@-webkit-keyframes wheelChange {
-  0% {
-    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
-            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
-            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
-  }
-}
-@keyframes wheelChange {
-  0% {
-    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
-            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
-  }
-  100% {
-    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
-            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
-  }
-}
-
 @-webkit-keyframes startColor {
   0% {
     -webkit-filter: hue-rotate(0deg);
@@ -865,7 +854,6 @@ a {
             transform: scale(1);
   }
 }
-
 @keyframes startColor {
   0% {
     -webkit-filter: hue-rotate(0deg);
@@ -959,20 +947,24 @@ a {
   }
 }
 
-@-webkit-keyframes changeY {
+@-webkit-keyframes wheelChange {
   0% {
-    top: 50%;
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
   }
   100% {
-    top: calc(50% + 15px);
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
   }
 }
 
-@keyframes changeY {
+@keyframes wheelChange {
   0% {
-    top: 50%;
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(0deg);
   }
   100% {
-    top: calc(50% + 15px);
+    -webkit-filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
+            filter: drop-shadow(0 0 0.65rem #ccc) hue-rotate(360deg);
   }
 }
