@@ -757,11 +757,6 @@ a {
 }
 
 /* raffle 區------------------------------------------ */
-#raffle {
-  -webkit-animation: changeY 0.99s infinite;
-          animation: changeY 0.99s infinite;
-}
-
 #raffle #box {
   position: absolute;
   bottom: 10%;
@@ -825,14 +820,17 @@ a {
   -webkit-transform: rotateX(180deg) rotate(-90deg);
           transform: rotateX(180deg) rotate(-90deg);
   position: absolute;
-  z-index: 15;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  right: -30%;
   top: 20%;
+  z-index: 15;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-animation: changeY 0.99s infinite;
+          animation: changeY 0.99s infinite;
 }
 
 #raffle .changeY {
-  right: 0%;
+  right: calc(50% - 10vmin);
 }
 
 /* @keframes 動畫區------------------------------------ */

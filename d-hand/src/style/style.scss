@@ -792,23 +792,21 @@ a{
     font-weight: 550;
   }
 
-  // .maskHandFrame{
-  //   position: absolute;
-    // right: 50%;
-    // transform: translateX(-50%);
+  .maskHand{
+    // width: 20vmin;
+    color: white;
+    font-size: 20vmin;
+    transform: rotateX(180deg) rotate(-90deg);
+    position: absolute;
+    right: -30%;
+    top: 20%;
+    z-index: 15;
+    transition: 0.5s;
     animation: changeY 0.99s infinite;
-    .maskHand{
-      color: white;
-      font-size: 20vmin;
-      transform: rotateX(180deg) rotate(-90deg);
-      position: absolute;
-      z-index: 15;
-      transition: 0.3s;
-      top: 20%;
     }
-  // }
+
   .changeY{
-    right:0%
+    right:calc(50% - 10vmin);
   }
 
 }
