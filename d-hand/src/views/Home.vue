@@ -230,7 +230,6 @@ export default {
     determine (idx) {
       const player1 = this.$refs.topHand
       const player2 = this.$refs.bottomHand
-      // TODO 進入猜拳動畫 (取值，進入剪刀時頭布，判斷輸贏) 調整揮手動畫
       // 重置 style text-shadow
       player1.style.cssText = 'text-shadow:0 0 0 #fffff;'
       player2.style.cssText = 'text-shadow:0 0 0 #fffff;'
@@ -261,8 +260,6 @@ export default {
 
       // 第2秒 搖手 + 猜拳
       setTimeout(() => {
-        // 先變成拳頭前面預備姿勢
-        // this.$data.player = ['✊', '✊']
         // 搖手
         player1.classList.add('a-Top')
         player2.classList.add('a-Bottom')
@@ -281,7 +278,7 @@ export default {
         player1.style.cssText = 'top:0;transform:rotate(180deg);text-shadow:2vmin 0 0 #F8981D;'
         player2.style.cssText = 'bottom:0;transform:rotate(0deg);text-shadow:2vmin 0 0 #F8981D;'
         this.$data.player = [`${player1Hand}`, `${player2Hand}`]
-        console.log(`狄斯俊之手 ${player1Hand}`)
+        // console.log(`狄斯俊之手 ${player1Hand}`)
 
         // 判斷結果 平手/贏/輸
         player1Hand === player2Hand ? this.$data.result = '平手再來一次！' : ((player2Hand === '✌' && player1Hand === '🖐') || (player2Hand === '✊' && player1Hand === '✌') || (player2Hand === '🖐' && player1Hand === '✊')) ? this.$data.result = `${this.$data.win}` : this.$data.result = `${this.$data.lose}`
