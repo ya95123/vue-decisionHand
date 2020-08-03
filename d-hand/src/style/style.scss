@@ -73,6 +73,13 @@ a{
         bottom: calc(27% - 0.9rem) !important;
       }
     }
+    .chooseFrame{
+      .choose{
+        width: 7rem !important;
+        height: 7rem !important;
+        font-size: 3.5rem !important;
+      }
+    }
   }
 
   /* wheel 區------------------------------------------ */
@@ -151,6 +158,10 @@ a{
         filter: drop-shadow(0 0 1.2rem #f66);
       }
     }
+    .mask{
+      width: 100%;
+      height: calc(100% - 56px);
+    }
   }
   /* home 區------------------------------------------ */
   #home{
@@ -169,6 +180,11 @@ a{
       &:active{
         bottom: calc(32.5% - 1rem);
       }
+    }
+    .choose{
+      width: 10rem;
+      height: 10rem;
+      font-size: 5rem;
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
@@ -264,6 +280,10 @@ a{
         filter: drop-shadow(0 0 1.2rem #f66);
       }
     }
+    .mask{
+      width: 100vw;
+      height: 100vh;
+    }
   }
   /* home 區------------------------------------------ */
   #home{
@@ -280,6 +300,11 @@ a{
       &:active{
         bottom: calc(15% - 1rem);
       }
+    }
+    .choose{
+      width: 10rem;
+      height: 10rem;
+      font-size: 5rem;
     }
   }
   /* #bottle(酒瓶) 區----------------------------------- */
@@ -434,6 +459,7 @@ a{
 
 /* .game 區----------------------------------------- */
 #home,#wheel,#raffle,#bottle,#group{
+  // overflow: hidden !important;
   .game{
     background: #fff;
     border-radius: 0.5rem;
@@ -472,12 +498,17 @@ a{
     cursor: pointer;
     user-select: none;
   }
+  .backFrame{
+    position: absolute;
+    top: 1.5%;
+    left: 1.5%;
+    z-index: 10;
+    display: none;
+  }
   .mask{
-    width: 100vw;
-    height: 100vh;
     background: #7752;
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     display: none;
     opacity: 0;
     transition: 0.3s;
@@ -533,9 +564,6 @@ a{
       display: none;
       // border: 1px solid #000;
       .choose{
-        width: 10rem;
-        height: 10rem;
-        font-size: 5rem;
         border-radius: 50%;
         background: #58d0dbcc;
         cursor: pointer;

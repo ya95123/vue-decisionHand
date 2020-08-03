@@ -61,6 +61,11 @@ a {
   #home .startBig:active {
     bottom: calc(27% - 0.9rem) !important;
   }
+  #home .chooseFrame .choose {
+    width: 7rem !important;
+    height: 7rem !important;
+    font-size: 3.5rem !important;
+  }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
     border: 0.65rem solid #6636 !important;
@@ -139,6 +144,10 @@ a {
     -webkit-filter: drop-shadow(0 0 1.2rem #f66);
             filter: drop-shadow(0 0 1.2rem #f66);
   }
+  #home .mask, #wheel .mask, #raffle .mask, #bottle .mask, #group .mask {
+    width: 100%;
+    height: calc(100% - 56px);
+  }
   /* home 區------------------------------------------ */
   #home #homeResult {
     font-size: 1.5rem;
@@ -155,6 +164,11 @@ a {
   }
   #home .startBig:active {
     bottom: calc(32.5% - 1rem);
+  }
+  #home .choose {
+    width: 10rem;
+    height: 10rem;
+    font-size: 5rem;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -252,6 +266,10 @@ a {
     -webkit-filter: drop-shadow(0 0 1.2rem #f66);
             filter: drop-shadow(0 0 1.2rem #f66);
   }
+  #home .mask, #wheel .mask, #raffle .mask, #bottle .mask, #group .mask {
+    width: 100vw;
+    height: 100vh;
+  }
   /* home 區------------------------------------------ */
   #home #homeResult {
     font-size: 1.5rem;
@@ -266,6 +284,11 @@ a {
   }
   #home .startBig:active {
     bottom: calc(15% - 1rem);
+  }
+  #home .choose {
+    width: 10rem;
+    height: 10rem;
+    font-size: 5rem;
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
@@ -465,12 +488,18 @@ a {
           user-select: none;
 }
 
+#home .backFrame, #wheel .backFrame, #raffle .backFrame, #bottle .backFrame, #group .backFrame {
+  position: absolute;
+  top: 1.5%;
+  left: 1.5%;
+  z-index: 10;
+  display: none;
+}
+
 #home .mask, #wheel .mask, #raffle .mask, #bottle .mask, #group .mask {
-  width: 100vw;
-  height: 100vh;
   background: #7752;
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   display: none;
   opacity: 0;
   -webkit-transition: 0.3s;
@@ -536,9 +565,6 @@ a {
 }
 
 #home .chooseFrame .choose {
-  width: 10rem;
-  height: 10rem;
-  font-size: 5rem;
   border-radius: 50%;
   background: #58d0dbcc;
   cursor: pointer;

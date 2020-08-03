@@ -107,27 +107,53 @@
           {{c}}
         </v-btn>
       </div>
+      <!-- 返回鍵 -->
+      <div
+        ref="back"
+        class="backFrame"
+        @click="back"
+      >
+        <v-icon ref="back" class="gameSet">mdi-chevron-double-left</v-icon>
+      </div>
       <!-- 結果 -->
       <v-dialog
         v-model="dialogResult"
         persistent
-        max-width="500px"
+        max-width="450px"
         color="dhblue"
       >
         <v-card>
           <v-card-text
-            class="text-center pt-5 text--dhb-lue"
+            class="text-center pa-5 text--dhb-lue"
             style="font-size:1.5rem;color:#5BBDC8;"
           >
             要選擇的是
           </v-card-text>
           <v-card-title
-            class="red-flex justify-center font-weight-bold pa-5 text--dhred"
-            style="font-size:2.5rem;"
+            class="d-flex justify-center font-weight-bold pa-2 text--dhred"
+            style="font-size:2.5rem;line-height:100%"
           >
-            <div v-if="result === win" style="color:#E12E4B;">{{result}}</div>
-            <div v-else-if="result === lose" style="color:#4CAF50;">{{result}}</div>
-            <div v-else style="color:#F8981D;">{{result}}</div>
+            <div
+              v-if="result === win"
+              class="text-center"
+              style="color:#E12E4B;"
+            >
+              {{result}}
+              </div>
+            <div
+              v-else-if="result === lose"
+              class="text-center"
+              style="color:#4CAF50;"
+            >
+              {{result}}
+            </div>
+            <div
+              v-else
+              class="text-center"
+              style="color:#F8981D;"
+            >
+              {{result}}
+            </div>
           </v-card-title>
           <div class="text-center pa-5">
             <v-btn
@@ -169,6 +195,7 @@ export default {
     // e.target 當前點擊的元素
     // e.currentTarget 綁定事件的元素
     start (e) {
+      // 按鈕失效
       e.target.style.pointerEvents = 'none'
       // 先讓遮罩存在
       this.$refs.mask.style.display = 'block'
@@ -179,6 +206,24 @@ export default {
         this.$refs.mask.style.opacity = '1'
         // 選項出現
         this.$refs.choose.style.display = 'flex'
+        // 返回鍵出現
+        this.$refs.back.style.display = 'block'
+      }, 180)
+    },
+    // 返回鍵
+    back () {
+      // 返回鍵消失
+      this.$refs.back.style.display = 'none'
+      // 選項消失
+      this.$refs.choose.style.display = 'none'
+      // 遮罩淡去
+      this.$refs.mask.style.opacity = '0'
+      setTimeout(() => {
+        // 遮罩消失
+        this.$refs.mask.style.display = 'none'
+        // 按鈕出現
+        this.$refs.startBig.style.opacity = '1'
+        this.$refs.startBig.style.pointerEvents = 'auto'
       }, 180)
     },
     // 選項決定，進入動畫
@@ -190,9 +235,10 @@ export default {
       player1.style.cssText = 'text-shadow:0 0 0 #fffff;'
       player2.style.cssText = 'text-shadow:0 0 0 #fffff;'
 
-      // 關閉選項、把遮罩關閉
+      // 關閉選項、遮罩關閉、返回鍵關閉
       this.$refs.choose.style.display = 'none'
       this.$refs.mask.style.opacity = '0'
+      this.$refs.back.style.display = 'none'
 
       // 手退出畫面 退場1s
       player1.style.top = '-35%'
@@ -238,7 +284,7 @@ export default {
         console.log(`狄斯俊之手 ${player1Hand}`)
 
         // 判斷結果 平手/贏/輸
-        player1Hand === player2Hand ? this.$data.result = '平手，再來一次！' : ((player2Hand === '✌' && player1Hand === '🖐') || (player2Hand === '✊' && player1Hand === '✌') || (player2Hand === '🖐' && player1Hand === '✊')) ? this.$data.result = `${this.$data.win}` : this.$data.result = `${this.$data.lose}`
+        player1Hand === player2Hand ? this.$data.result = '平手再來一次！' : ((player2Hand === '✌' && player1Hand === '🖐') || (player2Hand === '✊' && player1Hand === '✌') || (player2Hand === '🖐' && player1Hand === '✊')) ? this.$data.result = `${this.$data.win}` : this.$data.result = `${this.$data.lose}`
       }, 4800)
 
       // 第5.5秒 結果
