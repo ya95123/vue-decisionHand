@@ -90,6 +90,7 @@
       <!-- 開始鍵 -->
       <div
         class="startBig d-flex justify-center align-center"
+        ref="startBig"
         @click="start($event)"
       >
         GO
@@ -106,6 +107,40 @@
           {{c}}
         </v-btn>
       </div>
+      <!-- 結果 -->
+      <v-dialog
+        v-model="dialogResult"
+        persistent
+        max-width="500px"
+        color="dhblue"
+      >
+        <v-card>
+          <v-card-text
+            class="text-center pt-5 text--dhb-lue"
+            style="font-size:1.5rem;color:#5BBDC8;"
+          >
+            要選擇的是
+          </v-card-text>
+          <v-card-title
+            class="red-flex justify-center font-weight-bold pa-5 text--dhred"
+            style="font-size:2.5rem;"
+          >
+            <div v-if="result === win" style="color:#E12E4B;">{{result}}</div>
+            <div v-else-if="result === lose" style="color:#4CAF50;">{{result}}</div>
+            <div v-else style="color:#F8981D;">{{result}}</div>
+          </v-card-title>
+          <div class="text-center pa-5">
+            <v-btn
+            color="dhblue"
+            style="height:30px"
+            text
+            @click="dialogResult = false"
+            >
+              確定
+            </v-btn>
+          </div>
+        </v-card>
+      </v-dialog>
     </div>
     <!-- 遮罩 Mask -->
     <div ref="mask" class="mask"></div>
@@ -113,15 +148,20 @@
 </template>
 
 <script>
-// const guesse = ['✌', '✊', '🖐']
+// 區間隨機數
+const rand = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min)
+}
 export default {
   name: 'Home',
   data: () => ({
     dialogSet: false,
+    dialogResult: false,
     // 預設選擇方式
     radioSet: 'w1',
     win: '吃雞排 🤗',
     lose: '忍住不吃 😭',
+    result: '',
     choose: ['✌', '✊', '🖐'],
     player: ['✌', '✊']
   }),
@@ -141,13 +181,22 @@ export default {
         this.$refs.choose.style.display = 'flex'
       }, 180)
     },
+    // 選項決定，進入動畫
     determine (idx) {
+      const player1 = this.$refs.topHand
+      const player2 = this.$refs.bottomHand
       // TODO 進入猜拳動畫 (取值，進入剪刀時頭布，判斷輸贏) 調整揮手動畫
+      // 重置 style text-shadow
+      player1.style.cssText = 'text-shadow:0 0 0 #fffff;'
+      player2.style.cssText = 'text-shadow:0 0 0 #fffff;'
+
+      // 關閉選項、把遮罩關閉
       this.$refs.choose.style.display = 'none'
       this.$refs.mask.style.opacity = '0'
+
       // 手退出畫面 退場1s
-      this.$refs.topHand.style.top = '-35%'
-      this.$refs.bottomHand.style.bottom = '-35%'
+      player1.style.top = '-35%'
+      player2.style.bottom = '-35%'
 
       setTimeout(() => {
         // 遮罩消失
@@ -159,20 +208,47 @@ export default {
         // 先變成拳頭前面預備姿勢
         this.$data.player = ['✊', '✊']
         // 手回來畫面 進場1s
-        this.$refs.topHand.style.cssText = 'top:0;transform:rotate(190deg)'
-        this.$refs.bottomHand.style.cssText = 'bottom:0;transform:rotate(10deg)'
+        player1.style.cssText = 'top:0;transform:rotate(190deg)'
+        player2.style.cssText = 'bottom:0;transform:rotate(10deg)'
         // 已花 2s
       }, 1000)
 
-      // 第二秒 搖手 + 猜拳
+      // 第2秒 搖手 + 猜拳
       setTimeout(() => {
         // 先變成拳頭前面預備姿勢
         // this.$data.player = ['✊', '✊']
         // 搖手
-        this.$refs.topHand.classList.add('a-Top')
-        this.$refs.bottomHand.classList.add('a-Bottom')
+        player1.classList.add('a-Top')
+        player2.classList.add('a-Bottom')
         // 已花 2s
       }, 2000)
+
+      // 第4.8秒 猜拳
+      setTimeout(() => {
+        // const resultText = this.$data.result
+        const player1Hand = this.$data.choose[rand(0, 2)]
+        const player2Hand = this.$data.choose[idx]
+        // 停止搖手
+        player1.classList.remove('a-Top')
+        player2.classList.remove('a-Bottom')
+        // 回歸初始角度
+        player1.style.cssText = 'top:0;transform:rotate(180deg);text-shadow:2vmin 0 0 #F8981D;'
+        player2.style.cssText = 'bottom:0;transform:rotate(0deg);text-shadow:2vmin 0 0 #F8981D;'
+        this.$data.player = [`${player1Hand}`, `${player2Hand}`]
+        console.log(`狄斯俊之手 ${player1Hand}`)
+
+        // 判斷結果 平手/贏/輸
+        player1Hand === player2Hand ? this.$data.result = '平手，再來一次！' : ((player2Hand === '✌' && player1Hand === '🖐') || (player2Hand === '✊' && player1Hand === '✌') || (player2Hand === '🖐' && player1Hand === '✊')) ? this.$data.result = `${this.$data.win}` : this.$data.result = `${this.$data.lose}`
+      }, 4800)
+
+      // 第5.5秒 結果
+      setTimeout(() => {
+        // 結果對話框出現
+        this.$data.dialogResult = true
+        // start 按鈕出現、可使用
+        this.$refs.startBig.style.pointerEvents = 'auto'
+        this.$refs.startBig.style.opacity = '1'
+      }, 5500)
     }
   }
 }
