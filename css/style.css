@@ -812,10 +812,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 550;
-}
-
-#raffle .paperBack {
-  color: white;
+  -webkit-transition: 1.8s;
+  transition: 1.8s;
 }
 
 #raffle .maskHand {

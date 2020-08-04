@@ -224,7 +224,10 @@ export default {
         // 晃動紙條、字轉白色
         for (const paper of papers) {
           // 想別的辦法搖動紙條
-          paper.classList.add('paperBack', 'shake-constant', 'shake-hard')
+          paper.style.transform = `skew(-${rand(5, 15)}deg,-${rand(0, 15)}deg) rotate(-${rand(45, 270)}deg)`
+          paper.style.left = `${rand(3, 77)}%`
+          paper.style.bottom = `${rand(0, 20)}`
+          paper.style.color = 'white'
         }
       }, 180)
 
