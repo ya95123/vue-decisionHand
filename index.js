@@ -70,7 +70,7 @@ app.listen(process.env.PORT, () => {
 })
 
 // TODO 從這開始
-// *註冊
+// *註冊 OK
 app.post('/users', async (req, res) => {
   if (!req.headers['content-type'].includes('application/json')) {
     res.status(400)
@@ -79,6 +79,7 @@ app.post('/users', async (req, res) => {
 
   try {
     await db.users.create({
+      name: req.body.name,
       account: req.body.account,
       password: md5(req.body.password)
     })
@@ -100,7 +101,7 @@ app.post('/users', async (req, res) => {
   }
 })
 
-// *登入
+// *登入 OK
 app.post('/login', async (req, res) => {
   if (!req.headers['content-type'].includes('application/json')) {
     res.status(400)
@@ -119,10 +120,10 @@ app.post('/login', async (req, res) => {
     if (result.length > 0) {
       req.session.user = result[0].account
       res.status(200)
-      res.send({ success: true, message: `${req.body.account} 登入成功` })
+      res.send({ success: true, message: `${req.body.name} 登入成功` })
     } else {
       res.status(404)
-      res.send({ success: false, message: '帳號密碼錯誤' })
+      res.send({ success: false, message: '帳號密碼有誤' })
     }
   } catch (error) {
     if (error.name === 'ValidationError') {
@@ -139,7 +140,7 @@ app.post('/login', async (req, res) => {
   }
 })
 
-// *登出
+// *登出 OK
 app.delete('/logout', async (req, res) => {
   req.session.destroy(error => {
     if (error) {
