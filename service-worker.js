@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.283055ff872f02fad94fbd8b67f0cb37.js"
+  "precache-manifest.37109d339fc3e84e794515d6beadecc5.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "d-hand"});
