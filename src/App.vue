@@ -11,13 +11,13 @@
       shift
     >
       <!-- TODO Logo 之後 hover 要做效果 -->
-      <div class="col-2 pl-10 d-flex justify-start align-center">
+      <v-col col="2" class="pl-10 d-flex justify-start align-center">
         <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
         <span id="logo" class="white--text">LOGO</span>
-      </div>
+      </v-col>
 
       <!-- Menu 選單 -->
-      <div class="col-8 d-flex justify-center">
+      <v-col col="8" class="d-flex justify-center">
         <router-link
           v-for="navLitem in navLitems"
           :key="navLitem.name"
@@ -36,10 +36,10 @@
             <v-icon>mdi-text-box-multiple</v-icon>
           </v-btn>
         </router-link>
-      </div>
+      </v-col>
 
       <!-- TODO Reg / Login /Logout 功能 -->
-      <div class="col-2 pr-10 d-flex justify-end align-center white--text">
+      <v-col col="2" class="pr-10 d-flex justify-end align-center white--text">
         <!-- 註冊 -->
         <v-btn
           id="btnReg"
@@ -251,7 +251,7 @@
           <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
           <span>暱稱</span>
         </span>
-      </div>
+      </v-col>
     </v-bottom-navigation>
 
     <!-- 平板尺寸以下 NavB -->
