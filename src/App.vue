@@ -403,6 +403,7 @@ export default {
       // TODO 註冊成功可以直接登入 or 跳到 tab = 1 畫面
     },
     clickLogin () {
+      // 做點擊登入動作(for手機尺寸 連結到 大尺寸登入按鈕)
       document.getElementById('btnLogin').click()
     },
     logout () {
