@@ -7,6 +7,11 @@ import vuetify from './plugins/vuetify'
 import '../dist/style.min.css'
 // scroll bar
 import vuescroll from 'vuescroll'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+axios.defaults.withCredentials = true
+Vue.use(VueAxios, axios)
 
 Vue.use(vuescroll, {
   // 在這裡設置全局默認配置
