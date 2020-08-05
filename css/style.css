@@ -94,6 +94,17 @@ a {
     content: '';
     width: 60% !important;
   }
+  #raffle #award {
+    font-size: 1.5rem !important;
+  }
+  #raffle .awardInput {
+    width: 32.5% !important;
+    top: 1% !important;
+    left: 4% !important;
+  }
+  #raffle .adwardInputSize {
+    font-size: 0.8rem;
+  }
   #raffle .paper {
     width: 26% !important;
     height: 25% !important;
@@ -218,6 +229,14 @@ a {
     content: '';
     width: 65%;
   }
+  #raffle #award {
+    font-size: 2rem;
+  }
+  #raffle .awardInput {
+    width: 18%;
+    top: 1%;
+    left: 2%;
+  }
   #raffle .paper {
     width: 22%;
     height: 28%;
@@ -335,6 +354,14 @@ a {
   #raffle #box::before {
     content: '';
     width: 65%;
+  }
+  #raffle #award {
+    font-size: 2rem;
+  }
+  #raffle .awardInput {
+    width: 15%;
+    top: 2%;
+    left: 2%;
   }
   #raffle .paper {
     width: 15%;
@@ -799,6 +826,19 @@ a {
   position: absolute;
   width: 85%;
   height: 96%;
+}
+
+#raffle #award {
+  width: 70%;
+  position: absolute;
+  top: 18%;
+  z-index: 10;
+  font-weight: 550;
+}
+
+#raffle .awardInput {
+  position: absolute;
+  z-index: 10;
 }
 
 #raffle .paper {

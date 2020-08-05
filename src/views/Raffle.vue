@@ -103,6 +103,20 @@
       >
         GO
       </div>
+      <!-- 獎項顯示 -->
+      <div id="award" class="text-center">
+        <span>獎項：{{award}}</span>
+      </div>
+      <!-- 獎項輸入 -->
+      <div class="awardInput">
+        <v-text-field
+          class="adwardInputSize"
+          label="獎項名稱"
+          v-model="award"
+          color="success"
+        >
+      </v-text-field>
+      </div>
       <!-- 遮手 -->
       <span ref="hand" class="maskHand" @click="open">🤚</span>
       <!-- 開啟提醒 -->
@@ -146,7 +160,7 @@ export default {
     openText: false,
     keepText: false,
     over: false,
-    result: '',
+    award: 'Switch 藍紅主機',
     // 預設選擇方式
     radioSet: 'w2',
     inputs: [
