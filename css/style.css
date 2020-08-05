@@ -105,7 +105,7 @@ a {
   #raffle .startBig:active {
     top: calc(40% + 0.9rem) !important;
   }
-  #raffle .open {
+  #raffle .openText {
     font-size: 1.5rem !important;
   }
 }
@@ -232,7 +232,7 @@ a {
   #raffle .startBig:active {
     top: calc(30% + 1rem);
   }
-  #raffle .open {
+  #raffle .openText {
     font-size: 2.5rem;
   }
 }
@@ -348,7 +348,7 @@ a {
   #raffle .startBig:active {
     bottom: calc(15% - 1rem);
   }
-  #raffle .open {
+  #raffle .openText {
     font-size: 2.5rem;
   }
 }
@@ -821,6 +821,8 @@ a {
   font-weight: 550;
   -webkit-transition: 1.8s;
   transition: 1.8s;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 #raffle .maskHand {

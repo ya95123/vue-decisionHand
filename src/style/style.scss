@@ -123,7 +123,7 @@ a{
         top: calc(40% + 0.9rem) !important;
       }
     }
-    .open{
+    .openText{
       font-size: 1.5rem !important;
     }
   }
@@ -250,7 +250,7 @@ a{
         top: calc(30% + 1rem);
       }
     }
-    .open{
+    .openText{
       font-size: 2.5rem;
     }
   }
@@ -369,7 +369,7 @@ a{
         bottom: calc(15% - 1rem);
       }
     }
-    .open{
+    .openText{
       font-size: 2.5rem;
     }
   }
@@ -796,6 +796,8 @@ a{
     align-items: center;
     font-weight: 550;
     transition: 1.8s;
+    cursor: pointer;
+    pointer-events: none;
   }
 
   .maskHand{
