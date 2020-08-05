@@ -21,8 +21,8 @@
           </v-card-title>
           <!-- 文字、選項 -->
           <v-card-text class="d-flex justify-center align-center flex-column pa-0">
-            <!-- 選擇方式 -->
-            <v-radio-group v-model="radioSet" row>
+            <!-- TODO (以後做)選擇方式 -->
+            <!-- <v-radio-group v-model="radioSet" row>
               <v-radio
                 label="一拳決勝"
                 value="w1"
@@ -33,7 +33,7 @@
                 value="w2"
                 color="dhblue"
               ></v-radio>
-            </v-radio-group>
+            </v-radio-group> -->
             <!-- 贏 / 輸 內容 -->
             <v-text-field
               v-model="win"

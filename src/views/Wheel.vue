@@ -25,8 +25,8 @@
           <!-- 文字、選項 -->
           <vue-scroll>
             <v-card-text class="d-flex justify-center align-center flex-column pa-0">
-              <!-- 選擇方式 -->
-              <v-radio-group v-model="radioSet">
+              <!-- TODO (以後做)選擇方式 -->
+              <!-- <v-radio-group v-model="radioSet">
                 <v-radio
                   label="可重複轉到同一項目"
                   value="w1"
@@ -37,7 +37,7 @@
                   value="w2"
                   color="dhblue"
                 ></v-radio>
-              </v-radio-group>
+              </v-radio-group> -->
               <!--項目內容 -->
               <v-text-field
                 v-for="(input,idx) in inputs"

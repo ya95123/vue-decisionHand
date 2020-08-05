@@ -21,8 +21,8 @@
           <!-- 文字、選項 -->
           <vue-scroll>
             <v-card-text class="d-flex justify-center align-center flex-column pa-0">
-              <!-- 選擇方式 -->
-              <v-radio-group v-model="radioSet">
+              <!-- TODO (以後做)選擇方式 -->
+              <!-- <v-radio-group v-model="radioSet">
                 <v-radio
                   label="可重複抽中同一紙條"
                   value="w1"
@@ -33,7 +33,7 @@
                   value="w2"
                   color="dhblue"
                 ></v-radio>
-              </v-radio-group>
+              </v-radio-group> -->
               <!-- TODO 以後有機會再做分 獎品 和 名單 項目 -->
               <!--項目內容 -->
               <v-text-field
