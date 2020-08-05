@@ -3,8 +3,8 @@
     <div class="game d-flex justify-center align-center">
       <!-- 右側欄 -->
       <div class="gameSetFrame">
-        <v-icon class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
-        <v-icon class="gameSet mt-2">mdi-history</v-icon>
+        <v-icon id="setting" class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
+        <v-icon id="history" class="gameSet mt-2" @click="history">mdi-history</v-icon>
       </div>
       <!-- 設定對話框 -->
       <v-dialog
@@ -89,7 +89,7 @@
           :key="idx"
           class="paper"
           :style="input.position"
-          @click="keep"
+          @click="keep(idx)"
         >
           <span class="text">{{input.item}}</span>
         </div>
@@ -108,6 +108,22 @@
       <!-- 開啟提醒 -->
       <span v-if="openText" class="openText">點手揭曉</span>
       <span v-if="keepText" class="openText">點紙繼續</span>
+      <!-- 抽完時文字 -->
+      <div
+        v-if="over"
+        class="openText text-center"
+      >
+        <div style="color:#E12E4B;">已抽完</div>
+        <v-btn
+          large
+          text
+          color="dhblue"
+          class="restart pa-2"
+          @click="restart"
+        >
+          重新開始
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
@@ -121,8 +137,6 @@ const number = (str) => {
 const rand = (min, max) => {
   return Math.round(Math.random() * (max - min) + min)
 }
-// 抽種紙條標記
-// let n = 0
 
 export default {
   name: 'Raffle',
@@ -131,6 +145,7 @@ export default {
     dialogResult: false,
     openText: false,
     keepText: false,
+    over: false,
     result: '',
     // 預設選擇方式
     radioSet: 'w2',
@@ -194,6 +209,7 @@ export default {
     submitInput () {
       this.$data.dialogSet = false
       const inputs = this.$data.inputs
+      console.log(inputs)
       let i = 0
       let j = i
       let k = j
@@ -217,8 +233,10 @@ export default {
     // 開始按鈕
     start (e) {
       const papers = document.getElementsByClassName('paper')
-      // 按鈕失效
+      // 按鈕失效、設定鈕失效
       e.target.style.pointerEvents = 'none'
+      document.getElementById('setting').style.pointerEvents = 'none'
+      document.getElementById('setting').style.color = '#e3e3e3'
       // 按鈕隱藏
       e.target.style.opacity = '0'
 
@@ -234,11 +252,10 @@ export default {
         }
       }, 180)
 
-      // TODO 馬賽克抽中的那張，抽中後移除該item
       setTimeout(() => {
         // 隨機抽取紙條變數
         const one = rand(1, papers.length) - 1
-        console.log(`抽到第 ${one} 張`)
+        console.log(`抽到第 ${one} +1 張`)
         // 停止晃動箱子
         this.$refs.box.classList.remove('shake-constant', 'shake-hard')
         // 紙條上升
@@ -265,29 +282,48 @@ export default {
       // 紙條放大、可點擊
       one[0].style.transform = 'translateX(-50%) scale(2)'
       one[0].style.color = 'black'
-      one[0].style.pointerEvents = 'auto'
       one[0].firstChild.style.filter = 'blur(0px)'
-      console.log(one)
-      // n = 0
-      // TODO 做OK的按鈕 紙條消失!!(一定要做到唷，才樣才能準確抓到要放大紙條) 公布結果 按鈕出現
-      // this.$refs.startBig.style.opacity = '1'
-      // this.$refs.startBig.style.pointerEvents = 'auto'
+      setTimeout(() => {
+        one[0].style.pointerEvents = 'auto'
+      }, 400)
     },
-    // 返回鍵
-    keep () {
+    // 點擊紙條繼續 function
+    keep (idx) {
+      const papers = document.getElementsByClassName('paper')
       const one = document.getElementsByClassName('one')
       // 移除紙條、提示文字
       this.$data.keepText = false
       one[0].style.pointerEvents = 'none'
       one[0].style.transition = '0.3s'
       one[0].style.opacity = '0'
+
       setTimeout(() => {
+        // 移除紙條
         one[0].remove()
+        // 按鈕出現
+        if (papers.length !== 0) {
+          this.$refs.startBig.style.opacity = '1'
+          this.$refs.startBig.style.pointerEvents = 'auto'
+        }
       }, 300)
-      // 按鈕出現
-      this.$refs.startBig.style.opacity = '1'
-      this.$refs.startBig.style.pointerEvents = 'auto'
+      setTimeout(() => {
+        if (papers.length === 0) {
+        // 重新開始文字
+          this.$data.over = true
+          // 點擊歷史紀錄
+          document.getElementById('history').click()
+          console.log('點擊了')
+        }
+      }, 400)
+    },
+    restart () {
+      location.reload()
+    },
+    history () {
+      // 查看裡史紀錄
+      console.log('成功點擊')
     }
+    // TODO 歷史紀錄、獎項輸入綁定、註解掉選項
   }
 }
 </script>

@@ -797,8 +797,8 @@ a {
 
 #raffle #box #border {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 96%;
 }
 
 #raffle .paper {
@@ -831,7 +831,7 @@ a {
   -webkit-transform: rotateX(180deg) rotate(-90deg);
           transform: rotateX(180deg) rotate(-90deg);
   position: absolute;
-  right: -25vmin;
+  right: -30vmin;
   top: 20%;
   z-index: 15;
   -webkit-transition: 1.8s;
@@ -851,6 +851,11 @@ a {
   top: 4%;
   font-size: 2.5rem;
   font-weight: 550;
+}
+
+#raffle .restart {
+  color: white;
+  font-size: 1.5rem;
 }
 
 /* @keframes 動畫區------------------------------------ */
