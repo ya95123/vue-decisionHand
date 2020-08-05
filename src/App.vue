@@ -320,7 +320,14 @@
         <v-icon size="28px">mdi-github</v-icon>
       </v-btn>
     </div>
-    <router-view/>
+    <!-- 存 localstorage -->
+    <keep-alive>
+      <!-- 頁面轉換特效 -->
+      <vue-page-transition name="fade">
+        <!-- router -->
+        <router-view/>
+      </vue-page-transition>
+    </keep-alive>
   </v-app>
 </template>
 
