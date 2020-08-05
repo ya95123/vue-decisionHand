@@ -136,6 +136,8 @@
       >
         GO
       </div>
+      <!-- 手 -->
+      <span id="wheelHand">👇</span>
     </div>
   </div>
 </template>

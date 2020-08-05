@@ -100,6 +100,10 @@ a{
         filter: drop-shadow(0 0 0.015rem #222) !important;
       }
     }
+    #wheelHand{
+      top: 20% !important;
+      font-size: 15vmin !important;
+    }
     .wheelText{
       font-size: 0.6rem !important;
     }
@@ -229,6 +233,10 @@ a{
           border: 0.65rem solid #6636;
           filter: drop-shadow(0 0 0.35rem #222);
         }
+      }
+      #wheelHand{
+        top: 15%;
+        font-size: 10vmin;
       }
       .wheelText{
         font-size: 1.85rem;
@@ -361,6 +369,10 @@ a{
         border: 0.65rem solid #6636;
         filter: drop-shadow(0 0 0.35rem #222);
       }
+    }
+    #wheelHand{
+      top: 2%;
+      font-size: 10vmin;
     }
     .wheelText{
       font-size: 2rem;
@@ -671,8 +683,14 @@ a{
       filter: drop-shadow(0 0 0.65rem #222);
       animation: wheelChange infinite 8s;
     }
-
   }
+
+  #wheelHand{
+    color: white;
+    position: absolute;
+    z-index: 10;
+  }
+
   .part{
     /* 初始圓 pie 設定 */
     /* test 為測試每個圓的設定 */

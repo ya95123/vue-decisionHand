@@ -81,6 +81,10 @@ a {
     -webkit-filter: drop-shadow(0 0 0.015rem #222) !important;
             filter: drop-shadow(0 0 0.015rem #222) !important;
   }
+  #wheel #wheelHand {
+    top: 20% !important;
+    font-size: 15vmin !important;
+  }
   #wheel .wheelText {
     font-size: 0.6rem !important;
   }
@@ -208,6 +212,10 @@ a {
     border: 0.65rem solid #6636;
     -webkit-filter: drop-shadow(0 0 0.35rem #222);
             filter: drop-shadow(0 0 0.35rem #222);
+  }
+  #wheel #wheelHand {
+    top: 15%;
+    font-size: 10vmin;
   }
   #wheel .wheelText {
     font-size: 1.85rem;
@@ -339,6 +347,10 @@ a {
     border: 0.65rem solid #6636;
     -webkit-filter: drop-shadow(0 0 0.35rem #222);
             filter: drop-shadow(0 0 0.35rem #222);
+  }
+  #wheel #wheelHand {
+    top: 2%;
+    font-size: 10vmin;
   }
   #wheel .wheelText {
     font-size: 2rem;
@@ -670,6 +682,12 @@ a {
           filter: drop-shadow(0 0 0.65rem #222);
   -webkit-animation: wheelChange infinite 8s;
           animation: wheelChange infinite 8s;
+}
+
+#wheel #wheelHand {
+  color: white;
+  position: absolute;
+  z-index: 10;
 }
 
 #wheel .part {
