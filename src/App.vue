@@ -421,7 +421,7 @@ export default {
       // 狀態
       //
       if (type === 'name') {
-        if (this.name.length < 1 || this.name.length > 10) {
+        if (this.name.length < 10) {
           return false
         } else {
           return true
@@ -453,6 +453,29 @@ export default {
           if (data.success) {
             // 如果回來的資料 success 是 true
             alert('註冊成功')
+          } else {
+            // 是 false 就顯示錯誤
+            alert(data.message)
+          }
+        })
+        .catch(error => {
+          // 如果回來的狀態不是 200，顯示回來的 message
+          alert(error.response.data.message)
+        })
+    },
+    login () {
+      event.preventDefault()
+      this.axios.post(
+        process.env.VUE_APP_APIURL + '/login',
+        { account: this.account, password: this.password }
+      )
+        .then(response => {
+          const data = response.data
+          if (data.success) {
+            // 如果回來的資料 success 是 true
+            alert('登入成功')
+            // 呼叫 vuex 的登入
+            this.$store.commit('login', this.account)
           } else {
             // 是 false 就顯示錯誤
             alert(data.message)
