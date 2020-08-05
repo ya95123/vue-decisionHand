@@ -71,6 +71,10 @@ a {
     height: 7rem !important;
     font-size: 3.5rem !important;
   }
+  /* bottle 區----------------------------------------- */
+  #bottle #tip {
+    font-size: 1rem !important;
+  }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
     border: 0.65rem solid #6636 !important;
@@ -195,6 +199,9 @@ a {
     cursor: pointer;
     -webkit-transition: 2.7s;
     transition: 2.7s;
+  }
+  #bottle #tip {
+    font-size: 2rem;
   }
   /* wheel 區------------------------------------------ */
   #wheel #turnTable::before {
@@ -322,6 +329,9 @@ a {
   }
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle #wine {
+    display: none;
+  }
+  #bottle #tip {
     display: none;
   }
   /* wheel 區------------------------------------------ */
@@ -623,6 +633,12 @@ a {
           box-shadow: 0 0 1.3rem #F9e54E99;
   -webkit-filter: brightness(1.02) drop-shadow(0 0 1.3rem #fff9);
           filter: brightness(1.02) drop-shadow(0 0 1.3rem #fff9);
+}
+
+/* Bottle 區---------------------------------------- */
+#bottle #tip {
+  position: absolute;
+  top: 5%;
 }
 
 /* wheel 區結合到js裡-------------------------------- */

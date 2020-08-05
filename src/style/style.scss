@@ -85,6 +85,13 @@ a{
     }
   }
 
+  /* bottle 區----------------------------------------- */
+  #bottle{
+    #tip{
+      font-size: 1rem !important;
+    }
+  }
+
   /* wheel 區------------------------------------------ */
   #wheel{
     #turnTable{
@@ -210,6 +217,9 @@ a{
       width: 70%;
       cursor: pointer;
       transition: 2.7s;
+    }
+    #tip{
+      font-size: 2rem;
     }
   }
     /* wheel 區------------------------------------------ */
@@ -338,6 +348,9 @@ a{
   /* #bottle(酒瓶) 區----------------------------------- */
   #bottle{
     #wine{
+      display: none;
+    }
+    #tip{
       display: none;
     }
   }
@@ -621,6 +634,14 @@ a{
       }
     }
   }
+
+/* Bottle 區---------------------------------------- */
+#bottle{
+  #tip{
+    position: absolute;
+    top: 5%;
+  }
+}
 
 /* wheel 區結合到js裡-------------------------------- */
 #wheel{
