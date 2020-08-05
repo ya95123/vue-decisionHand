@@ -117,6 +117,7 @@
                         required
                         @input="$v.name.$touch()"
                         @blur="$v.name.$touch()"
+                        :state="state('name')"
                       >
                       </v-text-field>
 
@@ -128,6 +129,7 @@
                         required
                         @input="$v.account.$touch()"
                         @blur="$v.account.$touch()"
+                        :state="state('account')"
                       >
                       </v-text-field>
 
@@ -142,6 +144,7 @@
                         @input="$v.password.$touch()"
                         @blur="$v.password.$touch()"
                         @click:append="show1 = !show1"
+                        :state="state('password')"
                       >
                       </v-text-field>
 
@@ -160,10 +163,10 @@
                       >
                       </v-text-field>
                       <!-- clg 檢查狀態 -->
-                      <div class="text-center">
+                      <!-- <div class="text-center">
                         是否有錯誤：{{$v.$error}} ｜ 對話框打開：{{ dialog }}｜
                         帳號 / 密碼錯誤：{{$v.account.$error}} / {{$v.password.$error}}
-                      </div>
+                      </div> -->
                       <!-- 註冊 / 登入 / 取消 button -->
                       <div class="text-center">
                         <v-btn
@@ -177,7 +180,7 @@
                         <v-btn
                           v-if="tab === 0"
                           class="mt-2 mb-1 py-1" color="primary"
-                          @click="check"
+                          @click="check();reg()"
                           @click.stop="dialogCheck = true"
                         >
                           註冊
@@ -187,7 +190,7 @@
                           v-else
                           class="mt-2 mb-1 py-1"
                           color="primary"
-                          @click="check"
+                          @click="check();login()"
                           @click.stop="dialogCheck = true"
                         >
                           登入
@@ -343,6 +346,7 @@ export default {
     login: false,
     navT: 0,
     navB: 0,
+    error: false,
     navLitems: [
       { name: '猜拳', router: '/', icon: 'mdi-hand-peace' },
       { name: '轉盤', router: '/wheel', icon: 'mdi-radius-outline' },
@@ -367,6 +371,10 @@ export default {
     items: [{ tab: '註冊' }, { tab: '登入' }]
   }),
   computed: {
+    // 抓取使用者
+    user () {
+      return this.$store.getters.user
+    },
     nameErrors () {
       const errors = []
       if (!this.$v.name.$dirty) return errors
@@ -398,15 +406,65 @@ export default {
   },
   methods: {
     dialogReg () {
+      // 註冊對話框
       this.$data.tab = 0
     },
     dialogLogin () {
+      // 登入對話框
       this.$data.tab = 1
     },
     check () {
+      // 前台檢查
       this.$v.$touch()
     },
+    state (type) {
+      // 狀態
+      //
+      if (type === 'name') {
+        if (this.name.length < 1 || this.name.length > 10) {
+          return false
+        } else {
+          return true
+        }
+      }
+      // 帳密一起
+      if (type === 'account') {
+        if (this.account.length < 4) {
+          return false
+        } else {
+          return true
+        }
+      } else if (type === 'password') {
+        if (this.password.length < 4) {
+          return false
+        } else {
+          return true
+        }
+      }
+    },
+    reg () {
+      event.preventDefault()
+      this.axios.post(
+        process.env.VUE_APP_APIURL + '/users',
+        { account: this.account, password: this.password }
+      )
+        .then(response => {
+          const data = response.data
+          if (data.success) {
+            // 如果回來的資料 success 是 true
+            alert('註冊成功')
+          } else {
+            // 是 false 就顯示錯誤
+            alert(data.message)
+          }
+        })
+        .catch(error => {
+          // 如果回來的狀態不是 200，顯示回來的 message
+          alert(error.response.data.message)
+        })
+    },
     submit () {
+      // 登入
       // dialog 在瀏覽器上顯示未定義，所以無法使用 $data，其他就需要使用，效能會比較好
       this.dialog = false
       this.dialogCheck = false
@@ -415,13 +473,67 @@ export default {
       // TODO 註冊成功可以直接登入 or 跳到 tab = 1 畫面
     },
     clickLogin () {
-      // 做點擊登入動作(for手機尺寸 連結到 大尺寸登入按鈕)
+      // !小尺寸做點擊登入動作(for手機尺寸 連結到 大尺寸登入按鈕)
       document.getElementById('btnLogin').click()
     },
     logout () {
-      // 點擊到登出按鈕 or 只要都用登出就好
+      // 登出案有轉換
       this.$data.login = false
+      // 資料庫
+      this.axios.delete(process.env.VUE_APP_APIURL + '/logout')
+        .then(response => {
+          const data = response.data
+          if (data.success) {
+            // 如果回來的資料 success 是 true
+            alert('登出成功')
+            // 呼叫 vuex 的登出
+            this.$store.commit('logout')
+            // 如果現在不是在首頁，登出後就跳到的首頁
+            if (this.$route.path !== '/') {
+              this.$router.push('/')
+            }
+          } else {
+            // 不是就顯示回來的 message
+            alert(data.message)
+          }
+        })
+        .catch(error => {
+          // 如果回來的狀態不是 200，顯示回來的 message
+          alert(error.response.data.message)
+        })
+    },
+    heartbeat () {
+      this.axios.get(process.env.VUE_APP_APIURL + '/heartbeat')
+        .then(response => {
+          const data = response.data
+          // 如果是登入中
+          if (this.user.length > 0) {
+            // 如果後端登入時間過期
+            if (!data) {
+              this.$store.commit('logout')
+              // 如果現在不是在首頁，跳到登出後的首頁
+              if (this.$route.path !== '/') {
+                this.$router.push('/')
+              }
+            }
+          }
+        })
+        .catch(() => {
+          alert('發生錯誤')
+          this.$store.commit('logout')
+          // 如果現在不是在首頁，跳到登出後的首頁
+          if (this.$route.path !== '/') {
+            this.$router.push('/')
+          }
+        })
     }
+  },
+  mounted () {
+    // 掛接
+    this.heartbeat()
+    setInterval(() => {
+      this.heartbeat()
+    }, 1000 * 60)
   }
 }
 </script>
