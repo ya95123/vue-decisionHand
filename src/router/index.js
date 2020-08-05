@@ -42,7 +42,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "group" */ '../views/Group.vue'),
     meta: {
       title: '組合｜狄斯俊之手',
-      login: true
+      login: false
     }
   },
   {
