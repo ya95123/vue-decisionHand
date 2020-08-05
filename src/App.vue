@@ -322,11 +322,8 @@
     </div>
     <!-- 存 localstorage -->
     <keep-alive>
-      <!-- 頁面轉換特效 -->
-      <vue-page-transition name="fade">
-        <!-- router -->
-        <router-view/>
-      </vue-page-transition>
+      <!-- router -->
+      <router-view/>
     </keep-alive>
   </v-app>
 </template>
