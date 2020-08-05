@@ -3,12 +3,8 @@
     <div class="game d-flex justify-center align-center">
       <!-- 右側欄 -->
       <div class="gameSetFrame">
-        <v-icon class="gameSet"
-          @click.stop="dialogSet = true"
-        >
-          mdi-cog-outline
-        </v-icon>
-        <v-icon class="gameSet mt-2">mdi-history</v-icon>
+        <v-icon id="setting" class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
+        <v-icon id="history" class="gameSet mt-2" @click="history">mdi-history</v-icon>
       </div>
       <!-- 設定對話框 -->
       <v-dialog
@@ -133,7 +129,13 @@
         </div>
       </div>
       <!-- 開始鍵 -->
-      <div class="startBig d-flex justify-center align-center">GO</div>
+      <div
+        class="startBig d-flex justify-center align-center"
+        ref="startBig"
+        @click="start($event)"
+      >
+        GO
+      </div>
     </div>
   </div>
 </template>
@@ -242,6 +244,13 @@ export default {
         leftParts[blue].style.background = '#5BBDC8'
       }
       console.log(blue)
+    },
+    start (e) {
+
+    },
+    history () {
+      // 查看裡史紀錄
+      console.log('成功點擊')
     }
   }
 }

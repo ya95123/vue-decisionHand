@@ -3,8 +3,8 @@
     <div class="game d-flex justify-center">
       <!-- 右側欄 -->
       <div class="gameSetFrame">
-        <v-icon class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
-        <v-icon class="gameSet mt-2">mdi-history</v-icon>
+        <v-icon id="setting" class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
+        <v-icon id="history" class="gameSet mt-2" @click="history">mdi-history</v-icon>
         <v-icon class="startSmall gameSet mt-2">mdi-alpha-s-circle</v-icon>
       </div>
       <!-- 設定對話框 -->
@@ -292,6 +292,10 @@ export default {
         this.$refs.startBig.style.pointerEvents = 'auto'
         this.$refs.startBig.style.opacity = '1'
       }, 5500)
+    },
+    history () {
+      // 查看裡史紀錄
+      console.log('成功點擊')
     }
   }
 }
