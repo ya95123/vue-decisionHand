@@ -104,11 +104,15 @@
         GO
       </div>
       <!-- 獎項顯示 -->
-      <div id="award" class="text-center">
-        <span>獎項：{{award}}</span>
-      </div>
+      <span
+        ref="award"
+        id="award"
+        class="text-center text"
+      >
+        獎項：{{award}}
+      </span>
       <!-- 獎項輸入 -->
-      <div class="awardInput">
+      <div v-if="inputText" class="awardInput">
         <v-text-field
           class="adwardInputSize"
           label="獎項名稱"
@@ -159,6 +163,7 @@ export default {
     dialogResult: false,
     openText: false,
     keepText: false,
+    inputText: true,
     over: false,
     award: 'Switch 藍紅主機',
     // 預設選擇方式
@@ -251,12 +256,15 @@ export default {
       e.target.style.pointerEvents = 'none'
       document.getElementById('setting').style.pointerEvents = 'none'
       document.getElementById('setting').style.color = '#e3e3e3'
-      // 按鈕隱藏
+      // 按鈕、inputText隱藏
       e.target.style.opacity = '0'
+      this.$data.inputText = false
 
       setTimeout(() => {
         // 晃動箱子
         this.$refs.box.classList.add('shake-constant', 'shake-hard')
+        // 晃動獎項文字
+        this.$refs.award.classList.add('shake-constant', 'shake-hard')
         // 晃動紙條、字轉白色
         for (const paper of papers) {
           paper.style.transform = `skew(-${rand(5, 15)}deg,-${rand(0, 15)}deg) rotate(-${rand(45, 270)}deg)`
@@ -270,8 +278,9 @@ export default {
         // 隨機抽取紙條變數
         const one = rand(1, papers.length) - 1
         console.log(`抽到第 ${one} +1 張`)
-        // 停止晃動箱子
+        // 停止晃動箱子、獎項文字
         this.$refs.box.classList.remove('shake-constant', 'shake-hard')
+        this.$refs.award.classList.remove('shake-constant', 'shake-hard')
         // 紙條上升
         papers[one].style.color = 'white'
         papers[one].style.left = '50%'
@@ -311,18 +320,26 @@ export default {
       one[0].style.transition = '0.3s'
       one[0].style.opacity = '0'
 
+      // 獎項文字淡出
+      if (papers.length === 0) {
+        this.$refs.award.style.opacity = '0'
+      }
+
       setTimeout(() => {
         // 移除紙條
         one[0].remove()
-        // 按鈕出現
         if (papers.length !== 0) {
+        // 按鈕、inputText出現
           this.$refs.startBig.style.opacity = '1'
           this.$refs.startBig.style.pointerEvents = 'auto'
+          this.$data.inputText = true
         }
       }, 300)
       setTimeout(() => {
         if (papers.length === 0) {
-        // 重新開始文字
+          // 移除獎項文字
+          this.$refs.award.style.display = 'none'
+          // 重新開始文字
           this.$data.over = true
           // 點擊歷史紀錄
           document.getElementById('history').click()
