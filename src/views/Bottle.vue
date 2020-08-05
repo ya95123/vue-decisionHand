@@ -26,7 +26,7 @@ export default {
     rotate () {
       // 提示文字
       this.$data.start = true
-      // 轉瓶子
+      // 轉瓶子角度
       let turn = this.$data.deg * this.$data.n + rand(0, 360)
       document.getElementById('wine').style.transform = `rotate(${turn}deg)`
       console.log(turn)
