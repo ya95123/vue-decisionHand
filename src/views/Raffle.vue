@@ -118,6 +118,7 @@
           label="獎項名稱"
           v-model="award"
           color="success"
+          autofocus
         >
       </v-text-field>
       </div>
