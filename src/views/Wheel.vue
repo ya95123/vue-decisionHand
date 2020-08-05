@@ -92,13 +92,13 @@
         <div
           v-for="(input,idx) in inputs"
           :key="idx"
-          class="part"
+          class="part pie"
           :style="showTable"
         >
         </div>
         <!-- 初始 -->
-        <div class="initPart part-1" :style="show"></div>
-        <div class="initPart part-2" :style="show"></div>
+        <div class="initPart part-1 pie" :style="show"></div>
+        <div class="initPart part-2 pie" :style="show"></div>
         <!-- 左半圓框：給最後一個內容放的 -->
 
         <div class="halfRound leftRound">
@@ -106,12 +106,12 @@
           <div
             v-for="(input,idx) in inputs"
             :key="idx"
-            class="leftPart initPart part-3"
+            class="leftPart initPart part-3 pie"
             :style="showTable"
           >
           </div>
           <!-- 初始 -->
-          <div class="initPart part-3" :style="show"></div>
+          <div class="initPart part-3 pie" :style="show"></div>
         </div>
 
         <!-- 文字區 -->
@@ -144,6 +144,10 @@
 // 正則表達式，只留數字
 const number = (str) => {
   return str.replace(/\D/g, '')
+}
+// 區間隨機數
+const rand = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min)
 }
 export default {
   name: 'Wheel',
@@ -246,7 +250,17 @@ export default {
       console.log(blue)
     },
     start (e) {
+      const pies = document.getElementsByClassName('pie')
+      // 按鈕消失
+      e.target.style.pointerEvents = 'none'
+      e.target.style.opacity = '0'
+      // 設定鈕失效
+      document.getElementById('setting').style.pointerEvents = 'none'
+      document.getElementById('setting').style.color = '#e3e3e3'
 
+      setTimeout(() => {
+        // 變顏色 3圈 ，第四圈rand
+      }, 180)
     },
     history () {
       // 查看裡史紀錄
