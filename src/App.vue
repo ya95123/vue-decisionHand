@@ -62,6 +62,24 @@
         >
           登入
         </v-btn>
+        <!-- 已登入 -->
+        <span
+          v-if="login"
+          class="login mr-1"
+        >
+          <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
+          <span>暱稱</span>
+        </span>
+        <!-- 登出 -->
+        <v-btn
+          id="btnLoout"
+          text
+          v-if="login"
+          class="login"
+          @click="logout"
+        >
+          登出
+        </v-btn>
         <!-- 對話框 -->
         <v-dialog
           v-model="dialog"
@@ -245,12 +263,6 @@
             </v-tabs-items>
           </v-card>
         </v-dialog>
-
-        <!-- 已登入 -->
-        <span v-if="login" class="login" @click="logout">
-          <v-icon class="pr-2">mdi-emoticon-happy-outline</v-icon>
-          <span>暱稱</span>
-        </span>
       </v-col>
     </v-bottom-navigation>
 
