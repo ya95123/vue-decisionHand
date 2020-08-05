@@ -141,6 +141,7 @@
 </template>
 
 <script>
+// import { set } from 'vue/types/umd'
 // 正則表達式，只留數字
 const number = (str) => {
   return str.replace(/\D/g, '')
@@ -158,6 +159,10 @@ export default {
     rotate: false,
     show: 'display:flex;',
     showTable: 'display:none;',
+    // 2160 6圈
+    deg: 2160,
+    // 第 n 圈
+    n: 1,
     inputs: [
       { num: '項目1', item: '睡覺😴' },
       { num: '項目2', item: '去游泳🏊‍♂' },
@@ -250,7 +255,6 @@ export default {
       console.log(blue)
     },
     start (e) {
-      const pies = document.getElementsByClassName('pie')
       // 按鈕消失
       e.target.style.pointerEvents = 'none'
       e.target.style.opacity = '0'
@@ -259,8 +263,32 @@ export default {
       document.getElementById('setting').style.color = '#e3e3e3'
 
       setTimeout(() => {
-        // 變顏色 3圈 ，第四圈rand
+        // 指向角度
+        let pointDeg = 360
+        // 變顏色 6 圈 ，第 7圈 rand
+        const turn = this.$data.deg * this.$data.n + rand(0, 360)
+        document.getElementById('turnTable').style.transform = `rotate(${turn}deg)`
+        console.log(`總共轉 ${turn} 度`)
+        // 實際轉角度
+        let allDeg = turn
+        const rotateDeg = (allDeg -= this.$data.deg * this.$data.n)
+        console.log(`轉${rotateDeg}`)
+        // 計算最後指向角度(以上方為起始點)
+        pointDeg = 360 - rotateDeg
+        // TODO 有抓對角度，之後再做不同等分的角度對應
+        console.log(`指向角度 ${pointDeg}`)
+        // 圈數增加
+        this.$data.n++
       }, 180)
+
+      setTimeout(() => {
+      // 按鈕出現
+        e.target.style.pointerEvents = 'auto'
+        e.target.style.opacity = '1'
+        // 設定鈕回復
+        document.getElementById('setting').style.pointerEvents = 'auto'
+        document.getElementById('setting').style.color = '#5bbfc8cc'
+      }, 3180)
     },
     history () {
       // 查看裡史紀錄
