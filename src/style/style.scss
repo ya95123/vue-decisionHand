@@ -123,6 +123,9 @@ a{
         top: calc(40% + 0.9rem) !important;
       }
     }
+    .open{
+      font-size: 1.5rem !important;
+    }
   }
 }
 @media (max-width: 1024px) { 
@@ -247,6 +250,9 @@ a{
         top: calc(30% + 1rem);
       }
     }
+    .open{
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -362,6 +368,9 @@ a{
       &:active{
         bottom: calc(15% - 1rem);
       }
+    }
+    .open{
+      font-size: 2.5rem;
     }
   }
 }
@@ -770,20 +779,16 @@ a{
       position: absolute;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      // overflow: hidden;
     }
   }
 
   .paper{
-    /* TODO 開始後做翻面效果 */
-    // width: 15%;
-    // height: 35%;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     bottom: 5%;
     // max X -(5-20) Y -(0-20)
     transform: skew(-20deg,-20deg) rotateX(-60deg);
-    // background: #5BBDC8;
     border-radius: 0.1rem;
     opacity: 0.88;
     display: flex;
@@ -794,25 +799,43 @@ a{
   }
 
   .maskHand{
-    // width: 20vmin;
     color: white;
     font-size: 20vmin;
     transform: rotateX(180deg) rotate(-90deg);
     position: absolute;
-    right: -30%;
+    right: -25vmin;
     top: 20%;
     z-index: 15;
-    transition: 0.5s;
-    animation: changeY 0.99s infinite;
+    transition: 1.8s;
+    cursor: pointer;
     }
 
   .changeY{
     right:calc(50% - 10vmin);
+    animation: changeY 0.99s infinite;
+  }
+
+  .openText{
+    color: #5bbfc8cc;
+    position: absolute;
+    top: 4%;
+    font-size: 2.5rem;
+    font-weight: 550;
   }
 
 }
 
 /* @keframes 動畫區------------------------------------ */
+// 通用
+@keyframes changeColor{
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+
 // gameSet 小按鈕 變色
 @keyframes startColor{
   0%{
@@ -880,9 +903,3 @@ a{
     // right: 50%;
   }
 }
-
-// raffle 紙條移動
-// @keyframes shakePaper{
-//   0%
-// }
-

@@ -105,6 +105,9 @@ a {
   #raffle .startBig:active {
     top: calc(40% + 0.9rem) !important;
   }
+  #raffle .open {
+    font-size: 1.5rem !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -229,6 +232,9 @@ a {
   #raffle .startBig:active {
     top: calc(30% + 1rem);
   }
+  #raffle .open {
+    font-size: 2.5rem;
+  }
 }
 
 /* 電腦尺寸以上 */
@@ -341,6 +347,9 @@ a {
   }
   #raffle .startBig:active {
     bottom: calc(15% - 1rem);
+  }
+  #raffle .open {
+    font-size: 2.5rem;
   }
 }
 
@@ -790,13 +799,11 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 #raffle .paper {
-  /* TODO 開始後做翻面效果 */
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   bottom: 5%;
   -webkit-transform: skew(-20deg, -20deg) rotateX(-60deg);
           transform: skew(-20deg, -20deg) rotateX(-60deg);
@@ -822,20 +829,50 @@ a {
   -webkit-transform: rotateX(180deg) rotate(-90deg);
           transform: rotateX(180deg) rotate(-90deg);
   position: absolute;
-  right: -30%;
+  right: -25vmin;
   top: 20%;
   z-index: 15;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-animation: changeY 0.99s infinite;
-          animation: changeY 0.99s infinite;
+  -webkit-transition: 1.8s;
+  transition: 1.8s;
+  cursor: pointer;
 }
 
 #raffle .changeY {
   right: calc(50% - 10vmin);
+  -webkit-animation: changeY 0.99s infinite;
+          animation: changeY 0.99s infinite;
+}
+
+#raffle .openText {
+  color: #5bbfc8cc;
+  position: absolute;
+  top: 4%;
+  font-size: 2.5rem;
+  font-weight: 550;
 }
 
 /* @keframes 動畫區------------------------------------ */
+@-webkit-keyframes changeColor {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+@keyframes changeColor {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
 @-webkit-keyframes startColor {
   0% {
     -webkit-filter: hue-rotate(0deg);
@@ -854,6 +891,7 @@ a {
             transform: scale(1);
   }
 }
+
 @keyframes startColor {
   0% {
     -webkit-filter: hue-rotate(0deg);

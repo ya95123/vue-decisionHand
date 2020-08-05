@@ -37,7 +37,6 @@
               <!-- TODO 以後有機會再做分 獎品 和 名單 項目 -->
               <!--項目內容 -->
               <v-text-field
-                class="paper"
                 v-for="(input,idx) in inputs"
                 :key="idx"
                 :label="input.num"
@@ -67,10 +66,8 @@
               </v-icon>
             </v-card-text>
           </vue-scroll>
-          <!-- button -->
+          <!-- 確定鈕 -->
           <v-card-actions class="d-flex justify-center pb-4">
-            <!-- 可對應到文字 -->
-            <!-- <span>{{inputs[0].item}}</span> -->
             <v-btn
               color="green darken-1"
               style="height:30px;font-size:0.95rem;"
@@ -84,11 +81,9 @@
       </v-dialog>
 
       <!-- 箱子 class shake-constant shake-hard -->
-      <!-- TODO 抽出來時，做有手遮90%效果，製造刺激感(有時間就做) or 像魔術一樣用吸的上來 -->
       <div id="box" ref="box" class="d-flex justify-center">
         <!-- 盒子框 -->
         <div id="border">
-        <!-- TODO 紙條：開始後做翻面效果，好後做 shake + 紙條飄移 + (紙箱變色) -->
         <div
           v-for="(input,idx) in inputs"
           :key="idx"
@@ -108,7 +103,9 @@
         GO
       </div>
       <!-- 遮手 -->
-      <span class="maskHand">🤚</span>
+      <span ref="hand" class="maskHand" @click="open">🤚</span>
+      <!-- 開啟提醒 -->
+      <span v-if="openText" class="openText">點手揭曉</span>
     </div>
   </div>
 </template>
@@ -122,11 +119,15 @@ const number = (str) => {
 const rand = (min, max) => {
   return Math.round(Math.random() * (max - min) + min)
 }
+// 抽種紙條標記
+let n = 0
+
 export default {
   name: 'Raffle',
   data: () => ({
     dialogSet: false,
     dialogResult: false,
+    openText: false,
     result: '',
     // 預設選擇方式
     radioSet: 'w2',
@@ -223,22 +224,47 @@ export default {
         this.$refs.box.classList.add('shake-constant', 'shake-hard')
         // 晃動紙條、字轉白色
         for (const paper of papers) {
-          // 想別的辦法搖動紙條
           paper.style.transform = `skew(-${rand(5, 15)}deg,-${rand(0, 15)}deg) rotate(-${rand(45, 270)}deg)`
           paper.style.left = `${rand(3, 77)}%`
           paper.style.bottom = `${rand(0, 20)}`
-          paper.style.color = 'white'
+          // paper.style.transition = '1.8s'
         }
       }, 180)
 
+      // TODO 馬賽克抽中的那張，抽中後移除該item
       setTimeout(() => {
+        // 隨機抽取紙條變數
+        const one = rand(1, papers.length) - 1
+        console.log(`抽到第 ${one} 張`)
         // 停止晃動箱子
         this.$refs.box.classList.remove('shake-constant', 'shake-hard')
         // 紙條上升
-        // 遮手
-        // 紙條轉正、字轉黑色
-        // TODO 確認"打開btn"亮出紙條
+        papers[one].style.color = 'white'
+        papers[one].style.left = '50%'
+        papers[one].style.transform = 'translateX(-50%)'
+        papers[one].firstChild.style.filter = 'blur(3px)'
+        // 紙條標記 one
+        papers[one].classList.add('one')
+        // 以螢幕大小，判斷紙條位置
+        window.innerWidth >= 1025 ? papers[one].style.bottom = '70%' : (window.innerWidth < 1025 && window.innerWidth) > 600 ? papers[one].style.bottom = '90%' : papers[one].style.bottom = '125%'
+
+        // 遮手進場
+        this.$data.openText = true
+        this.$refs.hand.classList.add('changeY')
       }, 2000)
+    },
+    open () {
+      const one = document.getElementsByClassName('one')
+      // 遮手退場
+      this.$data.openText = false
+      this.$refs.hand.classList.remove('changeY')
+      // 紙條放大
+      one[n].style.transform = 'translateX(-50%) scale(2)'
+      one[n].style.color = 'black'
+      one[n].firstChild.style.filter = 'blur(0px)'
+      console.log(n + ' 的標記')
+      n++
+      // TODO 做OK的按鈕 紙條消失 公布結果 按鈕出現
     },
     // 返回鍵
     back () {
@@ -247,7 +273,7 @@ export default {
       // 選項消失
       this.$refs.choose.style.display = 'none'
       setTimeout(() => {
-        // 按鈕出現
+        // TODO 按鈕出現
         this.$refs.startBig.style.opacity = '1'
         this.$refs.startBig.style.pointerEvents = 'auto'
       }, 180)
