@@ -263,8 +263,11 @@ export default {
       one[n].style.color = 'black'
       one[n].firstChild.style.filter = 'blur(0px)'
       console.log(n + ' 的標記')
-      n++
-      // TODO 做OK的按鈕 紙條消失 公布結果 按鈕出現
+      console.log(one)
+      n = 0
+      // TODO 做OK的按鈕 紙條消失!!(一定要做到唷，才樣才能準確抓到要放大紙條) 公布結果 按鈕出現
+      this.$refs.startBig.style.opacity = '1'
+      this.$refs.startBig.style.pointerEvents = 'auto'
     },
     // 返回鍵
     back () {
