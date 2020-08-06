@@ -90,7 +90,7 @@
         <v-dialog
           v-model="dialog"
           persistent
-          max-width="500px"
+          max-width="400px"
         >
             <!-- 標籤組件 -->
             <v-card>
