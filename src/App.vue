@@ -111,7 +111,7 @@
                 v-for="item in items"
                 :key="item.tab"
               >
-                <v-card flat>
+                <v-card flat class="px-7">
                   <v-card-text>
                     <form>
                       <v-text-field
@@ -177,7 +177,7 @@
                       <!-- 註冊 / 登入 / 取消 button -->
                       <div class="text-center">
                         <v-btn
-                          class="mr-4 mt-2 mb-1 py-1"
+                          class="mr-4 mt-5 mb-1 py-1"
                           color="dhorange"
                           dark
                           @click="dialog = false"
@@ -186,7 +186,7 @@
                         </v-btn>
                         <v-btn
                           v-if="tab === 0"
-                          class="mt-2 mb-1 py-1" color="primary"
+                          class="mt-5 mb-1 py-1" color="primary"
                           @click="check()"
                           @click.stop="dialogCheck = true"
                         >
@@ -195,7 +195,7 @@
 
                         <v-btn
                           v-else
-                          class="mt-2 mb-1 py-1"
+                          class="mt-5 mb-1 py-1"
                           color="primary"
                           @click="check()"
                           @click.stop="dialogCheck = true"
