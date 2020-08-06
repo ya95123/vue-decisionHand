@@ -14,7 +14,11 @@
       <v-col col="2" class="pl-10 d-flex justify-start align-center">
         <img src="../public/logo.svg" alt="logo" style="height:50px;" class="mr-3">
         <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
-        <span id="logo" class="white--text ">狄斯俊之手</span>
+        <div>
+        <span id="logo" class="dhyellow--text">狄斯俊之手</span>
+        <br>
+        <span>你有選擇困難嗎？ 讓我來助你一臂之力！</span>
+        </div>
       </v-col>
 
       <!-- Menu 選單 -->
@@ -118,6 +122,7 @@
                         required
                         @input="$v.name.$touch()"
                         @blur="$v.name.$touch()"
+                        class="loginInput"
                       >
                       </v-text-field>
 
@@ -129,6 +134,7 @@
                         required
                         @input="$v.account.$touch()"
                         @blur="$v.account.$touch()"
+                        class="loginInput"
                       >
                       </v-text-field>
 
@@ -143,6 +149,7 @@
                         @input="$v.password.$touch()"
                         @blur="$v.password.$touch()"
                         @click:append="show1 = !show1"
+                        class="loginInput"
                       >
                       </v-text-field>
 
@@ -158,6 +165,7 @@
                         @input="$v.repeatPassword.$touch()"
                         @blur="$v.repeatPassword.$touch()"
                         @click:append="show2 = !show2"
+                        class="loginInput"
                       >
                       </v-text-field>
                       <!-- clg 檢查狀態 -->
