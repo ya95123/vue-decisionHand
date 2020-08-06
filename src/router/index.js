@@ -11,7 +11,7 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: '猜拳｜狄斯俊之手',
+      title: '狄斯俊之手',
       login: false
     }
   },
@@ -23,7 +23,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "wheel" */ '../views/Wheel.vue'),
     meta: {
-      title: '轉盤｜狄斯俊之手',
+      title: '狄斯俊之手',
       login: false
     }
   },
@@ -32,7 +32,7 @@ const routes = [
     name: 'Raffle',
     component: () => import(/* webpackChunkName: "raffle" */ '../views/Raffle.vue'),
     meta: {
-      title: '抽獎｜狄斯俊之手',
+      title: '狄斯俊之手',
       login: false
     }
   },
@@ -41,7 +41,7 @@ const routes = [
     name: 'Group',
     component: () => import(/* webpackChunkName: "group" */ '../views/Group.vue'),
     meta: {
-      title: '組合｜狄斯俊之手',
+      title: '狄斯俊之手',
       login: false
     }
   },
@@ -50,7 +50,7 @@ const routes = [
     name: 'Bottle',
     component: () => import(/* webpackChunkName: "bottle" */ '../views/Bottle.vue'),
     meta: {
-      title: '酒瓶｜狄斯俊之手',
+      title: '狄斯俊之手',
       login: false
     }
   }
