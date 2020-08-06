@@ -12,13 +12,14 @@
     >
       <!-- TODO Logo 之後 hover 要做效果 -->
       <v-col col="2" class="pl-10 d-flex justify-start align-center">
-        <img src="../public/logo.svg" alt="logo" style="height:50px;" class="mr-3">
-        <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
+        <img src="../public/logo.svg" alt="Decision Hand" style="height:50px;" class="mr-3">
+
         <div>
-        <span id="logo" class="dhyellow--text">狄斯俊之手</span>
-        <br>
-        <span>你有選擇困難嗎？ 讓我來助你一臂之力！</span>
+          <span id="logo" class="dhyellow--text" style="cursor:text;">狄斯俊之手</span>
+          <br>
+          <span style="cursor:text;">你有選擇困難嗎？ 讓我來助你一臂之力！</span>
         </div>
+        <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
       </v-col>
 
       <!-- Menu 選單 -->
