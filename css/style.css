@@ -445,6 +445,11 @@ a {
   word-break: break-all;
 }
 
+#app #logo {
+  font-size: 1.5rem;
+  font-weight: 550;
+}
+
 #app #top {
   width: 100%;
   /* 讓 top 浮起來 */

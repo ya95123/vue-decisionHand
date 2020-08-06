@@ -12,8 +12,9 @@
     >
       <!-- TODO Logo 之後 hover 要做效果 -->
       <v-col col="2" class="pl-10 d-flex justify-start align-center">
+        <img src="../public/logo.svg" alt="logo" style="height:50px;" class="mr-3">
         <!-- <router-link to="/" id="logo" class="white--text">LOGO</router-link> -->
-        <span id="logo" class="white--text">LOGO</span>
+        <span id="logo" class="white--text ">狄斯俊之手</span>
       </v-col>
 
       <!-- Menu 選單 -->
