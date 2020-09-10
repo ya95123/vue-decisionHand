@@ -36,12 +36,12 @@
         </router-link>
 
         <!-- 組合設定：登入後才有的功能 -->
-        <router-link v-if="login" to="/group">
+        <!-- <router-link v-if="login" to="/group">
           <v-btn>
             <span>組合</span>
             <v-icon>mdi-text-box-multiple</v-icon>
           </v-btn>
-        </router-link>
+        </router-link> -->
       </v-col>
 
       <!-- TODO Reg / Login /Logout 功能 -->
@@ -296,12 +296,12 @@
       </router-link>
 
       <!-- 組合設定：登入後才有的功能 -->
-      <router-link v-if="login" to="/group">
+      <!-- <router-link v-if="login" to="/group">
         <v-btn>
           <span>組合</span>
           <v-icon>mdi-text-box-multiple</v-icon>
         </v-btn>
-      </router-link>
+      </router-link> -->
 
       <!-- TODO Reg / Login/ Logout 功能 -->
       <v-btn v-if="!login" @click="clickLogin">
