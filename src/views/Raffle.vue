@@ -4,9 +4,10 @@
       <!-- 右側欄 -->
       <div class="gameSetFrame">
         <v-icon id="setting" class="gameSet" @click.stop="dialogSet = true">mdi-cog-outline</v-icon>
-        <v-icon id="history" class="gameSet mt-2" @click="history">mdi-history</v-icon>
+        <v-icon id="record" class="gameSet mt-2" @click="dialogRecord = true">mdi-history</v-icon>
       </div>
       <!-- 設定對話框 -->
+      <!-- 抽獎設定 -->
       <v-dialog
         v-model="dialogSet"
         max-width="400"
@@ -75,6 +76,49 @@
               @click="submitInput"
             >
               確定
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+      <!-- 抽獎結果 -->
+      <v-dialog
+        v-model="dialogRecord"
+        max-width="400"
+        persistent
+        scrollable
+      >
+        <v-card>
+          <!-- 標題 -->
+          <v-card-title class="d-flex justify-center font-weight-bold orange--text">
+            抽獎結果
+          </v-card-title>
+          <!-- 文字、選項 -->
+          <vue-scroll>
+            <v-card-text class="d-flex justify-center align-center flex-column pa-0">
+              <!-- 歷史紀錄 -->
+              <div
+                v-for="item in record"
+                :key="item.time"
+                class="pb-2"
+                style="width:80%;"
+              >
+                <span class="pr-1" style="opacity:0.6;">
+                  {{ item.time }}
+                </span>
+                <span>{{ item.award }} - {{ item.winner }}</span>
+              </div>
+            </v-card-text>
+          </vue-scroll>
+          <!-- 關閉鈕 -->
+          <v-card-actions class="d-flex justify-center pb-4">
+            <v-btn
+              color="green darken-1"
+              style="height:30px;font-size:0.95rem;"
+              text
+              @click="dialogRecord = false"
+            >
+              關閉
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -161,7 +205,7 @@ export default {
   name: 'Raffle',
   data: () => ({
     dialogSet: false,
-    dialogResult: false,
+    dialogRecord: false,
     openText: false,
     keepText: false,
     inputText: true,
@@ -200,7 +244,8 @@ export default {
           background: '#5BBDC8'
         }
       }
-    ]
+    ],
+    record: []
   }),
   methods: {
     addInput () {
@@ -315,7 +360,7 @@ export default {
     keep (idx) {
       const papers = document.getElementsByClassName('paper')
       const one = document.getElementsByClassName('one')
-      // 移除紙條、提示文字
+      // 淡出紙條、提示文字
       this.$data.keepText = false
       one[0].style.pointerEvents = 'none'
       one[0].style.transition = '0.3s'
@@ -327,6 +372,23 @@ export default {
       }
 
       setTimeout(() => {
+        // 添加歷史紀錄
+        const now = new Date()
+        const date = now.getDate()
+        const month = now.getMonth() + 1
+        const year = now.getFullYear()
+        const hour = now.getHours()
+        const minute = now.getMinutes()
+        const second = now.getSeconds()
+        const timeStamp = `${year}/${month}/${date} ${hour}:${minute}:${second}`
+
+        const oneRecord = {
+          time: timeStamp,
+          award: this.award,
+          winner: this.inputs[idx].item
+        }
+        this.record.unshift(oneRecord)
+
         // 移除紙條
         one[0].remove()
         if (papers.length !== 0) {
@@ -342,18 +404,12 @@ export default {
           this.$refs.award.style.display = 'none'
           // 重新開始文字
           this.$data.over = true
-          // 點擊歷史紀錄
-          document.getElementById('history').click()
           console.log('點擊了')
         }
       }, 400)
     },
     restart () {
       location.reload()
-    },
-    history () {
-      // 查看裡史紀錄
-      console.log('成功點擊')
     }
     // TODO 歷史紀錄、獎項輸入綁定、註解掉選項
   }
